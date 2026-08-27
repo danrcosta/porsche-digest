@@ -1,16 +1,24 @@
 {
   "name": "Porsche 993 Daily Digest",
-  "short_name": "993 Digest",
-  "description": "Daily Porsche 993 Carrera 4S intelligence brief",
+  "short_name": "Porsche Digest",
+  "description": "Premium daily intelligence for Porsche 993 enthusiasts",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#000000",
+  "background_color": "#0a0a0a",
   "theme_color": "#d4af37",
+  "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/favicon.ico",
+      "src": "icon-192.png",
       "sizes": "192x192",
-      "type": "image/x-icon"
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
-  ]
+  ],
+  "categories": ["news", "utilities", "lifestyle"],
+  "lang": "en"
 }

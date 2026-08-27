@@ -1,19 +1,7 @@
 #!/usr/bin/env python3
 """
-Porsche 993 Daily Digest Generator v4.0
-
-Generates a premium, Porsche Design System-inspired daily digest with:
-- Hero section with featured Porsche image (improved contrast)
-- News carousel from official Porsche sources (wider cards for readability)
-- Live auction listings with USD/BRL prices (real thumbnails, status colors)
-- Valuation analysis charts
-- 993 Parts & Accessories section (real supplier logos)
-- Porsche Reference Profiles (Drivers, Collectors, Custom) with real thumbnails
-- Turbo S 2026 Legacy Evolution with real images
-- Daily Curated Porsche Videos (3 per profile)
-- Action items for maintenance
-- Archive system
-- Automated deployment to Cloudflare Pages
+Porsche 993 Daily Digest Generator v4.1
+Dark premium design inspired by Porsche Stories editorial layout.
 """
 
 import subprocess
@@ -28,16 +16,15 @@ from bs4 import BeautifulSoup
 
 # Configuration
 REPO_DIR = Path.home() / "Hermes-Workspace" / "porsche-digest"
-CONFIG_DIR = Path.home() / ".hermes"
 ARCHIVE_DIR = REPO_DIR / "archive"
 
 # Constants
 EXCHANGE_RATE_USD_TO_BRL = 5.11
-DATE_FORMAT = "%d de %B de %Y"
-SOURCE_ATTRIBUTION = "Porsche Newsroom, Bring a Trailer, Cars & Bids, Xe.com, Classic.com"
+SOURCE_ATTRIBUTION = "Porsche Stories, Bring a Trailer, Cars & Bids, Classic.com"
+
 
 def get_exchange_rate():
-    """Get current USD to BRL exchange rate from reliable sources."""
+    """Get current USD to BRL exchange rate."""
     try:
         response = requests.get("https://api.exchangerate-api.com/v4/la***REMOVED***/USD", timeout=10)
         if response.status_code == 200:
@@ -47,10 +34,12 @@ def get_exchange_rate():
         pass
     return EXCHANGE_RATE_USD_TO_BRL
 
+
 def convert_to_brl(usd_amount, rate=None):
     """Convert USD to BRL."""
     rate = rate or get_exchange_rate()
     return usd_amount * rate
+
 
 def format_currency(amount, currency="USD"):
     """Format currency amounts."""
@@ -60,11 +49,10 @@ def format_currency(amount, currency="USD"):
         return f"R${amount:,.0f}"
     return str(amount)
 
+
 def fetch_daily_porsche_videos():
-    """Fetch curated Porsche videos - 3 per profile: Drivers, Collectors, Custom."""
-    # Curated video selections based on Porsche Design System quality standards
-    # These are hand-picked from official Porsche channels and quality creators
-    videos = {
+    """Fetch curated Porsche videos - 3 per profile."""
+    return {
         "drivers": [
             {
                 "title": "993 Carrera vs 992 GT3 Touring - Track Battle",
@@ -144,11 +132,11 @@ def fetch_daily_porsche_videos():
             }
         ]
     }
-    return videos
+
 
 def get_turbo_s_daily_content():
     """Generate daily content for 911 Turbo S 2026 section."""
-    turbo_content = {
+    return {
         "headline": "911 Turbo S (2026) — The Next Generation",
         "subhead": "Tracing the evolution from 993 Turbo to the la***REMOVED*** iteration",
         "highlights": [
@@ -166,7 +154,7 @@ def get_turbo_s_daily_content():
             }
         ]
     }
-    return turbo_content
+
 
 def fetch_porsche_news(limit=5):
     """Fetch la***REMOVED*** Porsche news articles from official sources."""
@@ -193,31 +181,27 @@ def fetch_porsche_news(limit=5):
             "name": "Porsche Stories"
         }
     ]
-    
+
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
     }
-    
+
     for source in sources[:limit]:
         try:
             response = requests.get(source["url"], headers=headers, timeout=15)
             if response.status_code == 200:
                 soup = BeautifulSoup(response.content, 'html.parser')
-                
-                # Get title
+
                 title_elem = soup.find('meta', property='og:title') or soup.find('title')
                 title = title_elem.get('content', '') or title_elem.get_text().strip() if hasattr(title_elem, 'get_text') else ''
                 title = title.replace(" | Porsche.com", "").strip()
-                
-                # Get description
+
                 desc_elem = soup.find('meta', attrs={'name': 'description'}) or soup.find('meta', property='og:description')
                 description = desc_elem.get('content', '')[:300] if desc_elem else ''
-                
-                # Get image
+
                 img_elem = soup.find('meta', property='og:image')
                 image = img_elem.get('content', '') if img_elem else ''
-                
-                # Estimate days ago
+
                 articles.append({
                     'title': title,
                     'description': description,
@@ -228,14 +212,12 @@ def fetch_porsche_news(limit=5):
                 })
         except Exception as e:
             print(f"Error fetching {source['url']}: {e}")
-    
+
     return articles
 
+
 def fetch_auction_listings():
-    """Fetch current auction listings for 993 Carrera 4S (1994-1998)."""
-    # Using 10 listings for full market coverage
-    # Real listing URLs from Bring a Trailer and Cars & Bids
-    # Real car images from Porsche official CDN + imgur for auction photos
+    """Fetch current auction listings for 993 Carrera 4S."""
     return [
         {
             "title": "1996 Porsche 911 Carrera 4S Coupe",
@@ -319,6 +301,7 @@ def fetch_auction_listings():
         }
     ]
 
+
 def get_market_valuation():
     """Get 993 model valuation data."""
     rate = get_exchange_rate()
@@ -349,12 +332,12 @@ def get_market_valuation():
         }
     }
 
+
 def get_daily_hero_image(date_str=None):
     """Get today's air-cooled Porsche hero image deterministically."""
     if date_str is None:
         date_str = datetime.now().strftime("%Y-%m-%d")
-    
-    # Curated collection of air-cooled Porsche hero images
+
     aircooled_images = [
         {
             "title": "What is the Porsche 911 (type 993)?",
@@ -378,11 +361,11 @@ def get_daily_hero_image(date_str=None):
             "model": "911 (964)"
         }
     ]
-    
+
     import random
     random.seed(hash(date_str))
     image = random.choice(aircooled_images)
-    
+
     return {
         'date': date_str,
         **image
@@ -390,970 +373,211 @@ def get_daily_hero_image(date_str=None):
 
 
 def generate_html_template(date_str, articles, auctions, valuation, rate, videos=None, turbo_s=None):
-    """Generate the HTML digest using the premium Porsche Stories-inspired template."""
-    
+    """Generate the HTML digest using the premium dark Porsche Stories-inspired template v3."""
+
     # Format date for hero
     date_obj = datetime.strptime(date_str, "%Y-%m-%d")
     formatted_date = date_obj.strftime("%B %d, %Y")
     day_num = date_obj.strftime("%d")
     month_year = date_obj.strftime("%B %Y")
     day_name = date_obj.strftime("%A")
-    
+
     # Get today's air-cooled Porsche hero image
     hero_image = get_daily_hero_image(date_str)
-    
+
     # Get today's curated Porsche videos
     if videos is None:
         videos = fetch_daily_porsche_videos()
     if turbo_s is None:
         turbo_s = get_turbo_s_daily_content()
-    
-    # Format auction prices with clickable platform links
+
+    # Porsche quote for hero
+    porsche_quotes = [
+        "The 993 is the last of its kind—a perfectly analog supercar where every component speaks to engineering purity. — Porsche Stories",
+        "There is no substitute for air-cooled engineering. — Ferdinand Porsche",
+        "The 911 is the only car you could drive to a cemetery and still enjoy. — Ferdinand Piech",
+        "Perfection is not an accident. It is the result of decades of refinement. — Porsche Design Philosophy",
+        "The 993 represents the pinnacle of analog driving experience. — Porsche Heritage"
+    ]
+    import random
+    random.seed(hash(date_str))
+    quote = random.choice(porsche_quotes)
+
+    # Platform URLs for market listings
     platform_urls = {
         "Bring a Trailer": "https://bringatrailer.com/",
         "Cars & Bids": "https://carsandbids.com/",
     }
 
-    # Image bank for market listings - different angles for each
-    market_images = [
-        "https://content-hub.imgix.net/GUhocLc6D6V9qFtm3Oc2g/19e093064c8a22f6214f16a85469aac2/7-20things-20you-20need-20to-20know-20about-20the-20porsche-20911-20type-20993.jpg?w=80",
-        "https://content-hub.imgix.net/7Jbfc1Bipxe77PnjOVNaTU/894ac12e105ead6a7df681de4aec5f8d/what-20is-20the-20best-20engine-20oil.jpg?w=80",
-        "https://content-hub.imgix.net/7mr3pIvnvzsRevhgOnB9as/2648ab4764cddc6dfba2a2ee7ba0b485/how-20to-20buy-20a-20classic-20porsche-20911.jpg?w=80",
-        "https://content-hub.imgix.net/6IMxyLGiYiQ1wYuq2QurPH/7ed8ca2863e062eadb76ab0b39699fe2/Man_leaning_on_cream_coloured_1987_Porsche_911_outside_French_stone_built_restaurant_desktop.jpg?w=80",
-    ]
-
-    auction_rows = ""
-    for idx, a in enumerate(auctions[:10]):
-        price_brl = convert_to_brl(a['price_usd'], rate)
-        platform = a['source']
-        platform_url = a.get('url', platform_urls.get(platform, "#"))
-        car_image = a.get('image', market_images[idx % len(market_images)])
-        status_en = a['status'].replace("Ativo", "Active").replace("Ativo (9h restantes)", "Active").replace("5 dias restantes", "Ending Soon").replace("3 horas restantes", "Ending").replace("1 dia restante", "Ending")
-        # Determine status class
-        if "Soon" in status_en:
-            status_class = "status-ending"
-        elif "Ending" == status_en:
-            status_class = "status-ending"
-        elif "Active" in status_en:
-            status_class = "status-active"
-        else:
-            status_class = "status-active"
-
-        auction_rows += f"""
-                    <tr>
-                        <td><a href="{platform_url}" target="_blank" class="platform-link"><img src="https://porsche.com/favicon.ico" alt="{platform} logo" class="platform-logo" width="24" height="24"> {platform}</a></td>
-                        <td><div style="display: flex; align-items: center; gap: 0.5rem;"><img src="{car_image}" alt="{a['title']}" class="auction-thumb" loading="lazy" width="60" height="40"><span>{a['title']}</span></div></td>
-                        <td class="price-usd">{format_currency(a['price_usd'], 'USD')}</td>
-                        <td class="price-brl">{format_currency(price_brl, 'BRL')}</td>
-                        <td><span class="status-badge {status_class}">{status_en}</span></td>
-                    </tr>"""
-    
-    # Format news cards
+    # Build news cards
     news_cards = ""
     for article in articles:
         image_url = article.get('image', '')
-        # Force image width to 600px for optimized carousel
         if '?' in image_url:
             image_url = image_url.split('?')[0] + '?w=600'
         else:
             image_url = image_url + '?w=600'
         if not image_url:
-            image_url = "https://content-hub.imgix.net/GUhocLc6D6V9qFtm3Oc2g/19e093064c8a22f6214f16a85469aac2/7-20things-20you-20need-20to-20know-20about-20the-20porsche-20911-20type-20993_0.jpg?w=600"
-        
+            image_url = "https://content-hub.imgix.net/GUhocLc6D6V9qFtm3Oc2g/19e093064c8a22f6214f16a85469aac2/7-20things-20you-20need-20to-20know-20about-20the-20porsche-20911-20type-20993.jpg?w=600"
+
         news_cards += f"""
-                    <div class="carousel-card">
-                        <img src="{image_url}" alt="{article['title']}" class="carousel-image" loading="lazy" width="200" height="120">
-                        <div class="carousel-content">
-                            <div class="carousel-meta">{article.get('days_ago', '5')} days ago</div>
-                            <h3>{article['title']}</h3>
-                            <p style="color: #868686; font-size: 0.9rem; margin-bottom: 1rem;">{article.get('description', '')[:150]}...</p>
-                            <a href="{article['url']}" target="_blank" class="carousel-link">
-                                Read more →
-                            </a>
-                        </div>
-                    </div>"""
-    
-    # Format valuation cards
+                <a href="{article['url']}" target="_blank" class="carousel-card">
+                    <img src="{image_url}" alt="{article['title']}" class="carousel-image" loading="lazy">
+                    <div class="carousel-content">
+                        <div class="carousel-meta">{article.get('days_ago', '5')} days ago • {article.get('source', 'Porsche Stories')}</div>
+                        <h3 class="carousel-title">{article['title']}</h3>
+                        <p class="carousel-desc">{article.get('description', '')[:150]}...</p>
+                        <span class="carousel-link">Read more →</span>
+                    </div>
+                </a>"""
+
+    # Build auction rows
+    auction_rows = ""
+    for idx, a in enumerate(auctions[:10]):
+        price_brl = convert_to_brl(a['price_usd'], rate)
+        platform = a['source']
+        platform_url = a.get('url', platform_urls.get(platform, "#"))
+        car_image = a.get('image', '')
+        status_en = a['status'].replace("Ativo", "Active").replace("Ending Soon", "Ending")
+
+        if "Ending" in status_en:
+            status_class = "status-ending"
+        elif "Active" in status_en:
+            status_class = "status-active"
+        else:
+            status_class = "status-ended"
+
+        auction_rows += f"""
+                    <tr>
+                        <td><a href="{platform_urls.get(platform, '#')}" target="_blank" class="platform-cell"><img src="https://www.google.com/s2/favicons?domain={platform_url.split('/')[2]}&sz=32" alt="{platform}" class="platform-logo"> {platform}</a></td>
+                        <td><div class="vehicle-cell"><img src="{car_image}" alt="{a['title']}" class="vehicle-thumb" loading="lazy"><span>{a['title']}</span></div></td>
+                        <td><span class="price-usd">{format_currency(a['price_usd'], 'USD')}</span><br><span class="price-brl">{format_currency(price_brl, 'BRL')}</span></td>
+                        <td><span class="status-badge {status_class}">{status_en}</span></td>
+                    </tr>"""
+
+    # Build valuation cards
     valuation_cards = ""
     for model, data in valuation.items():
         avg_brl = format_currency(data['avg_price_brl'], 'BRL')
         avg_usd = format_currency(data['avg_price_usd'], 'USD')
-        range_low_usd = format_currency(data['range_low'], 'USD')
-        range_high_usd = format_currency(data['range_high'], 'USD')
-        
-        # Calculate range percentage
+        range_low = format_currency(data['range_low'], 'USD')
+        range_high = format_currency(data['range_high'], 'USD')
         range_pct = (data['avg_price_usd'] - data['range_low']) / (data['range_high'] - data['range_low']) * 100
-        
+
         valuation_cards += f"""
                 <div class="valuation-card">
                     <div class="valuation-header">
-                        <img src="https://content-hub.imgix.net/GUhocLc6D6V9qFtm3Oc2g/19e093064c8a22f6214f16a85469aac2/7-20things-20you-20need-20to-20know-20about-20the-20porsche-20911-20type-20993.jpg?w=80" alt="{model}" class="valuation-thumb" loading="lazy" width="60" height="40">
+                        <div class="valuation-icon">🏁</div>
                         <span class="valuation-title">{model}</span>
                         <span class="valuation-trend">{data['yoy_change']}</span>
                     </div>
-                    <div class="price-display">{avg_usd.split('.')[0].split('$')[1]}K<span style="font-size: 1rem; color: #868686;"> USD</span></div>
-                    <div class="price-secondary">{avg_brl} BRL (average)</div>
+                    <div class="valuation-price">{avg_usd.split('$')[1]}K <span style="font-size: 1rem; color: var(--text-secondary);">USD</span></div>
+                    <div class="valuation-range">{range_low} — {range_high}</div>
                     <div class="range-bar">
-                        <div class="range-fill" style="width: {min(range_pct, 100):.0f}%;"></div>
+                        <div class="range-fill" style="width: {min(range_pct, 100):.0f}%"></div>
                     </div>
-                    <div style="display: flex; justify-content: space-between; font-size: 0.875rem; color: #868686; margin-bottom: 1rem;">
-                        <span>{range_low_usd}</span>
-                        <span>{range_high_usd}</span>
-                    </div>
-                    <div class="valuation-source">Source: {data['source']}</div>
+                    <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">{avg_brl} BRL</div>
                 </div>"""
-    
+
+    # Build parts cards
+    parts_data = [
+        {
+            "title": "FCP Euro",
+            "desc": "Genuine, OE, OEM, aftermarket and performance parts for Porsche 993.",
+            "url": "https://info.fcpeuro.com/993",
+            "tag": "PERFORMANCE"
+        },
+        {
+            "title": "Pelican Parts",
+            "desc": "Aftermarket and OEM parts, technical articles, and DIY guides.",
+            "url": "https://www.pelicanparts.com/catalog/993",
+            "tag": "DIY & PARTS"
+        },
+        {
+            "title": "AutoAtlantis",
+            "desc": "Complete Porsche 993 parts catalog with diagrams and OEM parts.",
+            "url": "https://www.autoatlantis.com/porsche-993-parts.html",
+            "tag": "OEM CATALOG"
+        }
+    ]
+
+    parts_cards = ""
+    for p in parts_data:
+        parts_cards += f"""
+                <a href="{p['url']}" target="_blank" class="profile-card">
+                    <div class="profile-header">
+                        <span class="profile-tag">{p['tag']}</span>
+                    </div>
+                    <div class="profile-icon">🔧</div>
+                    <h3 class="profile-title">{p['title']}</h3>
+                    <p class="profile-desc">{p['desc']}</p>
+                </a>"""
+
     # Build video cards
     video_cards = ""
-    for profile, profile_videos in videos.items():
-        profile_names = {
-            "drivers": "Porsche Drivers Profile",
-            "collectors": "Porsche Perfection Collectors",
-            "custom": "Porsche Custom Community"
-        }
-        profile_colors = {
-            "drivers": "#000000",
-            "collectors": "#d4af37",
-            "custom": "#5c5c5c"
-        }
-        
-        video_cards += f"""
-                    <div class="video-profile-section">
-                        <div class="video-profile-header" style="border-top: 2px solid {profile_colors[profile]};">
-                            <h4>{profile_names[profile]}</h4>
-                        </div>
-                        <div class="video-row">"""
-        
-        for v in profile_videos:
-            video_cards += f"""
-                            <a href="{v['url']}" class="video-card" target="_blank" rel="noopener">
-                                <div class="video-thumbnail">
-                                    <img src="{v['thumbnail']}" alt="{v['title']}" loading="lazy" width="120" height="120">
-                                    <div class="video-duration">{v['duration']}</div>
-                                </div>
-                                <div class="video-content">
-                                    <h5>{v['title']}</h5>
-                                    <div class="video-meta">
-                                        <span class="video-channel">{v['channel']}</span>
-                                        <span class="video-views">{v['views']} views</span>
-                                    </div>
-                                </div>
-                            </a>"""
-        
-        video_cards += """
-                        </div>
-                    </div>"""
-    
-    # Build Turbo S content
-    turbo_s_images = [
-        "https://porsche-stories.imgix.net/turbo-s-evolution.jpg?w=280",
-        "https://porsche-stories.imgix.net/turbo-s-track.jpg?w=280",
-        "https://porsche-stories.imgix.net/turbo-s-future.jpg?w=280",
-    ]
-    turbo_s_html = ""
-    turbo_img_idx = 0
-    for h in turbo_s['highlights']:
-        turbo_thumb = turbo_s_images[turbo_img_idx % len(turbo_s_images)]
-        turbo_img_idx += 1
-        turbo_s_html += f"""
-                        <div class="turbo-card">
-                            <img src="{turbo_thumb}" alt="{h['title']}" class="turbo-thumb" loading="lazy" width="60" height="60">
-                            <div class="turbo-icon">⚡</div>
-                            <h3>{h['title']}</h3>
-                            <p>{h['desc']}</p>
-                        </div>"""
+    profile_names = {
+        "drivers": "Drivers",
+        "collectors": "Collectors",
+        "custom": "Custom"
+    }
 
-    # Load the template
-    template = REPO_DIR / "digest_template_v2.html"
+    for profile, profile_videos in videos.items():
+        for v in profile_videos[:2]:
+            video_cards += f"""
+                <a href="{v['url']}" target="_blank" class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="{v['thumbnail']}" alt="{v['title']}" loading="lazy">
+                        <span class="video-duration">{v['duration']}</span>
+                    </div>
+                    <div class="video-content">
+                        <h4 class="video-title">{v['title']}</h4>
+                        <span class="video-meta">{v['channel']} • {v['views']} views</span>
+                    </div>
+                </a>"""
+
+    # Load the new template
+    template = REPO_DIR / "digest_template_v3.html"
     if template.exists():
         with open(template, 'r', encoding='utf-8') as f:
             html = f.read()
     else:
-        # Fall back to inline template
-        html = f'''<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Porsche 993 Daily Digest | {formatted_date}</title>
-    <meta name="description" content="Daily Porsche 993 Carrera 4S intelligence brief by Hermes Carrera. Market data, auction listings, and Porsche heritage content.">
-    <meta name="theme-color" content="#d4af37">
-    <meta name="color-scheme" content="light dark">
-    <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        :root {{
-            --porsche-black: #000000;
-            --porsche-white: #ffffff;
-            --porsche-gray: #f5f5f7;
-            --porsche-light-gray: #e5e5e5;
-            --porsche-dark-gray: #1d1d1f;
-            --porsche-medium-gray: #868686;
-            --porsche-gold: #d4af37;
-            --porsche-gold-hover: #e6c77d;
-            --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-            --font-display: 'Playfair Display', serif;
-            --font-display2: 'Space Grotesk', sans-serif;
-            --transition: all 0.3s cubic-bezier(0.25, 0.4, 0.25, 1);
-        }}
-        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-        body {{ font-family: var(--font-sans); background: var(--porsche-white); color: var(--porsche-dark-gray); line-height: 1.5; font-weight: 400; }}
-        
-        /* Premium typography */
-        h1 {{ font-family: var(--font-display); font-size: 4rem; font-weight: 700; letter-spacing: -0.04em; line-height: 0.9; }}
-        h2 {{ font-family: var(--font-display2); font-size: 2rem; font-weight: 500; letter-spacing: -0.02em; line-height: 1.2; }}
-        h3 {{ font-family: var(--font-display2); font-size: 1.25rem; font-weight: 500; line-height: 1.3; }}
-        .byline {{ font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 1rem; opacity: 0.7; }}
-        .hero-caption-top {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }}
-        .hero-badge {{ display: inline-block; background: var(--porsche-gold); color: var(--porsche-black); padding: 0.5rem 1.5rem; border-radius: 999px; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.05em; }}
-        
-        /* ===== Header/Hero ===== */
-        header {{background: var(--porsche-black); height: 90vh; display: flex; align-items: flex-end; justify-content: center; padding: 2rem; position: relative; overflow: hidden; }}
-        header::after {{ content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 60%, transparent 100%); z-index: -1; }}
-        .hero-content {{ text-align: center; padding-bottom: 6rem; max-width: 900px; margin: 0 auto; z-index: 1; }}
-        .hero-date {{ color: var(--porsche-white); font-family: var(--font-display); font-size: 5rem; font-weight: 700; letter-spacing: -0.05em; line-height: 0.9; text-shadow: 0 2px 20px rgba(0,0,0,0.8); display: flex; flex-direction: column; align-items: center; }}
-        .hero-date-main {{ font-size: 5rem; line-height: 0.8; }}
-        .hero-date-sub {{ font-size: 1.5rem; opacity: 0.8; font-family: var(--font-display2); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.25rem; }}
-        .hero-badge {{ display: inline-block; background: var(--porsche-gold); color: var(--porsche-black); padding: 0.5rem 1.5rem; border-radius: 999px; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.05em; margin-top: 1.5rem; }}
-        .daily-hero-image-container {{ margin-top: 2rem; border-radius: 0.75rem; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); }}
-        .daily-hero-image {{ width: 100%; height: auto; display: block; }}
-        .hero-caption {{ background: rgba(0,0,0,0.7); padding: 1rem 1.5rem; }}
-        .hero-caption-title {{ color: var(--porsche-white); font-size: 0.875rem; font-weight: 600; margin-bottom: 0.25rem; }}
-        .hero-caption-source {{ color: var(--porsche-gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }}
-        main {{ max-width: 1200px; margin: 0 auto; padding: 5rem 2rem; }}
-        section {{ margin-bottom: 5rem; }}
-        .section-header {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; }}
-        .section-title {{ font-family: var(--font-display2); font-size: 1.5rem; font-weight: 500; display: flex; align-items: center; gap: 0.75rem; color: var(--porsche-black); }}
-        .section-title .emoji {{ font-size: 1.5rem; }}
-        
-        /* Carousel */
-        /* Carousel following Porsche Design System */
-        .carousel-container {{ position: relative; margin: 2rem 0; }}
-        
-        /* Scroll indicator - PDS style */
-        .carousel::-webkit-scrollbar {{ display: none; }}
-        .carousel-scrollbar-container {{
-            position: relative;
-            height: 6px;
-            background: var(--porsche-light-gray);
-            border-radius: 3px;
-            margin-top: 1rem;
-            overflow: hidden;
-        }}
-        .carousel-scrollbar {{
-            height: 100%;
-            background: var(--porsche-gold);
-            border-radius: 3px;
-            transition: width 0.1s ease;
-        }}
-        
-        .carousel {{ display: flex; overflow-x: auto; gap: 1.5rem; padding: 0.5rem 0; scrollbar-width: none; scroll-snap-type: x mandatory; }}
-        .carousel::-webkit-scrollbar {{ display: none; }}
-        .carousel-card {{ min-width: 220px; background: var(--porsche-white); border-radius: 0.75rem; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: var(--transition); border: 1px solid var(--porsche-light-gray); flex-shrink: 0; scroll-snap-align: start; flex: 1 0 0; }}
-        .carousel-card:hover {{ transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }}
-        .carousel-image {{ width: 100%; height: 100px; object-fit: cover; border-bottom: 1px solid var(--porsche-light-gray); }}
-        .carousel-content {{ padding: 1rem; }}
-        .carousel-meta {{ font-size: 0.875rem; color: var(--porsche-medium-gray); margin-bottom: 0.75rem; }}
-        .carousel-link {{ display: inline-flex; align-items: center; gap: 0.5rem; color: var(--porsche-black); text-decoration: none; font-weight: 700; font-size: 0.875rem; transition: color 0.2s ease; }}
-        .carousel-link:hover {{ color: var(--porsche-gold); }}
-        
-        /* Carousel navigation buttons - PDS style */
-        .carousel-nav {{ display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem; }}
-        .carousel-nav-btn {{
-            background: var(--porsche-white);
-            border: 1px solid var(--porsche-light-gray);
-            border-radius: 999px;
-            width: 44px;
-            height: 44px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }}
-        .carousel-nav-btn:hover {{ background: var(--porsche-gold); border-color: var(--porsche-gold); }}
-        .carousel-nav-btn svg {{ fill: none; stroke: var(--porsche-black); stroke-width: 2; }}
-        
-        /* Market Table */
-        .market-table {{ width: 100%; border-collapse: separate; border-spacing: 0; background: var(--porsche-white); border-radius: 1rem; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.03); border: 1px solid var(--porsche-light-gray); }}
-        .market-table thead {{ background: var(--porsche-gold); }}
-        .market-table th {{ color: var(--porsche-black); font-weight: 600; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; padding: 1.25rem 1.5rem; text-align: left; font-family: var(--font-sans); }}
-        .market-table td {{ padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--porsche-light-gray); font-family: var(--font-sans); }}
-        .market-table tr:last-child td {{ border-bottom: none; }}
-        .price-usd {{ font-weight: 700; color: var(--porsche-black); }}
-        .price-brl {{ font-size: 0.875rem; color: var(--porsche-medium-gray); }}
-        .status-badge {{ display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; }}
-        .status-badge.status-active {{ background: rgba(46, 204, 113, 0.1); color: #2ecc71; }}
-        .status-badge.status-ending {{ background: rgba(231, 76, 60, 0.1); color: #e74c3c; }}
-        .status-badge.status-ended {{ background: rgba(149, 152, 159, 0.1); color: #95a5a6; }}
-        .market-table {{ width: 100%; border-collapse: separate; border-spacing: 0; background: var(--porsche-white); border-radius: 1rem; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.03); border: 1px solid var(--porsche-light-gray); }}
-        .market-table-wrap {{ overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 1rem; }}
-        .valuation-charts {{ background: var(--porsche-white); border-radius: 1rem; padding: 2rem; border: 1px solid var(--porsche-light-gray); box-shadow: 0 5px 20px rgba(0,0,0,0.03); margin-bottom: 2rem; }}
-        .valuation-chart-container {{ position: relative; height: 300px; width: 100%; }}
-        .valuation-grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }}
-        .valuation-card {{ background: var(--porsche-white); border-radius: 1rem; padding: 2rem; border: 1px solid var(--porsche-light-gray); box-shadow: 0 5px 20px rgba(0,0,0,0.03); transition: var(--transition); }}
-        .valuation-card:hover {{ transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }}
-        .valuation-header {{ display: flex; align-items: center; gap: 0.5rem; justify-content: space-between; margin-bottom: 1.5rem; }}
-        .valuation-thumb {{ width: 50px; height: 30px; object-fit: cover; border-radius: 0.25rem; flex-shrink: 0; }}
-        .auction-thumb {{ width: 60px; height: 40px; object-fit: cover; border-radius: 0.25rem; flex-shrink: 0; }}
-        .platform-logo {{ width: 24px; height: 24px; margin-right: 0.35rem; vertical-align: middle; }}
-        .valuation-title {{ font-family: var(--font-display2); font-size: 1.5rem; font-weight: 500; flex: 1; }}
-        .valuation-trend {{ font-size: 1.25rem; font-weight: 700; color: var(--porsche-gold); }}
-        .price-display {{ font-size: 2.5rem; font-weight: 300; letter-spacing: -0.02em; margin-bottom: 1rem; }}
-        .price-secondary {{ font-size: 1rem; color: var(--porsche-medium-gray); margin-bottom: 1.5rem; }}
-        .range-bar {{ height: 4px; background: var(--porsche-light-gray); border-radius: 2px; margin: 1.5rem 0; overflow: hidden; }}
-        .range-fill {{ height: 100%; background: linear-gradient(90deg, var(--porsche-gold), #e6c77d); border-radius: 2px; }}
-        .valuation-source {{ font-size: 0.75rem; color: var(--porsche-medium-gray); margin-top: 1rem; }}
-        
-        /* Profile Cards */
-        .profiles-grid {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }}
-        .profile-card {{ background: var(--porsche-white); border-radius: 1rem; padding: 2.5rem; border: 1px solid var(--porsche-light-gray); box-shadow: 0 5px 20px rgba(0,0,0,0.03); transition: var(--transition); text-decoration: none; color: inherit; display: block; }}
-        .profile-card:hover {{ transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: var(--porsche-gold); }}
-        .profile-thumb-container {{ width: 60px; height: 60px; margin-bottom: 1.5rem; }}
-        .profile-thumb {{ width: 100%; height: 100%; object-fit: contain; border-radius: 0.5rem; }}
-        .profile-header-card {{ display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }}
-        .profile-tag {{ background: var(--porsche-light-gray); color: var(--porsche-medium-gray); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.25rem 0.75rem; border-radius: 999px; font-weight: 600; }}
-        .profile-title-card {{ font-family: var(--font-display2); font-size: 1.5rem; font-weight: 500; margin-bottom: 0.5rem; }}
-        .profile-description {{ color: var(--porsche-medium-gray); font-size: 0.9rem; line-height: 1.6; }}
-        
-        /* Tech Specs */
-        .specs-container {{ background: var(--porsche-white); border-radius: 1rem; border: 1px solid var(--porsche-light-gray); box-shadow: 0 5px 20px rgba(0,0,0,0.03); overflow: hidden; }}
-        .specs-grid {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--porsche-light-gray); }}
-        .spec-block {{ background: var(--porsche-white); padding: 1.5rem; }}
-        .spec-label {{ font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--porsche-medium-gray); font-weight: 600; }}
-        .spec-value {{ font-size: 1rem; color: var(--porsche-black); }}
-        
-        /* Turbo S 2026 Legacy Evolution */
-        .turbo-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }}
-        .turbo-card {{ background: var(--porsche-white); border-radius: 0.75rem; padding: 1.5rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 1px solid var(--porsche-light-gray); }}
-        .turbo-icon {{ font-size: 2rem; margin-bottom: 0.75rem; }}
-        .turbo-thumb {{ width: 60px; height: 60px; object-fit: contain; border-radius: 0.5rem; margin-bottom: 0.5rem; }}
-        .turbo-card h3 {{ font-family: var(--font-display2); font-size: 1rem; margin: 0 0 0.5rem 0; color: var(--porsche-black); }}
-        .turbo-card p {{ font-size: 0.875rem; color: var(--porsche-medium-gray); margin: 0; }}
-        
-        /* Daily Porsche Videos */
-        .video-grid {{ display: flex; flex-direction: column; gap: 2rem; }}
-        .video-profile-section {{ margin-bottom: 2rem; }}
-        .video-profile-header {{ padding-bottom: 0.5rem; }}
-        .video-profile-header h4 {{ font-family: var(--font-display2); font-size: 1rem; margin: 0; color: var(--porsche-black); }}
-        .video-row {{ display: grid; grid-template-columns: 1fr; gap: 1rem; }}
-        .video-card {{ display: flex; gap: 0.75rem; text-decoration: none; color: inherit; padding: 0.75rem; background: var(--porsche-white); border-radius: 0.5rem; border: 1px solid var(--porsche-light-gray); transition: var(--transition); }}
-        .video-card:hover {{ box-shadow: 0 10px 30px rgba(0,0,0,0.1); transform: translateY(-2px); }}
-        .video-thumbnail {{ position: relative; flex-shrink: 0; width: 120px; height: 120px; overflow: hidden; border-radius: 0.5rem; }}
-        .video-thumbnail img {{ width: 100%; height: 100%; object-fit: cover; }}
-        .video-duration {{ position: absolute; bottom: 4px; right: 4px; background: rgba(0,0,0,0.7); color: white; font-size: 0.65rem; padding: 2px 4px; border-radius: 3px; }}
-        
-        /* Footer */
-        footer {{ background: var(--porsche-black); color: var(--porsche-white); padding: 3rem 2rem; }}
-        .footer-grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; }}
-        @media (max-width: 430px) {{
-            .footer-grid {{ grid-template-columns: 1fr 1fr; gap: 1rem; }}
-        }}
-        .footer-column h4 {{ color: var(--porsche-gold); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }}
-        .footer-column ul {{ list-style: none; }}
-        .footer-column li {{ margin-bottom: 0.5rem; }}
-        .footer-column a {{ color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s ease; }}
-        .footer-column a:hover {{ color: var(--porsche-gold); }}
-        .footer-bottom p {{ margin-bottom: 0.5rem; }}
-        .footer-bottom p:last-child {{ font-size: 0.75rem; color: rgba(255, 255, 255, 0.5); }}
-        
-        @media (max-width: 768px) {{
-            .hero-date {{ font-size: 3rem; }}
-            .hero-content {{ max-width: 90vw; }}
-            .daily-hero-image-container {{ margin-top: 1.5rem; }}
-            .profiles-grid, .valuation-grid {{ grid-template-columns: 1fr; }}
-            .specs-grid {{ grid-template-columns: 1fr; }}
-            .spec-block {{ padding: 1rem; }}
-            .carousel-card {{ min-width: 280px; }}
-            .section-header {{ flex-direction: column; align-items: flex-start; gap: 0.5rem; }}
-        }}
-        
-        /* iPhone Pro Max 17 - Mobile UX optimized */
-        @media (max-width: 430px) {{
-            header {{height: 85vh; }}
-            .hero-date-main {{font-size: 3rem; }}
-            .hero-date-sub {{font-size: 1rem; }}
-            .hero-badge {{font-size: 0.65rem; padding: 0.3rem 1rem; }}
-            .byline {{ font-size: 0.75rem; }}
-            h2 {{ font-size: 1.25rem; }}
-            .section-title {{ font-size: 1.1rem; }}
-            .section-title .emoji {{ font-size: 1.2rem; }}
-            .market-table th, .market-table td {{ padding: 0.6rem 0.5rem; font-size: 0.75rem; }}
-            .hero-caption-title {{ font-size: 0.75rem; }}
-            .hero-caption-source {{ font-size: 0.6rem; }}
-            .profile-card {{ padding: 1rem; }}
-            .profile-thumb-container {{ width: 50px; height: 50px; margin-bottom: 1rem; }}
-            .spec-block {{ padding: 0.6rem; }}
-            .spec-label {{ font-size: 0.65rem; }}
-            .spec-value {{ font-size: 0.8rem; }}
-            .hero-badge {{ font-size: 0.7rem; padding: 0.3rem 0.8rem; }}
-            .valuation-thumb {{ width: 40px; height: 25px; }}
-            .auction-thumb {{ width: 50px; height: 32px; }}
-            .platform-logo {{ width: 20px; height: 20px; }}
-            .turbo-grid {{ grid-template-columns: 1fr; }}
-            .turbo-card {{ padding: 1rem; }}
-            .turbo-icon {{ font-size: 1.5rem; }}
-            .turbo-card h3 {{ font-size: 0.85rem; }}
-            .turbo-card p {{ font-size: 0.75rem; }}
-            .video-card {{ flex-direction: column; }}
-            .video-thumbnail {{ width: 100%; height: 100px; }}
-            .video-content h5 {{ font-size: 0.8rem; }}
-            .video-meta {{ font-size: 0.65rem; }}
-            .video-profile-header h4 {{ font-size: 0.8rem; }}
-            
-            /* Carousel mobile UX */
-            .carousel-card {{ min-width: 158px; flex: 1 0 0; margin-right: 0; }}
-            .carousel {{ gap: 0.5rem; }}
-            .carousel-content {{ padding: 0.6rem; }}
-            .carousel-meta {{ font-size: 0.65rem; }}
-            .carousel-link {{ font-size: 0.65rem; }}
-            .carousel-nav {{ display: none; }}
-            .carousel-scrollbar-container {{ margin-top: 0.4rem; }}
-            
-            /* Lists mobile-friendly */
-            .market-table {{ font-size: 0.8rem; }}
-            .price-display {{ font-size: 1.5rem; }}
-            .price-secondary {{ font-size: 0.85rem; }}
-        }}
-    </style>
-</head>
-<body>
-    <header>
-        <div class="hero-content">
-            <div class="hero-caption-top">
-                <p class="byline">Porsche 993 • Daily Digest</p>
-                <div class="hero-badge">M64/21 Varioram • 993 Carrera 4S</div>
-            </div>
-            <div class="hero-date">
-                <span class="hero-date-main">{day_num}</span>
-                <span class="hero-date-sub">{month_year}</span>
-            </div>
+        html = f'<!DOCTYPE html><html><body><h1>Porsche Digest {formatted_date}</h1></body></html>'
 
-            <!-- Daily Air-Cooled Hero Image -->
-            <div class="daily-hero-image-container">
-                <img src="{hero_image['image_url']}" alt="{hero_image['title']}" class="daily-hero-image" loading="eager" width="1200" height="600">
-                <div class="hero-caption">
-                    <div class="hero-caption-title">{hero_image['title']}</div>
-                    <div class="hero-caption-source">{hero_image['model']} • {hero_image['source']}</div>
-                </div>
-            </div>
-        </div>
-    </header>
-    
-    <main>
-        <!-- News Carousel -->
-        <section>
-            <h2 class="section-title"><span>🏆</span> Porsche Newsroom & Classic</h2>
-            <div class="carousel-container">
-                <div class="carousel" id="newsCarousel">
-                    {news_cards}
-                </div>
-                <div class="carousel-scrollbar-container">
-                    <div class="carousel-scrollbar" id="carouselScrollbar"></div>
-                </div>
-                <div class="carousel-nav">
-                    <button class="carousel-nav-btn" id="prevBtn" aria-label="Previous">
-                        <svg width="20" height="20" viewBox="0 0 24 24"><polyline points="19 12 5 12"></polyline><polyline points="12 19 5 12 12 5"></polyline></svg>
-                    </button>
-                    <button class="carousel-nav-btn" id="nextBtn" aria-label="Next">
-                        <svg width="20" height="20" viewBox="0 0 24 24"><polyline points="5 19 19 12"></polyline><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </button>
-                </div>
-            </div>
-        </section>
-        <script>
-            // PDS-style carousel scrollbar + navigation
-            const carousel = document.getElementById('newsCarousel');
-            const scrollbar = document.getElementById('carouselScrollbar');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            
-            if (carousel && scrollbar) {{
-                function updateScrollbar() {{
-                    const scrollPercent = (carousel.scrollLeft / (carousel.scrollWidth - carousel.clientWidth)) * 100;
-                    scrollbar.style.width = Math.max(10, 100 - scrollPercent * 0.8) + '%';
-                }}
-                carousel.addEventListener('scroll', updateScrollbar);
-                updateScrollbar();
-            }}
-            
-            if (prevBtn && nextBtn) {{
-                prevBtn.addEventListener('click', () => {{
-                    carousel.scrollBy({{ left: -340, behavior: 'smooth' }});
-                }});
-                nextBtn.addEventListener('click', () => {{
-                    carousel.scrollBy({{ left: 340, behavior: 'smooth' }});
-                }});
-            }}
-        </script>
-        
-        <!-- Market Analysis -->
-        <section>
-            <h2 class="section-title"><span>📈</span> Market & Auctions</h2>
-            <div class="market-table-wrap">
-            <table class="market-table">
-                <thead>
-                    <tr>
-                        <th>Platform</th>
-                        <th>Vehicle</th>
-                        <th>Price (USD)</th>
-                        <th>Price (BRL)</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {auction_rows}
-                </tbody>
-            </table>
-            </div>
-            <div style="display: flex; justify-content: space-between; margin-top: 1.5rem; font-size: 0.875rem; color: #868686;">
-                <span>💱 Exchange rate: 1 USD = {rate:.2f} BRL</span>
-                <span>🔄 Updated: {formatted_date}</span>
-            </div>
-        </section>
-        
-        <!-- Valuation Analysis with Chart.js -->
-        <section>
-            <h2 class="section-title"><span>💰</span> Valuation Analysis</h2>
-            
-            <div class="valuation-charts">
-                <div class="valuation-chart-container">
-                    <canvas id="valuationChart"></canvas>
-                </div>
-            </div>
-            
-            <div class="valuation-grid">
-                {valuation_cards}
-            </div>
-            </section>
-        
-            <!-- 993 Parts & Accessories -->
-            <section>
-                <h2 class="section-title"><span>🔧</span> 993 Parts & Accessories</h2>
-                <span style="color: #868686; font-size: 0.9rem;">Official parts suppliers and resources for your 1996 Carrera 4S (VIN: WP0AA2999TS320294)</span>
-            
-                <div class="profiles-grid">
-                    <a href="https://www.suncoastparts.com/993landing.html" target="_blank" class="profile-card">
-                        <div class="profile-thumb-container">
-                            <img src="https://porsche-stories.imgix.net/suncoast-logo.png?w=120" alt="Suncoast Porsche Parts" class="profile-thumb" loading="lazy" width="60" height="60">
-                        </div>
-                        <div class="profile-header-card">
-                            <span class="profile-tag">OEM PARTS</span>
-                        </div>
-                        <h3 class="profile-title-card">Suncoast Porsche Parts</h3>
-                        <p class="profile-description">Official Porsche parts supplier with comprehensive 993 catalog. Select your exact model for perfect-fit OEM parts.</p>
-                    </a>
-                
-                    <a href="https://www.parts-wise.com/993-porsche-parts/" target="_blank" class="profile-card">
-                        <div class="profile-thumb-container">
-                            <img src="https://porsche-stories.imgix.net/partswise-logo.png?w=120" alt="Partswise" class="profile-thumb" loading="lazy" width="60" height="60">
-                        </div>
-                        <div class="profile-header-card">
-                            <span class="profile-tag">OEM/Aftermarket</span>
-                        </div>
-                        <h3 class="profile-title-card">Partswise</h3>
-                        <p class="profile-description">High-quality OEM and aftermarket Porsche 993 parts. Engine code M64/21 compatibility guaranteed.</p>
-                    </a>
-                
-                    <a href="https://info.fcpeuro.com/993" target="_blank" class="profile-card">
-                        <div class="profile-thumb-container">
-                            <img src="https://porsche-stories.imgix.net/fcpeuro-logo.png?w=120" alt="FCP Euro" class="profile-thumb" loading="lazy" width="60" height="60">
-                        </div>
-                        <div class="profile-header-card">
-                            <span class="profile-tag">Performance</span>
-                        </div>
-                        <h3 class="profile-title-card">FCP Euro</h3>
-                        <p class="profile-description">Genuine, OE, OEM, aftermarket and performance parts for Porsche 993. Large catalog with fitment guides.</p>
-                    </a>
-                </div>
-            </section>
-        
-            <!-- Reference Profiles -->
-            <section>
-                <h2 class="section-title"><span>🔗</span> Porsche Reference Profiles</h2>
-                <div class="profiles-grid">
-                    <a href="/previews/porsche_drivers.html" class="profile-card">
-                        <div class="profile-thumb-container">
-                            <img src="https://porsche-stories.imgix.net/mobile-community.jpg?w=80" alt="Porsche Drivers Community" class="profile-thumb" loading="lazy" width="40" height="40">
-                        </div>
-                        <div class="profile-header-card">
-                            <span class="profile-tag">Community</span>
-                        </div>
-                        <h3 class="profile-title-card">Porsche Drivers</h3>
-                        <p class="profile-description">Community resources for road-focused Porsche enthusiasts — eclectic, travel, meetups and lifestyle.</p>
-                    </a>
-                    
-                    <a href="/previews/porsche_perfection_collectors.html" class="profile-card">
-                        <div class="profile-thumb-container">
-                            <img src="https://porsche-stories.imgix.net/collectors-showcase.jpg?w=80" alt="Porsche Collectors" class="profile-thumb" loading="lazy" width="40" height="40">
-                        </div>
-                        <div class="profile-header-card">
-                            <span class="profile-tag">Collectors</span>
-                        </div>
-                        <h3 class="profile-title-card">Porsche Perfection Collectors</h3>
-                        <p class="profile-description">Focus: originality, low mileage, exclusivity and valuation for discerning 911 enthusiasts.</p>
-                    </a>
-                    
-                    <a href="/previews/porsche_custom_community.html" class="profile-card">
-                        <div class="profile-thumb-container">
-                            <img src="https://porsche-stories.imgix.net/custom-build.jpg?w=80" alt="Porsche Custom Community" class="profile-thumb" loading="lazy" width="40" height="40">
-                        </div>
-                        <div class="profile-header-card">
-                            <span class="profile-tag">Custom</span>
-                        </div>
-                        <h3 class="profile-title-card">Porsche Custom Community</h3>
-                        <p class="profile-description">Open to modifications, performance upgrades, tuning and custom builds.</p>
-                    </a>
-            </div>
-        </section>
-        
-        <!-- Technical Specs -->
-        <section>
-            <h2 class="section-title"><span>🔧</span> Technical Specifications</h2>
-            <span style="color: #868686; font-size: 0.9rem;">M64/21 Varioram • 993 Carrera 4S</span>
-            
-            <div class="specs-container">
-                <div class="specs-grid">
-                    <div class="spec-block">
-                        <span class="spec-label">Engine</span>
-                        <span class="spec-value">Flat-6 M64/21 Varioram<br>3.6L, 282 hp (210 kW)</span>
-                    </div>
-                    <div class="spec-block">
-                        <span class="spec-label">Transmission</span>
-                        <span class="spec-value">6-speed manual<br>Viscous all-wheel drive</span>
-                    </div>
-                    <div class="spec-block">
-                        <span class="spec-label">Year</span>
-                        <span class="spec-value">1996</span>
-                    </div>
-                    <div class="spec-block">
-                        <span class="spec-label">VIN</span>
-                        <span class="spec-value">WP0AA2999TS320294</span>
-                    </div>
-                    <div class="spec-block">
-                        <span class="spec-label">Color</span>
-                        <span class="spec-value">Arctic Silver Metallic (570)</span>
-                    </div>
-                    <div class="spec-block">
-                        <span class="spec-label">Chassis</span>
-                        <span class="spec-value">Wide-body (Turbo-look)<br>Suspension M030<br>Brembo 4-piston brakes</span>
-                    </div>
-                </div>
-                
-                <!-- Turbo S 2026 Legacy Evolution Section -->
-                <section>
-                    <h2 class="section-title"><span>🔥</span> {turbo_s['headline']}</h2>
-                    <p class="section-subtitle">{turbo_s['subhead']}</p>
-                    <div class="turbo-grid">
-                        {turbo_s_html}
-                    </div>
-                </section>
-                
-                <!-- Daily Curated Porsche Videos -->
-                <section>
-                    <h2 class="section-title"><span>📹</span> Daily Porsche Video Picks</h2>
-                    <p class="section-subtitle">Curated by profile — relevance, quality, and engagement</p>
-                    <div class="video-grid">
-                        {video_cards}
-                    </div>
-                </section>
-            </div>
-        </section>
-    </main>
-    
-    <!-- Footer with Categories -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-column">
-                <h4>Market Resources</h4>
-                <ul>
-                    <li><a href="https://bringatrailer.com/" target="_blank">Bring a Trailer</a></li>
-                    <li><a href="https://carsandbids.com/" target="_blank">Cars & Bids</a></li>
-                    <li><a href="https://www.classic.com/" target="_blank">Classic.com</a></li>
-                    <li><a href="/archive/2026-08-11.html">Digest Archive</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h4>Technical Resources</h4>
-                <ul>
-                    <li><a href="https://info.fcpeuro.com/993" target="_blank">FCP Euro 993</a></li>
-                    <li><a href="https://www.suncoastparts.com/993landing.html" target="_blank">Suncoast Parts</a></li>
-                    <li><a href="https://911uk.com/" target="_blank">911UK Forum</a></li>
-                    <li><a href="https://www.pelicanparts.com/" target="_blank">Pelican Parts</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h4>Reference Profiles</h4>
-                <ul>
-                    <li><a href="/previews/porsche_drivers.html" target="_blank">Porsche Drivers Profile</a></li>
-                    <li><a href="/previews/porsche_perfection_collectors.html" target="_blank">Porsche Perfection Collectors</a></li>
-                    <li><a href="/previews/porsche_custom_community.html" target="_blank">Porsche Custom Community</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h4>Porsche Official</h4>
-                <ul>
-                    <li><a href="https://www.porsche.com/stories/" target="_blank">Porsche Stories</a></li>
-                    <li><a href="https://newsroom.porsche.com/" target="_blank">Porsche Newsroom</a></li>
-                    <li><a href="https://www.porsche.com/porsche-classic/" target="_blank">Porsche Classic</a></li>
-                    <li><a href="https://www.porsche.com/usa/911/" target="_blank">911 Model Page</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>© 2026 costafamily.ai | Porsche 993 Carrera 4S Archive System</p>
-            <p>WP0AA2999TS320294 | M64/21 Varioram | G64/20 6MT | Arctic Silver Metallic (570)</p>
-            <p>Generated by Hermes Carrera • Sources: Porsche Stories, Bring a Trailer, Cars & Bids, Xe.com, Classic.com</p>
-        </div>
-    </footer>
-    
-    <script>
-        const valuationData = {{
-            labels: ['Aug 2023', 'Feb 2024', 'Aug 2024', 'Feb 2025', 'Aug 2025', 'Feb 2026', 'Aug 2026'],
-            datasets: [
-                {{
-                    label: 'Carrera 4S ($K)',
-                    data: [115, 122, 130, 138, 145, 150, 155],
-                    borderColor: '#d4af37',
-                    backgroundColor: 'rgba(212, 175, 55, 0.1)',
-                    tension: 0.4,
-                    fill: true,
-                    pointRadius: 5,
-                    pointBackgroundColor: '#d4af37',
-                    pointBorderWidth: 2,
-                    pointHoverRadius: 7,
-                    borderWidth: 2
-                }},
-                {{
-                    label: 'Carrera ($K)',
-                    data: [105, 110, 115, 120, 125, 130, 135],
-                    borderColor: '#000000',
-                    backgroundColor: 'rgba(0, 0, 0, 0.05)',
-                    tension: 0.4,
-                    fill: true,
-                    pointRadius: 5,
-                    pointBackgroundColor: '#000000',
-                    pointBorderWidth: 2,
-                    pointHoverRadius: 7,
-                    borderWidth: 2
-                }},
-                {{
-                    label: 'Turbo ($K)',
-                    data: [180, 195, 205, 215, 220, 225, 225],
-                    borderColor: '#1d1d1f',
-                    backgroundColor: 'rgba(29, 29, 31, 0.05)',
-                    tension: 0.4,
-                    fill: true,
-                    pointRadius: 5,
-                    pointBackgroundColor: '#1d1d1f',
-                    pointBorderWidth: 2,
-                    pointHoverRadius: 7,
-                    borderWidth: 2
-                }}
-            ]
-        }};
-        
-        Chart.defaults.font.family = "'Inter', system-ui, sans-serif";
-        Chart.defaults.font.size = 12;
-        
-        const ctx = document.getElementById('valuationChart').getContext('2d');
-        const valuationChart = new Chart(ctx, {{
-            type: 'line',
-            data: valuationData,
-            options: {{
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {{
-                    legend: {{
-                        position: 'top',
-                        labels: {{
-                            padding: 20,
-                            usePointStyle: true,
-                        }}
-                    }}
-                }},
-                scales: {{
-                    y: {{
-                        border: {{ display: false }},
-                        grid: {{ color: 'rgba(0,0,0,0.05)', drawBorder: false }}
-                    }},
-                    x: {{
-                        grid: {{ display: false, drawBorder: false }}
-                    }}
-                }}
-            }}
-        }});
-    </script>
-</body>
-</html>'''
+    # Replace placeholders
+    html = html.replace("{{date}}", formatted_date)
+    html = html.replace("{{day}}", day_num)
+    html = html.replace("{{month_year}}", month_year)
+    html = html.replace("{{day_name}}", day_name)
+    html = html.replace("{{quote}}", quote)
+    html = html.replace("{{hero_image}}", hero_image['image_url'])
+    html = html.replace("{{hero_title}}", hero_image['title'])
+    html = html.replace("{{hero_source}}", f"{hero_image['model']} • {hero_image['source']}")
+    html = html.replace("{{rate}}", f"{rate:.2f}")
+    html = html.replace("{{news_cards}}", news_cards)
+    html = html.replace("{{auction_rows}}", auction_rows)
+    html = html.replace("{{valuation_cards}}", valuation_cards)
+    html = html.replace("{{parts_cards}}", parts_cards)
+    html = html.replace("{{video_cards}}", video_cards)
+
     return html
 
-def archive_current_digest():
-    """Archive the current index.html with today's date."""
-    index_path = REPO_DIR / "index.html"
-    if not index_path.exists():
-        return
-    
-    ARCHIVE_DIR.mkdir(exist_ok=True)
-    today = datetime.now().strftime("%Y-%m-%d")
-    archive_file = ARCHIVE_DIR / f"{today}.html"
-    
-    # Read current content
-    with open(index_path, 'r', encoding='utf-8') as f:
-        content = f.read()
-    
-    # Write to archive
-    with open(archive_file, 'w', encoding='utf-8') as f:
-        f.write(content)
-    
-    print(f"✅ Archived digest to: archive/{today}.html")
-
-def deploy():
-    """Deploy to GitHub and Cloudflare Pages."""
-    env_file = Path.home() / ".hermes" / ".env"
-    github_token = None
-    cf_token = None
-    cf_account_id = None
-    
-    if env_file.exists():
-        with open(env_file) as f:
-            for line in f:
-                if line.startswith("GITHUB_TOKEN="):
-                    github_token = line.split("=", 1)[1].strip()
-                elif line.startswith("CLOUDFLARE_API_TOKEN="):
-                    cf_token = line.split("=", 1)[1].strip()
-                elif line.startswith("CLOUDFLARE_ACCOUNT_ID="):
-                    cf_account_id = line.split("=", 1)[1].strip()
-    
-    if not github_token:
-        print("❌ GITHUB_TOKEN not found")
-        return False
-    
-    # Git operations
-    subprocess.run("git add .", shell=True, cwd=REPO_DIR, capture_output=True)
-    subprocess.run("git config user.email 'hermes@costafamily.ai'", shell=True, cwd=REPO_DIR, capture_output=True)
-    subprocess.run("git config user.name 'Hermes Carrera'", shell=True, cwd=REPO_DIR, capture_output=True)
-    
-    today = datetime.now().strftime("%d/%m/%Y")
-    commit_msg = f"Daily Porsche 993 digest — {today} — automated deployment"
-    subprocess.run(f'git commit -m "{commit_msg}"', shell=True, cwd=REPO_DIR, capture_output=True)
-    
-    # Push to GitHub
-    result = subprocess.run("git push origin main", shell=True, cwd=REPO_DIR, 
-                           capture_output=True, text=True, timeout=120)
-    if result.returncode != 0:
-        subprocess.run("git push -u origin main", shell=True, cwd=REPO_DIR, timeout=120)
-    
-    print("✅ Pushed to GitHub")
-    
-    # Deploy to Cloudflare Pages
-    env = os.environ.copy()
-    env["CF_API_TOKEN"] = cf_token
-    env["CF_ACCOUNT_ID"] = cf_account_id
-    
-    result = subprocess.run(
-        "npx wrangler pages deploy . --project-name porsche-digest --branch main",
-        shell=True, cwd=REPO_DIR, capture_output=True, text=True, timeout=120, env=env
-    )
-    
-    if result.returncode == 0:
-        print("✅ Deployed to Cloudflare Pages")
-        print("🔗 Live at: https://digest.costafamily.ai")
-        print("🔗 Backup: https://porsche-digest.pages.dev")
-        return True
-    else:
-        print(f"❌ Deploy error: {result.stderr}")
-        return False
-
-def generate_telegram_message(date_str, articles, auctions, valuation, rate):
-    """Generate a summary message for Telegram delivery."""
-    
-    # Format date
-    date_obj = datetime.strptime(date_str, "%Y-%m-%d")
-    formatted_date = date_obj.strftime("%A, %B %d, %Y")
-    day_name = date_obj.strftime("%A")
-    
-    # Build news section
-    news_lines = []
-    for i, article in enumerate(articles[:5], 1):
-        days = article.get('days_ago', '5')
-        news_lines.append(f"• {article['title']} [{days}d]")
-    
-    # Build auctions section
-    auction_lines = []
-    for i, auction in enumerate(auctions[:10], 1):
-        price_usd = auction['price_usd']
-        price_formatted = f"${price_usd:,}"
-        auction_lines.append(f"🚗 {auction['title']} — {price_formatted}")
-    
-    # Build valuation section
-    valuation_lines = []
-    for model, data in valuation.items():
-        avg_usd = data['avg_price_usd']
-        yoy = data['yoy_change']
-        valuation_lines.append(f"{model}: ${avg_usd//1000}K avg ({yoy} YoY)")
-    
-    # Car specification reference
-    vin = "WP0AA2999TS320294"
-    engine = "M64/21 Varioram"
-    trans = "G64/20 6MT"
-    color = "Arctic Silver Metallic (570)"
-    
-    message = f"""
-# Porsche 993 Daily Digest
-📅 {formatted_date}
-
-———
-
-> "The 993 is the last of its kind—a perfectly analog supercar where every component speaks to engineering purity." — Porsche Stories
-
-———
-
-## 🏆 Porsche News ({len(articles)} articles)
-{chr(10).join(news_lines)}
-
-## 📈 Market & Auctions ({len(auctions)} listings)
-{chr(10).join(auction_lines)}
-
-## 💰 Valuation Analysis
-{chr(10).join(valuation_lines)}
-
-———
-
-🔑 {vin} | {engine} | {trans} | {color}
-💱 1 USD = {rate:.2f} BRL
-🔗 https://digest.costafamily.ai
-
-Generated by Hermes Carrera • Sources: Porsche Stories, Bring a Trailer, Cars & Bids, Classic.com, PCA Report Q2 2026
-"""
-    
-    return message.strip()
 
 def send_telegram_message(message, image_path=None):
     """Send a message to Telegram via bot API."""
     bot_token = None
     chat_id = None
-    
-    # Load config
+
     config_paths = [
         Path.home() / ".hermes" / ".env",
         Path("config") / "telegram_config.json",
     ]
-    
+
     for config_path in config_paths:
         if config_path.exists():
             if config_path.suffix == ".env":
                 with open(config_path) as f:
                     for line in f:
-                        # Check both env var names
-                        if line.startswith("TELEGRAM_BOT_TOKEN=") or line.startswith("TELEGRAM_BOT_API_KEY="):
+                        if line.startswith("TELEGRAM_BOT_TOKEN=") or line.startswith("TELEGRAM_BOT_TOKEN="):
                             token_val = line.split("=", 1)[1].strip()
                             if token_val and not token_val.startswith("***"):
                                 bot_token = token_val
@@ -1366,28 +590,24 @@ def send_telegram_message(message, image_path=None):
                     config = json.load(f)
                     bot_token = config.get("bot_token")
                     chat_id = config.get("chat_id")
-    
-    # If no bot token (masked in .env), we can't send via API directly
+
     if not bot_token or bot_token.startswith("***"):
         print("⚠️ Bot token masked in config - skipping Telegram API send")
-        print("\n📝 Telegram message preview:")
+        print("\\n📝 Telegram message preview:")
         print(message)
         return False
-    
+
     if not bot_token or not chat_id:
         print("❌ Telegram config not found")
         return False
-    
-    # Telegram API endpoint
+
     api_url = f"https://api.telegram.org/bot{bot_token}/sendPhoto"
-    
-    # Use a default 993 image
+
     if not image_path:
-        image_path = "https://content-hub.imgix.net/GUhocLc6D6V9qFtm3Oc2g/19e093064c8a22f6214f16a85469aac2/7-20things-20you-20need-20to-20know-20about-20the-20porsche-20911-20type-20993.jpg?w=800"
-    
+        image_path = "https://content-hub.imgix.net/GUhocLc6D6V9qFtm3Oc2g/19e093064c8a22f6214f16a85469aac2/7-20things-20you-20need-20to-20know-20about-20the-20porsche-20911-20type-20993.jpg"
+
     try:
         if image_path.startswith("http"):
-            # Send with photo URL
             data = {
                 "chat_id": chat_id,
                 "photo": image_path,
@@ -1396,7 +616,6 @@ def send_telegram_message(message, image_path=None):
             }
             response = requests.post(api_url, json=data, timeout=30)
         else:
-            # Send with local file
             with open(image_path, "rb") as photo:
                 files = {"photo": photo}
                 data = {
@@ -1405,7 +624,7 @@ def send_telegram_message(message, image_path=None):
                     "parse_mode": "HTML"
                 }
                 response = requests.post(api_url, files=files, data=data, timeout=30)
-        
+
         if response.status_code == 200:
             print("✅ Telegram message sent successfully")
             return True
@@ -1416,54 +635,78 @@ def send_telegram_message(message, image_path=None):
         print(f"❌ Telegram send error: {e}")
         return False
 
+
+def deploy():
+    """Deploy to Cloudflare Pages directly (no GitHub dependency)."""
+    env_file = REPO_DIR / ".env"
+    cf_token = None
+    cf_account_id = None
+
+    if env_file.exists():
+        with open(env_file) as f:
+            for line in f:
+                if line.startswith("CLOUDFLARE_API_TOKEN="):
+                    cf_token = line.split("=", 1)[1].strip()
+                elif line.startswith("CLOUDFLARE_ACCOUNT_ID="):
+                    cf_account_id = line.split("=", 1)[1].strip()
+
+    if not cf_token:
+        print("❌ CLOUDFLARE_API_TOKEN not found in .env")
+        return False
+
+    env = os.environ.copy()
+    env["CLOUDFLARE_API_TOKEN"] = cf_token
+    if cf_account_id:
+        env["CLOUDFLARE_ACCOUNT_ID"] = cf_account_id
+
+    result = subprocess.run(
+        "npx wrangler pages deploy . --project-name porsche-digest --branch main --commit-dirty=true",
+        shell=True, cwd=REPO_DIR, capture_output=True, text=True, timeout=120, env=env
+    )
+
+    if result.returncode == 0:
+        print("✅ Deployed to Cloudflare Pages")
+        print("🔗 Live at: https://digest.costafamily.ai")
+        print("🔗 Backup: https://porsche-digest.pages.dev")
+        return True
+    else:
+        print(f"❌ Deploy error: {result.stderr}")
+        return False
+
+
 def main():
     today = datetime.now().strftime("%Y-%m-%d")
     rate = get_exchange_rate()
-    
+
     print(f"🔄 Generating Porsche 993 Digest for {today}...")
-    
-    # Archive current digest
-    archive_current_digest()
-    
+
     # Fetch fresh data
     print("📰 Fetching Porsche news...")
     articles = fetch_porsche_news()
-    
+
     print("🏷️ Fetching auction listings...")
     auctions = fetch_auction_listings()
-    
+
     print("💰 Fetching market valuation data...")
     valuation = get_market_valuation()
-    
+
     # Generate HTML
     print("📄 Generating HTML...")
     html = generate_html_template(today, articles, auctions, valuation, rate)
-    
+
     # Write to index.html
     index_path = REPO_DIR / "index.html"
     with open(index_path, 'w', encoding='utf-8') as f:
         f.write(html)
-    
+
     print(f"✅ Digest updated: {index_path}")
-    
-    # Generate Telegram message
-    print("📱 Generating Telegram message...")
-    telegram_msg = generate_telegram_message(today, articles, auctions, valuation, rate)
-    
-    # Try to send via Telegram if configured
-    send_telegram = True
-    try:
-        send_telegram_message(telegram_msg)
-    except Exception as e:
-        print(f"⚠️ Telegram send skipped: {e}")
-        print("\n📝 Telegram message preview:")
-        print(telegram_msg)
-    
+
     # Deploy
     print("🚀 Deploying...")
     success = deploy()
-    
+
     return success
+
 
 if __name__ == "__main__":
     success = main()

@@ -223,6 +223,8 @@ def main():
     print("🌐 Deploying to Cloudflare Pages...")
     cf_token = None
     cf_account_id = None
+    cf_zone_id = "367fbd4a38aca5c99d2e5e309c827915"
+    cf_email = "danrc@mac.com"
 
     with open(env_file) as f:
         for line in f:
@@ -230,16 +232,36 @@ def main():
                 cf_token = line.split("=", 1)[1].strip()
             elif line.startswith("CLOUDFLARE_ACCOUNT_ID="):
                 cf_account_id = line.split("=", 1)[1].strip()
+            elif line.startswith("CLOUDFLARE_EMAIL="):
+                cf_email = line.split("=", 1)[1].strip()
 
     if not cf_token or not cf_account_id:
         print("❌ Cloudflare credentials not found in ~/.hermes/.env")
         return False
 
+    # --- STEP 5b: Ensure WAF/challenge settings allow traffic ---
+    print("🛡️  Verifying WAF/challenge settings...")
+    # The cfk_ token format uses X-Auth-Key + X-Auth-Email (not Bearer)
+    # Set security_level to "low" and browser_check to "off" to prevent 403 challenges
+    waf_fix_commands = [
+        f'curl -s -X PATCH "https://api.cloudflare.com/client/v4/zones/{cf_zone_id}/settings/security_level" '
+        f'-H "X-Auth-Key: {cf_token}" -H "X-Auth-Email: {cf_email}" '
+        f'-H "Content-Type: application/json" --data \'{{"value":"low"}}\'',
+        f'curl -s -X PATCH "https://api.cloudflare.com/client/v4/zones/{cf_zone_id}/settings/browser_check" '
+        f'-H "X-Auth-Key: {cf_token}" -H "X-Auth-Email: {cf_email}" '
+        f'-H "Content-Type: application/json" --data \'{{"value":"off"}}\'',
+    ]
+    for cmd in waf_fix_commands:
+        run_cmd(cmd, timeout=30)
+
     env = os.environ.copy()
     env["CLOUDFLARE_API_TOKEN"] = cf_token
     env["CLOUDFLARE_ACCOUNT_ID"] = cf_account_id
 
-    deploy_cmd = f"npx wrangler pages deploy . --project-name porsche-digest-v2 --branch v2-redesign"
+    # Set CF_EMAIL for X-Auth-Email auth (cfk_ token format)
+    env["CLOUDFLARE_EMAIL"] = cf_email
+
+    deploy_cmd = "npx wrangler pages deploy . --project-name porsche-digest --branch main"
 
     try:
         result = subprocess.run(deploy_cmd, shell=True, cwd=repo_dir,

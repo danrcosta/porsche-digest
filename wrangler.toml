@@ -1,0 +1,8 @@
+name = "porsche-digest-proxy"
+main = "proxy-worker.js"
+account_id = "0a68341689fffbae0284be2321350415"
+compatibility_date = "2026-08-23"
+
+[[routes]]
+pattern = "digest.costafamily.ai/*"
+zone_id = "367fbd4a38aca5c99d2e5e309c827915"

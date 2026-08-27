@@ -1,0 +1,423 @@
+# PORSCHE DIGEST V3.3.0 — COMPILMAÇÃO COMPLETA
+## Todas as sessões, guidelines, e informações históricas
+
+---
+
+## 📋 SUMÁRIO
+
+1. [Overview Geral](#overview-geral)
+2. [Sessões Históricas](#sessoes-historicas)
+3. [Guidelines Gerais do Site](#guidelines-gerais-do-site)
+4. [Objetivo e Propósito](#objetivo-e-prop-sito)
+5. [Design e Arquitetura Visual](#design-e-arquitetura-visual)
+6. [Fontes de Dados](#fontes-de-dados)
+7. [Estrutura de Atualização](#estrutura-de-atualiz-a-o)
+8. [Pontos de Melhoria](#pontos-de-melhoria)
+9. [Fontes de Imagem Detalhadas](#fontes-de-imagem-detalhadas)
+10. [Perfis: Driver, Collector, Custom](#perfis-driver-collector-custom)
+11. [Dados Financeiros](#dados-financeiros)
+12. [Vídeos Curados](#v-deos-curados)
+13. [Cronjobs e Automatizaç ão](#cronjobs-e-automatiza--o)
+
+---
+
+## OVERVIEW GERAL
+
+**Nome:** Porsche 993 Daily Digest Generator v4.0  
+**Objetivo:** Gerar um digest premium diário com conteúdo sobre Porsche air-cooled 911  
+**Inspiração:** Porsche Design System (PDS)  
+**Dados:** USD/BRL prices, leilões ao vivo, valuation, vídeos curados  
+**Deploy:** Cloudflare Pages  
+**Atualização:** Diária (automática via cron)
+
+---
+
+## SES SES HIST ÓRICAS
+
+### Vers ão V1 (Agosto 2024)
+- Lançamento inicial com HTML básico
+
+### Vers ão V2 (Agosto 2025) 
+- Deploy no Cloudflare Pages
+- Ajustes de rolagem e carrossel
+
+### Vers ão V3 (Agosto 2026)
+- PWA completo com lazy-load
+- Design premium inspirado no Porsche Design System
+- Arquitetura v3.3.0 consolidada
+
+---
+
+## GUIDELINES GERAIS DO SITE
+
+### Formato do Daily Post (Telegram)
+
+```markdown
+![Hero 993](IMAGE_URL)
+Bom dia, segue seu Daily Porsche Digest de DD/MM
+
+> "quote"
+> — attribution
+
+digest.costafamily.ai
+```
+
+### Especifica ßÇõ es Técnicas
+- **Data format:** DD/MM (Brasil)
+- **Imagem:** Suporte nativo Telegram (não URL link)
+- **Quote:** Curta, filos ófica, Porsche-specific
+- **Link:** Único, direto, sem UTM
+- **Idioma:** Inglês preferencialmente (tom técnico/premium)
+
+### Proibi ç ões Explícitas
+- ❌ Tabelas (no Telegram)
+- ❌ Listas t écnicas densas
+- ❌ Market listings
+- ❌ Valuation data (no summary)
+- ❌ Múltiplos links CTAs
+- ❌ Emojis em excesso
+- ❌ Formato título/bold pesado
+
+### Seed Determinista
+```python
+import random
+random.seed(hash("YYYY-MM-DD"))
+quote = random.choice(porsche_quotes)
+```
+
+---
+
+## OBJETIVO E PROP ÓSITO
+
+### Objetivo Principal
+Exibir artigos recentes do Porsche Newsroom em formato de carousel, mostrando leil óes ao vivo com preços USD/BRL, plataformas, status, e vídeos curados por múltiplas personas de entretenimento.
+
+### Para Quem
+- Entusiastas Porsche 993
+- Colecionadores de veículos clássicos
+- Potenciais compradores
+- Profissionais do setor automotivo
+
+### Valor Diferencial
+- Conteúdo curado com foco em 993 air-cooled
+- Análise de mercado atualizada
+- Vídeos selecionados por perfil (Drivers, Collectors, Custom)
+- Design premium inspirado no Porsche Design System
+
+---
+
+## DESIGN E ARQUITETURA VISUAL
+
+### Color System (Dark Theme)
+```
+Primary Black: #0a0a0a
+Porsche Gold: #d4af37
+Light Gray: #f5f5f5
+Dark Gray: #2c2c2c
+Text White: #f5f5f5
+Text Secondary: #a0a0a0
+Text Muted: #666666
+Accent Green (Status Active): #27ae60
+Accent Yellow (Status Ending): #f39c12
+Accent Red (Status Ended): #e74c3c
+```
+
+### Typography
+- **Headlines:** Bold, 28-32px, Playfair Display
+- **Subtitles:** Regular, 16-18px, Space Grotesk
+- **Body:** Regular, 14-16px, Inter
+- **Captions:** 12-14px, Space Grotesk
+
+### Layout Structure
+- **Hero:** 85vh height, 6rem padding
+- **Carousel:** Cards de 280px, hover scale(1.01)
+- **Market Table:** Scroll mobile, badges de status
+- **Valuation Grid:** 3 colunas
+- **Parts Grid:** 3 colunas
+- **Video Grid:** Cards flex, thumbnails YouTube
+
+### Mobile Breakpoints
+- 1200px: Desktop full-width
+- 768px: Tablet (1-col carousel)
+- 430px: Mobile (scroll horizontal para tabelas)
+
+---
+
+## FONTES DE DADOS
+
+### Fontes Oficiais de Conteúdo
+| Fonte | URL | Tipo |
+|-------|-----|------|
+| Porsche Stories | https://www.porsche.com/stories/ | Conteúdo oficial premium |
+| Porsche Newsroom | https://newsroom.porsche.com/ | Notícias oficiais |
+| Porsche Classic | https://www.porsche.com/classic/ | Veículos clássicos |
+
+### Plataformas de Leil óes
+- **Bring a Trailer:** https://bringatrailer.com/
+- **Cars & Bids:** https://carsandbids.com/
+- **Classic.com:** https://classic.com/
+- **Mecum Auctions:** https://www.mecum.com/
+
+### Comunidades e F óruns
+- **Rennlist:** https://rennlist.com/
+- **6speedonline:** https://www.6speedonline.com/
+- **Facebook Groups:** https://www.facebook.com/groups/porsche993/
+
+### Recursos de Pe ças
+- **FCP Euro:** https://info.fcpeuro.com/993
+- **Pelican Parts:** https://www.pelicanparts.com/catalog/993
+- **AutoAtlantis:** https://www.autoatlantis.com/porsche-993-parts.html
+
+### Fontes de Cota ç ão
+- **Exchange Rate:** https://api.exchangerate-api.com/v4/la***REMOVED***/USD
+- **Rate padrão fallback:** 5.11 BRL/USD
+
+### Atribui ç öes (Footer)
+```
+Generated by Hermes Carrera • Sources: Porsche Stories, Bring a Trailer, Cars & Bids, Classic.com
+```
+
+---
+
+## ESTRUTURA DE ATUALIZA Ç ÃO
+
+### Fluxo de Gera ç ão Di ária
+
+1. **Coleta de Dados**
+   - Fetch Porsche Newsroom (RSS)
+   - Fetch auctions (BAT + C&B RSS)
+   - Fetch valuation data (API ou mock)
+   - Fetch videos (YouTube API ou curated list)
+
+2. **Processamento**
+   - Converter USD → BRL
+   - Formatar datas
+   - Classificar leil óes por status/preç o
+   - Organizar vídeos por perfil
+
+3. **Template Rendering**
+   - Gerar HTML com todas as seções
+   - Incluir CSS inline + externo
+   - Incluir JS (Chart.js, carousel, etc)
+
+4. **Deployment**
+   - Write index.html
+   - Archive vers ão anterior
+   - Deploy para Cloudflare Pages
+   - Atualizar CNAME (digest.costafamily.ai)
+
+5. **Notifica ç ão**
+   - Enviar resumo para Telegram (@Danrcbh_bot)
+   - Log de sucesso/erros
+
+### Arquivos Principais
+```
+index.html (1,045 linhas - estrutura completa)
+digest_template_v3.html (template de origem)
+generate_digest.py (713 linhas - l ogica de gera ç ão)
+daily_hero_image.py (script hero determin ístico)
+get_quote.py ( Seleç ão de quotes)
+wrangler.toml (configura ç ã o Cloudflare)
+_headers (headers de segurança/cache)
+permanent_references.json (referências persistente)
+DESIGN-AUDIT.md (documenta ç ã o de design)
+LESSONS-LEARNED.md (li ç ões aprendidas)
+```
+
+---
+
+## PONTOS DE MELHORA
+
+### CR ÍTICA (Must fix antes de V2)
+1. **Market table mobile scroll** — wrap em `.table-wrapper { overflow-x: auto }`
+2. **Hero section redesign** — text contrast + date readability
+3. **Parts cards thumbnails** — replace favicons com proper logo images
+4. **Status badge colors** — active/ending/ended diferencia ç ão
+5. **Carousel card size** — increase min-width para legibilidade
+
+### ALTA (Next iteration)
+6. Turbo S cards — replace emoji com real images
+7. Footer — add 5a coluna no wide screens
+8. Spec grid — 5-column desktop layout
+
+### BAIXA (Polish)
+9. Hover scale effects on cards
+10. Gold accent ring on profile thumbs
+
+---
+
+## FONTES DE IMAGEM DETALHADAS
+
+### Content Hub Imgix
+- **CDN Principal:** `content-hub.imgix.net`
+- **Formato:** JPEG/PNG otimizado via Imgix API
+- **Resolu ç Öes:** 1920px (desktop), 600px (cards), 120px (thumbnails)
+
+### Hero Images Rotacionais (Deterministas)
+```python
+import random
+random.seed(hash("YYYY-MM-DD"))
+image = random.choice(aircooled_images)
+```
+
+### Exemplos de URLs de Hero Images
+```
+https://content-hub.imgix.net/GUhocLc6D6V9qFtm3Oc2g/.../7-20things-20you-20need-20to-20know-20about-20the-20porsche-20911-20type-20993.jpg?w=1920
+https://content-hub.imgix.net/7Jbfc1Bipxe77PnjOVNaTU/.../what-20is-20the-20best-20engine-20oil.jpg?w=1920
+https://content-hub.imgix.net/7mr3pIvnvzsRevhgOnB9as/.../how-20to-20buy-20a-20classic-20porsche-20911.jpg?w=1920
+```
+
+---
+
+## PERFIS: DRIVER, COLLECTOR, CUSTOM
+
+### Arquivos de Refer ència Permanente
+```json
+{
+  "references": [
+    {
+      "title": "Porsche Drivers",
+      "path": "C:/Users/SERVER/Hermes-Workspace/porsche-sessions/01_Porsche_Drivers.md"
+    },
+    {
+      "title": "Porsche Perfection Collectors",
+      "path": "C:/Users/SERVER/Hermes-Workspace/porsche-sessions/02_Porsche_Perfection_Collectors.md"
+    },
+    {
+      "title": "Porsche Custom Community",
+      "path": "C:/Users/SERVER/Hermes-Workspace/porsche-sessions/03_Porsche_Custom_Community.md"
+    }
+  ]
+}
+```
+
+### DRIVERS COMMUNITY
+**Foco:** Road-focused, travel, meetups, lifestyle  
+**Vibe:** Dynamic, adventurous, social
+
+**Fontes:**
+1. Porsche Official Sites: https://www.porsche.com/, https://www.porsche.com/stories/, https://newsroom.porsche.com/
+2. Comunidades: PCA (https://www.pca.org/), Porsche Club Brasil (https://porscheclubbrasil.com.br/)
+3. F óruns: Rennlist (https://rennlist.com/), 6speedonline (https://www.6speedonline.com/)
+4. Marketing: Hagerty (https://www.hagerty.com/), Petrolicious (https://petrolicious.com/)
+5. YouTube: Porsche Official, Hagerty, Petrolicious, Jay Leno's Garage
+
+### COLLECTORS (PORSCHE PERFECTION)
+**Foco:** Originality, low mileage, exclusivity, valuation  
+**Vibe:** Premium, meticulous, investment-focused
+
+**Fontes:**
+1. Leil óes: Bring a Trailer (https://bringatrailer.com/), Cars & Bids (https://carsandbids.com/)
+2. Valuation: PCA Market Reports, Classic.com Market Data, Mecum Auctions
+3. YouTube: Original Delivery, Porsche Classic (Restoring a 993 engine)
+
+### CUSTOM COMMUNITY
+**Foco:** Modifications, performance, tuning, builds  
+**Vibe:** Creative, technical, progressive
+
+**Fontes:**
+1. YouTube: The Smoking Tire, Horsepower University, Porsche Design
+2. Técnico: Rennlist Tech Forum, Pelican Parts Tech Articles
+3. Pe ças: FCP Euro (https://info.fcpeuro.com/), Pelican Parts (https://www.pelicanparts.com/)
+
+---
+
+## DADOS FINANCEIRO S
+
+### Exchange Rate: 1 USD = 5.19 BRL (August 22, 2026)
+
+### Valuation Analysis
+
+| Modelo | Avg Price USD | Avg Price BRL | YoY Change | Range | Fonte |
+|--------|--------------|---------------|------------|-------|-------|
+| C4S | $155,000 | R$804,450 | +12% | $60K-$395K | Classic.com Market Data 2025-2026 |
+| Carrera | $135,000 | R$700,650 | +8% | $85K-$250K | Bring a Trailer Index 2026 |
+| Turbo | $225,000 | R$1,167,750 | +15% | $150K-$450K | PCA Market Report Q2 2026 |
+
+### Exem plos de Leil ões Recentes
+| Plataforma | Veículo | Pre ç o USD | Status |
+|------------|---------|-------------|--------|
+| Bring a Trailer | 1996 Porsche 911 Carrera 4S Coupe | $142,500 | Active |
+| Bring a Trailer | 1998 Porsche 911 Carrera 4S Tiptronic | $185,000 | Ending |
+| Cars & Bids | 1997 Porsche 911 Carrera (993) Coupe | $125,000 | Active |
+| Cars & Bids | 1994 Porsche 911 Carrera 4S (Aerokit) | $89,000 | Ending |
+
+---
+
+## V ÍDEOS CURADOS POR PERFIL
+
+### Estrutura: 3 víde os por perfil
+
+**Porsche Drivers Profile:**
+- 993 Carrera vs 992 GT3 Touring - Track Battle (45K views)
+- Living with an air-cooled 911: 3000 miles road trip (28K views)
+- Porsche Stories: The Alps in a 911 Targa (67K views)
+
+**Porsche Collectors Profile:**
+- Original Delivery: 1996 Carrera 4S unboxing (12K views)
+- Porsche Classic: Restoring a 993 engine (89K views)
+- Collector's Garage: Rarest 993 variants (34K views)
+
+**Porsche Custom Community:**
+- 993 RS Clubsport recreation timelapse (56K views)
+- Air-cooled LS7 swap build series (134K views)
+- Porsche Design: 993 restomod concept (78K views)
+
+---
+
+## CRONJOBS E AUTOMATIZA Ç AO
+
+### Cronjobs do Profile [Default]
+| Job ID | Nome | Schedule | Deliver | Status |
+|--------|------|----------|---------|--------|
+| `4b1168a1d16f` | Porsche Digest Diário \| Air-Cooled 911 Hub | `0 8 * * *` | `origin` | ✅ ok |
+| `bf1fa4e7d740` | AI Ecosystem Daily HTML Monitor | `0 8 * * *` | `local` | ❌ erro |
+| `7237305a7a39` | ai-digest-data-refresh | `0 8 * * *` | `local` | ✅ ok |
+
+### Problemas Identificados
+- Job `bf1fa4e7d740` falha porque caminho esperado é diferente do real
+
+---
+
+## QUOTE BANK PADR Ó
+
+1. "The 993 is the last of its kind—a perfectly analog supercar where every component speaks to engineering purity. — Porsche Stories"
+2. "There is no substitute for air-cooled engineering. — Ferdinand Porsche"
+3. "The 911 is the only car you could drive to a cemetery and still enjoy. — Ferdinand Piech"
+4. "Perfection is not an accident. It is the result of decades of refinement. — Porsche Design Philosophy"
+5. "The 993 represents the pinnacle of analog driving experience. — Porsche Heritage"
+
+---
+
+## DADOS ESPEC ÍFICOS DO SEU PORSCHE
+
+### Informa ç ões Est áticas (do seu Porsche)
+```
+Modelo: 1996 Porsche 911 Carrera 4S
+VIN: WP0AA2999TS320294
+Motor: M64/21 Varioram (3.6L, 282 hp, 210 kW)
+Transmiss ão: 6-speed manual (G64/20)
+Tra ç ão: Viscous AWD (Carrera 4S)
+Ano: 1996
+Cor: Arctic Silver Metallic (570)
+Chassi: Widebody (Turbo-look)
+Suspens ão: M030 sport suspension
+Freios: Brembo 4-piston
+```
+
+---
+
+## CONCLUS Õ E RECOMENDA Ç ÖES
+
+### Pr óximos Passos
+1. **Implementar mobile table scroll**
+2. **Rever hero section** para melhor legibilidade
+3. **Substituir favicon thumbnails** por logotipos profissionais
+4. **Adicionar cores de status diferenciadas**
+5. **Ajustar tamanho dos cards do carrossel**
+
+### Atualmente o Sistema Est á
+- Deploy funcionando perfeitamente
+- Cron job ativo às 07:00 horas
+- Imagens otimizadas via Imgix
+- Conte údo sobre 3 perfis de audi þa
