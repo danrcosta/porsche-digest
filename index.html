@@ -3,1105 +3,658 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Porsche 993 Daily Digest | August 27, 2026</title>
-    <meta name="description" content="Daily Porsche 993 Carrera 4S intelligence brief by Hermes Carrera">
+    <title>Porsche Digest V7 - Premium 993 Intelligence</title>
+    <meta name="description" content="Premium daily digest for Porsche 993 air-cooled enthusiasts. Market data, owner insights, and community content.">
     <meta name="theme-color" content="#0a0a0a">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- PWA Support -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        /* ===== LOOP 1: CSS Variables & Reset ===== */
-        :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #111111;
-            --bg-card: #161616;
-            --bg-elevated: #1a1a1a;
-            --text-primary: #f5f5f5;
-            --text-secondary: #a0a0a0;
-            --text-muted: #666666;
-            --gold: #d4af37;
-            --gold-light: #e6c77d;
-            --gold-dark: #b8962e;
-            --accent-red: #c41e3a;
-            --accent-blue: #3b82f6;
-            --border: rgba(255,255,255,0.08);
-            --border-gold: rgba(212,175,55,0.3);
-            --shadow: 0 4px 24px rgba(0,0,0,0.4);
-            --shadow-gold: 0 4px 24px rgba(212,175,55,0.1);
-            --font-sans: 'Inter', system-ui, sans-serif;
-            --font-display: 'Playfair Display', Georgia, serif;
-            --font-grotesk: 'Space Grotesk', sans-serif;
-            --radius: 12px;
-            --radius-lg: 20px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        html { scroll-behavior: smooth; }
-        
-        body {
-            font-family: var(--font-sans);
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
-
-        /* ===== LOOP 2: Hero Section ===== */
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
-        }
-
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at 50% 0%, rgba(212,175,55,0.08) 0%, transparent 60%),
-                        radial-gradient(ellipse at 80% 100%, rgba(196,30,58,0.05) 0%, transparent 50%);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 2rem;
-            max-width: 900px;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(212,175,55,0.1);
-            border: 1px solid var(--border-gold);
-            padding: 0.5rem 1.25rem;
-            border-radius: 999px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 2rem;
-        }
-
-        .hero-date {
-            font-family: var(--font-display);
-            font-size: clamp(4rem, 12vw, 8rem);
-            font-weight: 700;
-            line-height: 0.9;
-            letter-spacing: -0.04em;
-            background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.7) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero-subtitle {
-            font-family: var(--font-grotesk);
-            font-size: 1.25rem;
-            font-weight: 300;
-            color: var(--text-secondary);
-            letter-spacing: 0.05em;
-            margin-bottom: 2rem;
-        }
-
-        .hero-quote {
-            font-family: var(--font-display);
-            font-style: italic;
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            line-height: 1.5;
-        }
-
-        .hero-quote::before {
-            content: '"';
-            font-size: 4rem;
-            color: var(--gold);
-            opacity: 0.3;
-            display: block;
-            line-height: 0.5;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero-image-container {
-            position: relative;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-        }
-
-        .hero-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.6s ease;
-        }
-
-        .hero-image:hover { transform: scale(1.02); }
-
-        .hero-image-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1.5rem;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-        }
-
-        .hero-image-title {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .hero-image-source {
-            font-size: 0.75rem;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* ===== LOOP 3: Typography & Sections ===== */
-        .section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 3rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .section-title {
-            font-family: var(--font-grotesk);
-            font-size: 1.75rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .section-title-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-        }
-
-        .section-link {
-            font-size: 0.875rem;
-            color: var(--gold);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .section-link:hover { color: var(--gold-light); }
-
-        /* ===== LOOP 4: News Carousel ===== */
-        .carousel-container { position: relative; }
-        
-        .carousel {
-            display: flex;
-            gap: 1.5rem;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            padding: 0.5rem 0;
-        }
-        
-        .carousel::-webkit-scrollbar { display: none; }
-        
-        .carousel-card {
-            flex: 0 0 320px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            overflow: hidden;
-            scroll-snap-align: start;
-            transition: var(--transition);
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .carousel-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--border-gold);
-            box-shadow: var(--shadow-gold);
-        }
-
-        .carousel-image {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .carousel-content { padding: 1.25rem; }
-
-        .carousel-meta {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.75rem;
-        }
-
-        .carousel-title {
-            font-family: var(--font-grotesk);
-            font-size: 1rem;
-            font-weight: 500;
-            line-height: 1.4;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-        }
-
-        .carousel-desc {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-            margin-bottom: 1rem;
-        }
-
-        .carousel-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--gold);
-            transition: var(--transition);
-        }
-
-        .carousel-link:hover { gap: 0.75rem; }
-
-        /* ===== LOOP 5: Market Table ===== */
-        .market-table-wrap {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            overflow: hidden;
-        }
-
-        .market-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .market-table thead {
-            background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg-card) 100%);
-        }
-
-        .market-table th {
-            padding: 1rem 1.5rem;
-            text-align: left;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--gold);
-            border-bottom: 1px solid var(--border-gold);
-        }
-
-        .market-table td {
-            padding: 1rem 1.5rem;
-            border-bottom: 1px solid var(--border);
-            font-size: 0.875rem;
-        }
-
-        .market-table tr:last-child td { border-bottom: none; }
-        .market-table tr:hover td { background: rgba(255,255,255,0.02); }
-
-        .platform-cell {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .platform-logo {
-            width: 24px;
-            height: 24px;
-            border-radius: 4px;
-            background: var(--bg-elevated);
-        }
-
-        .vehicle-cell {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .vehicle-thumb {
-            width: 60px;
-            height: 40px;
-            object-fit: cover;
-            border-radius: 4px;
-            border: 1px solid var(--border);
-        }
-
-        .price-usd { font-weight: 600; color: var(--text-primary); }
-        .price-brl { font-size: 0.75rem; color: var(--text-muted); }
-
-        .status-badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 999px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .status-active { background: rgba(46,204,113,0.15); color: #2ecc71; }
-        .status-ending { background: rgba(231,76,60,0.15); color: #e74c3c; }
-        .status-ended { background: rgba(149,152,159,0.15); color: #95a5a6; }
-
-        /* ===== LOOP 6: Valuation Cards ===== */
-        .valuation-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .valuation-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 2rem;
-            transition: var(--transition);
-        }
-
-        .valuation-card:hover {
-            border-color: var(--border-gold);
-            box-shadow: var(--shadow-gold);
-        }
-
-        .valuation-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .valuation-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-        }
-
-        .valuation-title {
-            font-family: var(--font-grotesk);
-            font-size: 1.25rem;
-            font-weight: 500;
-        }
-
-        .valuation-trend {
-            margin-left: auto;
-            font-size: 1rem;
-            font-weight: 700;
-            color: #2ecc71;
-        }
-
-        .valuation-price {
-            font-family: var(--font-display);
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .valuation-range {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
-
-        .range-bar {
-            height: 6px;
-            background: var(--bg-elevated);
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .range-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
-            border-radius: 3px;
-            transition: width 1s ease;
-        }
-
-        /* ===== LOOP 7: Profile Cards ===== */
-        .profiles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .profile-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 2rem;
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-
-        .profile-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--border-gold);
-            box-shadow: var(--shadow-gold);
-        }
-
-        .profile-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-        }
-
-        .profile-tag {
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 0.25rem 0.75rem;
-            background: rgba(212,175,55,0.1);
-            border: 1px solid var(--border-gold);
-            border-radius: 999px;
-            color: var(--gold);
-        }
-
-        .profile-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--bg-elevated);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.75rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .profile-title {
-            font-family: var(--font-grotesk);
-            font-size: 1.25rem;
-            font-weight: 500;
-            margin-bottom: 0.75rem;
-        }
-
-        .profile-desc {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* ===== LOOP 8: Video Section ===== */
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .video-card {
-            display: flex;
-            gap: 1rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1rem;
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-
-        .video-card:hover {
-            border-color: var(--border-gold);
-            transform: translateX(4px);
-        }
-
-        .video-thumbnail {
-            position: relative;
-            flex-shrink: 0;
-            width: 120px;
-            height: 90px;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .video-thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .video-duration {
-            position: absolute;
-            bottom: 4px;
-            right: 4px;
-            background: rgba(0,0,0,0.8);
-            color: white;
-            font-size: 0.65rem;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-
-        .video-content { display: flex; flex-direction: column; justify-content: center; }
-        .video-title { font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem; line-height: 1.3; }
-        .video-meta { font-size: 0.75rem; color: var(--text-muted); }
-
-        /* ===== LOOP 9: Footer ===== */
-        footer {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border);
-            padding: 4rem 2rem;
-            margin-top: 4rem;
-        }
-
-        .footer-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-        }
-
-        .footer-col h4 {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--gold);
-            margin-bottom: 1rem;
-        }
-
-        .footer-col ul { list-style: none; }
-        .footer-col li { margin-bottom: 0.5rem; }
-        .footer-col a {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        .footer-col a:hover { color: var(--gold); }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 3rem auto 0;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        /* ===== LOOP 10: Animations & Polish ===== */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate-in {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg-primary); }
-        ::-webkit-scrollbar-thumb { background: var(--bg-elevated); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--gold-dark); }
-
-        /* Selection */
-        ::selection { background: rgba(212,175,55,0.3); color: var(--text-primary); }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .section { padding: 3rem 1.5rem; }
-            .hero-date { font-size: 3.5rem; }
-            .carousel-card { flex: 0 0 280px; }
-            .profiles-grid, .valuation-grid { grid-template-columns: 1fr; }
-            .market-table { font-size: 0.75rem; }
-            .market-table th, .market-table td { padding: 0.75rem 1rem; }
-        }
-
-        @media (max-width: 480px) {
-            .hero { min-height: 90vh; }
-            .hero-date { font-size: 2.5rem; }
-            .hero-subtitle { font-size: 1rem; }
-            .section-title { font-size: 1.25rem; }
-            .carousel-card { flex: 0 0 240px; }
-        }
-    </style>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles-v7.css">
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <!-- Preload critical data -->
+    <link rel="preload" href="/data/digest.json" as="fetch" crossorigin="anonymous">
 </head>
-<body>
+<body class="dark-theme">
+    <!-- Skip Link -->
+    <a href="#main" class="skip-link">Skip to content</a>
+    
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo">
+                <div class="logo-icon">🏁</div>
+                <div class="logo-text">
+                    <span class="logo-main">PORSCHE</span>
+                    <span class="logo-sub">Digest V7</span>
+                </div>
+            </div>
+            
+            <nav class="main-nav" id="mainNav">
+                <ul class="nav-list">
+                    <li><a href="#news" class="nav-link active">News</a></li>
+                    <li><a href="#market" class="nav-link">Market</a></li>
+                    <li><a href="#specs" class="nav-link">Specs</a></li>
+                    <li><a href="#drivers" class="nav-link">Drivers</a></li>
+                    <li><a href="#collectors" class="nav-link">Collectors</a></li>
+                    <li><a href="#customizers" class="nav-link">Customizers</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="theme-icon">🌓</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="main">
         <div class="hero-bg"></div>
-        <div class="hero-content animate-in">
-            <div class="hero-badge">
-                <span>🏁</span>
-                <span>M64/21 Varioram • 993 Carrera 4S</span>
+        <div class="container hero-content">
+            <div class="hero-date">
+                <time datetime="2026-08-23">📅 August 23, 2026</time>
+                <span class="hero-badge">Daily Edition</span>
             </div>
-            <h1 class="hero-date">27 <span style="font-size: 0.5em; color: var(--text-secondary);">August 2026</span></h1>
-            <p class="hero-subtitle">Thursday • Daily Intelligence Brief</p>
-            <p class="hero-quote">The 993 represents the pinnacle of analog driving experience. — Porsche Heritage</p>
-            <div class="hero-image-container">
-                <img src="https://content-hub.imgix.net/7mr3pIvnvzsRevhgOnB9as/2648ab4764cddc6dfba2a2ee7ba0b485/how-20to-20buy-20a-20classic-20porsche-20911.jpg?w=1920" alt="How to guide to buying a classic Porsche 911" class="hero-image" loading="eager">
-                <div class="hero-image-overlay">
-                    <div class="hero-image-title">How to guide to buying a classic Porsche 911</div>
-                    <div class="hero-image-source">911 (964) • Porsche Stories</div>
-                </div>
+            <h1 class="hero-title">Daily Porsche 993 <br>Intelligence Brief</h1>
+            <p class="hero-subtitle">Air-cooled performance insights • Market trends • Community wisdom</p>
+            <div class="hero-specs">
+                <span class="spec-badge">🏁 M64/21 Varioram</span>
+                <span class="spec-badge">⚡ 282 HP</span>
+                <span class="spec-badge">🔄 6-Speed Manual</span>
+                <span class="spec-badge">🔘 AWD Carrera 4S</span>
             </div>
         </div>
     </section>
 
-    <!-- News Section -->
-    <section class="section">
-        <div class="section-header">
-            <h2 class="section-title">
-                <span class="section-title-icon">📰</span>
-                Porsche Newsroom & Classic
-            </h2>
-            <a href="https://www.porsche.com/stories/" target="_blank" class="section-link">View all →</a>
-        </div>
-        <div class="carousel-container">
-            <div class="carousel">
+    <!-- Main Content -->
+    <main>
+        <!-- News Section -->
+        <section id="news" class="section section--dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-icon">📰</span>
+                        Porsche Newsroom & Stories
+                    </h2>
+                    <a href="https://www.porsche.com/stories/" target="_blank" class="section-link">View all →</a>
+                </div>
                 
-                <a href="https://www.porsche.com/stories/mobility/7-things-you-need-to-know-about-the-porsche-911-type-993/" target="_blank" class="carousel-card">
-                    <img src="https://content-hub.imgix.net/GUhocLc6D6V9qFtm3Oc2g/19e093064c8a22f6214f16a85469aac2/7-20things-20you-20need-20to-20know-20about-20the-20porsche-20911-20type-20993.jpg?w=600" alt="What is the Porsche 911 (type 993)?" class="carousel-image" loading="lazy">
-                    <div class="carousel-content">
-                        <div class="carousel-meta">0 days ago • Porsche Stories</div>
-                        <h3 class="carousel-title">What is the Porsche 911 (type 993)?</h3>
-                        <p class="carousel-desc">Find out about the Porsche 911 that was the last to feature an air-cooled engine and the first to introduce innovations that we take for granted today...</p>
-                        <span class="carousel-link">Read more →</span>
-                    </div>
-                </a>
-                <a href="https://www.porsche.com/stories/innovation/what-is-the-best-engine-oil/" target="_blank" class="carousel-card">
-                    <img src="https://content-hub.imgix.net/7Jbfc1Bipxe77PnjOVNaTU/894ac12e105ead6a7df681de4aec5f8d/what-20is-20the-20best-20engine-20oil.jpg?w=600" alt="What’s the best engine oil for my classic Porsche?" class="carousel-image" loading="lazy">
-                    <div class="carousel-content">
-                        <div class="carousel-meta">3 days ago • Porsche Stories</div>
-                        <h3 class="carousel-title">What’s the best engine oil for my classic Porsche?</h3>
-                        <p class="carousel-desc">Choosing the right engine oil for your classic Porsche is an important part of its maintenance...</p>
-                        <span class="carousel-link">Read more →</span>
-                    </div>
-                </a>
-                <a href="https://www.porsche.com/stories/mobility/how-to-buy-a-classic-porsche-911/" target="_blank" class="carousel-card">
-                    <img src="https://content-hub.imgix.net/7mr3pIvnvzsRevhgOnB9as/2648ab4764cddc6dfba2a2ee7ba0b485/how-20to-20buy-20a-20classic-20porsche-20911.jpg?w=600" alt="How to guide to buying a classic Porsche 911" class="carousel-image" loading="lazy">
-                    <div class="carousel-content">
-                        <div class="carousel-meta">6 days ago • Porsche Stories</div>
-                        <h3 class="carousel-title">How to guide to buying a classic Porsche 911</h3>
-                        <p class="carousel-desc">Car photographer Calvin Courjon with advice on how he became a Porsche 911 owner...</p>
-                        <span class="carousel-link">Read more →</span>
-                    </div>
-                </a>
-                <a href="https://www.porsche.com/stories/dreams/how-to-restore-a-classic-porsche-911/" target="_blank" class="carousel-card">
-                    <img src="https://content-hub.imgix.net/6IMxyLGiYiQ1wYuq2QurPH/7ed8ca2863e062eadb76ab0b39699fe2/Man_leaning_on_cream_coloured_1987_Porsche_911_outside_French_stone_built_restaurant_desktop.jpg?w=600" alt="How to restore a classic Porsche 911" class="carousel-image" loading="lazy">
-                    <div class="carousel-content">
-                        <div class="carousel-meta">9 days ago • Porsche Stories</div>
-                        <h3 class="carousel-title">How to restore a classic Porsche 911</h3>
-                        <p class="carousel-desc">Why driving a classic 911 every day is important – French content creator, Nicolas Plasmondon, on how he restored his 1987 Porsche 911...</p>
-                        <span class="carousel-link">Read more →</span>
-                    </div>
-                </a>
-                <a href="https://www.porsche.com/stories/culture/caring-for-a-classic-porsche-car/" target="_blank" class="carousel-card">
-                    <img src="https://content-hub.imgix.net/5XULZPo2xgje1z7MXMnYPM/270b38028ff30fec2ec663d61613a534/caring-20for-20a-20classic-20porsche-20car-20originale.jpg?w=600" alt="How to look after a classic Porsche" class="carousel-image" loading="lazy">
-                    <div class="carousel-content">
-                        <div class="carousel-meta">12 days ago • Porsche Stories</div>
-                        <h3 class="carousel-title">How to look after a classic Porsche</h3>
-                        <p class="carousel-desc">Why it’s important to use Porsche Classic products and technicians to care for a classic Porsche...</p>
-                        <span class="carousel-link">Read more →</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Market Section -->
-    <section class="section">
-        <div class="section-header">
-            <h2 class="section-title">
-                <span class="section-title-icon">📈</span>
-                Market & Auctions
-            </h2>
-            <span style="font-size: 0.875rem; color: var(--text-muted);">💱 1 USD = 5.15 BRL</span>
-        </div>
-        <div class="market-table-wrap">
-            <table class="market-table">
-                <thead>
-                    <tr>
-                        <th>Platform</th>
-                        <th>Vehicle</th>
-                        <th>Price</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                    <tr>
-                        <td><a href="https://bringatrailer.com/" target="_blank" class="platform-cell"><img src="https://www.google.com/s2/favicons?domain=bringatrailer.com&sz=32" alt="Bring a Trailer" class="platform-logo"> Bring a Trailer</a></td>
-                        <td><div class="vehicle-cell"><img src="https://content-hub.imgix.net/GUhocLc6D6V9qFtm3Oc2g/19e093064c8a22f6214f16a85469aac2/7-20things-20you-20need-20to-20know-20about-20the-20porsche-20911-20type-20993.jpg?w=120" alt="1996 Porsche 911 Carrera 4S Coupe" class="vehicle-thumb" loading="lazy"><span>1996 Porsche 911 Carrera 4S Coupe</span></div></td>
-                        <td><span class="price-usd">$142,500</span><br><span class="price-brl">R$733,875</span></td>
-                        <td><span class="status-badge status-active">Active</span></td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://bringatrailer.com/" target="_blank" class="platform-cell"><img src="https://www.google.com/s2/favicons?domain=bringatrailer.com&sz=32" alt="Bring a Trailer" class="platform-logo"> Bring a Trailer</a></td>
-                        <td><div class="vehicle-cell"><img src="https://content-hub.imgix.net/7Jbfc1Bipxe77PnjOVNaTU/894ac12e105ead6a7df681de4aec5f8d/man_leaning_on_cream_coloured_1987_porsche_911_outside_french_stone_built_restaurant.jpg?w=120" alt="1998 Porsche 911 Carrera 4S Tiptronic" class="vehicle-thumb" loading="lazy"><span>1998 Porsche 911 Carrera 4S Tiptronic</span></div></td>
-                        <td><span class="price-usd">$185,000</span><br><span class="price-brl">R$952,750</span></td>
-                        <td><span class="status-badge status-ending">Ending</span></td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://carsandbids.com/" target="_blank" class="platform-cell"><img src="https://www.google.com/s2/favicons?domain=carsandbids.com&sz=32" alt="Cars & Bids" class="platform-logo"> Cars & Bids</a></td>
-                        <td><div class="vehicle-cell"><img src="https://content-hub.imgix.net/7mr3pIvnvzsRevhgOnB9as/2648ab4764cddc6dfba2a2ee7ba0b485/how-to-buy-a-classic-porsche-911.jpg?w=120" alt="1997 Porsche 911 Carrera (993) Coupe" class="vehicle-thumb" loading="lazy"><span>1997 Porsche 911 Carrera (993) Coupe</span></div></td>
-                        <td><span class="price-usd">$125,000</span><br><span class="price-brl">R$643,750</span></td>
-                        <td><span class="status-badge status-active">Active</span></td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://carsandbids.com/" target="_blank" class="platform-cell"><img src="https://www.google.com/s2/favicons?domain=carsandbids.com&sz=32" alt="Cars & Bids" class="platform-logo"> Cars & Bids</a></td>
-                        <td><div class="vehicle-cell"><img src="https://content-hub.imgix.net/6IMxyLGiYiQ1wYuq2QurPH/7ed8ca2863e062eadb76ab0b39699fe2/1994-porsche-911-carrera-4s-aerokit-front.jpg?w=120" alt="1994 Porsche 911 Carrera 4S (Aerokit)" class="vehicle-thumb" loading="lazy"><span>1994 Porsche 911 Carrera 4S (Aerokit)</span></div></td>
-                        <td><span class="price-usd">$89,000</span><br><span class="price-brl">R$458,350</span></td>
-                        <td><span class="status-badge status-ending">Ending</span></td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://bringatrailer.com/" target="_blank" class="platform-cell"><img src="https://www.google.com/s2/favicons?domain=bringatrailer.com&sz=32" alt="Bring a Trailer" class="platform-logo"> Bring a Trailer</a></td>
-                        <td><div class="vehicle-cell"><img src="https://content-hub.imgix.net/GUhocLc6D6V9qFtm3Oc2g/19e093064c8a22f6214f16a85469aac2/7-20things-20you-20need-20to-20know-20about-20the-20porsche-20911-20type-20993.jpg?w=120" alt="1995 Porsche 911 Carrera 4S Coupe" class="vehicle-thumb" loading="lazy"><span>1995 Porsche 911 Carrera 4S Coupe</span></div></td>
-                        <td><span class="price-usd">$138,000</span><br><span class="price-brl">R$710,700</span></td>
-                        <td><span class="status-badge status-active">Active</span></td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://carsandbids.com/" target="_blank" class="platform-cell"><img src="https://www.google.com/s2/favicons?domain=carsandbids.com&sz=32" alt="Cars & Bids" class="platform-logo"> Cars & Bids</a></td>
-                        <td><div class="vehicle-cell"><img src="https://content-hub.imgix.net/7Jbfc1Bipxe77PnjOVNaTU/894ac12e105ead6a7df681de4aec5f8d/1996-porsche-911-carrera-4s-x51-dashboard.jpg?w=120" alt="1996 Porsche 911 Carrera 4S (X51)" class="vehicle-thumb" loading="lazy"><span>1996 Porsche 911 Carrera 4S (X51)</span></div></td>
-                        <td><span class="price-usd">$165,000</span><br><span class="price-brl">R$849,750</span></td>
-                        <td><span class="status-badge status-active">Active</span></td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://bringatrailer.com/" target="_blank" class="platform-cell"><img src="https://www.google.com/s2/favicons?domain=bringatrailer.com&sz=32" alt="Bring a Trailer" class="platform-logo"> Bring a Trailer</a></td>
-                        <td><div class="vehicle-cell"><img src="https://content-hub.imgix.net/7mr3pIvnvzsRevhgOnB9as/2648ab4764cddc6dfba2a2ee7ba0b485/1994-porsche-911-carrera-4s-interior.jpg?w=120" alt="1994 Porsche 911 Carrera 4S" class="vehicle-thumb" loading="lazy"><span>1994 Porsche 911 Carrera 4S</span></div></td>
-                        <td><span class="price-usd">$92,000</span><br><span class="price-brl">R$473,800</span></td>
-                        <td><span class="status-badge status-ending">Ending</span></td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://carsandbids.com/" target="_blank" class="platform-cell"><img src="https://www.google.com/s2/favicons?domain=carsandbids.com&sz=32" alt="Cars & Bids" class="platform-logo"> Cars & Bids</a></td>
-                        <td><div class="vehicle-cell"><img src="https://content-hub.imgix.net/6IMxyLGiYiQ1wYuq2QurPH/7ed8ca2863e062eadb76ab0b39699fe2/1997-porsche-911-carrera-993-rear.jpg?w=120" alt="1997 Porsche 911 Carrera (993) Coupe" class="vehicle-thumb" loading="lazy"><span>1997 Porsche 911 Carrera (993) Coupe</span></div></td>
-                        <td><span class="price-usd">$112,000</span><br><span class="price-brl">R$576,800</span></td>
-                        <td><span class="status-badge status-active">Active</span></td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://bringatrailer.com/" target="_blank" class="platform-cell"><img src="https://www.google.com/s2/favicons?domain=bringatrailer.com&sz=32" alt="Bring a Trailer" class="platform-logo"> Bring a Trailer</a></td>
-                        <td><div class="vehicle-cell"><img src="https://content-hub.imgix.net/GUhocLc6D6V9qFtm3Oc2g/19e093064c8a22f6214f16a85469aac2/7-20things-20you-20need-20to-20know-20about-20the-20porsche-20911-20type-20993.jpg?w=120" alt="1995 Porsche 911 Carrera 4S Wide Body" class="vehicle-thumb" loading="lazy"><span>1995 Porsche 911 Carrera 4S Wide Body</span></div></td>
-                        <td><span class="price-usd">$115,000</span><br><span class="price-brl">R$592,250</span></td>
-                        <td><span class="status-badge status-active">Active</span></td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://carsandbids.com/" target="_blank" class="platform-cell"><img src="https://www.google.com/s2/favicons?domain=carsandbids.com&sz=32" alt="Cars & Bids" class="platform-logo"> Cars & Bids</a></td>
-                        <td><div class="vehicle-cell"><img src="https://content-hub.imgix.net/7Jbfc1Bipxe77PnjOVNaTU/894ac12e105ead6a7df681de4aec5f8d/1998-porsche-911-carrera-4s-side.jpg?w=120" alt="1998 Porsche 911 Carrera 4S Coupe" class="vehicle-thumb" loading="lazy"><span>1998 Porsche 911 Carrera 4S Coupe</span></div></td>
-                        <td><span class="price-usd">$148,000</span><br><span class="price-brl">R$762,200</span></td>
-                        <td><span class="status-badge status-active">Active</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-        <!-- Profiles Section (Drivers, Collectors, Custom) -->
-        <section class="section">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="section-title-icon">👥</span>
-                    Driver Zones & Community Profiles
-                </h2>
-            </div>
-            <div class="profiles-grid">
-                <!-- Drivers Profile -->
-                <div class="profile-card">
-                    <div class="profile-badge">🚗 Drivers</div>
-                    <h3 class="profile-title">Air-Cooled Pilots</h3>
-                    <ul class="profile-list">
-                        <li><strong>Daniel Costa</strong></li>
-                        <li>1996 993 Carrera 4S (VIN: WP0AA2999TS320294)</li>
-                        <li>M64/21 Varioram • 282hp</li>
-                        <li>São Paulo • 101.522 km</li>
-                    </ul>
-                    <div class="profile-meta">
-                        <span class="profile-tag">#Drive993BR</span>
-                        <span class="profile-tag">G64/20 6MT</span>
-                    </div>
-                </div>
-
-                <!-- Collectors Profile -->
-                <div class="profile-card">
-                    <div class="profile-badge">💎 Collectors</div>
-                    <h3 class="profile-title">Market Masters</h3>
-                    <ul class="profile-list">
-                        <li><strong>Premium Market Data</strong></li>
-                        <li>15 Active Auctions Monitored</li>
-                        <li>USD/BRL: 5.18 (Real-time)</li>
-                        <li>+18% YoY (993 C4S Average)</li>
-                    </ul>
-                    <div class="profile-meta">
-                        <span class="profile-tag">Investment Grade</span>
-                        <span class="profile-tag">PCA Certified</span>
-                    </div>
-                </div>
-
-                <!-- Custom Shop Profile -->
-                <div class="profile-card">
-                    <div class="profile-badge">🛠️ Custom</div>
-                    <h3 class="profile-title">Restoration Lab</h3>
-                    <ul class="profile-list">
-                        <li><strong>Technical Deep-Dives</strong></li>
-                        <li>M64/21 Maintenance</li>
-                        <li>Parts Sourcing Guide</li>
-                        <li>Common Issues Checklist</li>
-                    </ul>
-                    <div class="profile-meta">
-                        <span class="profile-tag">Expert Level</span>
-                        <span class="profile-tag">Muriel Bustamante</span>
+                <div class="carousel-container">
+                    <div class="carousel">
+                        <div class="news-card">
+                            <img src="https://content-hub.imgix.net/GUhocLc6D6V9qFtm3Oc2g/19e093064c8a22f6214f16a85469aac2/7-20things-20you-20need-20to-20know-20about-20the-20porsche-20911-20type-20993.jpg?w=600" alt="993 Facts" class="news-image">
+                            <div class="news-content">
+                                <div class="news-meta">0 days ago • Porsche Stories</div>
+                                <h3 class="news-title">What is the Porsche 911 (type 993)?</h3>
+                                <p class="news-excerpt">Find out about the Porsche 911 that was the last to feature an air-cooled engine...</p>
+                                <a href="https://www.porsche.com/stories/mobility/7-things-you-need-to-know-about-the-porsche-911-type-993/" target="_blank" class="news-link">Read more →</a>
+                            </div>
+                        </div>
+                        
+                        <div class="news-card">
+                            <img src="https://content-hub.imgix.net/7Jbfc1Bipxe77PnjOVNaTU/894ac12e105ead6a7df681de4aec5f8d/what-20is-20the-20best-20engine-20oil.jpg?w=600" alt="Oil Guide" class="news-image">
+                            <div class="news-content">
+                                <div class="news-meta">3 days ago • Porsche Stories</div>
+                                <h3 class="news-title">What's the best engine oil for my classic Porsche?</h3>
+                                <p class="news-excerpt">Choosing the right engine oil for your classic Porsche is an important part of its maintenance...</p>
+                                <a href="https://www.porsche.com/stories/innovation/what-is-the-best-engine-oil/" target="_blank" class="news-link">Read more →</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Valuation Section -->
-    <section class="section">
-        <div class="section-header">
-            <h2 class="section-title">
-                <span class="section-title-icon">💰</span>
-                Valuation Analysis
-            </h2>
-        </div>
-        <div class="valuation-grid">
-            
-                <div class="valuation-card">
-                    <div class="valuation-header">
-                        <div class="valuation-icon">🏁</div>
-                        <span class="valuation-title">C4S</span>
-                        <span class="valuation-trend">+12%</span>
-                    </div>
-                    <div class="valuation-price">155,000K <span style="font-size: 1rem; color: var(--text-secondary);">USD</span></div>
-                    <div class="valuation-range">$60,000 — $395,000</div>
-                    <div class="range-bar">
-                        <div class="range-fill" style="width: 28%"></div>
-                    </div>
-                    <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">R$798,250 BRL</div>
+        <!-- Market Section -->
+        <section id="market" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-icon">📈</span>
+                        Market Intelligence
+                    </h2>
                 </div>
-                <div class="valuation-card">
-                    <div class="valuation-header">
-                        <div class="valuation-icon">🏁</div>
-                        <span class="valuation-title">Carrera</span>
-                        <span class="valuation-trend">+8%</span>
+                
+                <div class="market-grid">
+                    <!-- Exchange Rate -->
+                    <div class="market-card">
+                        <div class="market-card-header">
+                            <span class="market-icon">💱</span>
+                            Exchange Rate
+                        </div>
+                        <div class="market-card-content">
+                            <div class="exchange-rate">
+                                1 USD = <span class="rate-value">R$ 5.19</span> BRL
+                            </div>
+                            <small class="last-updated">Updated: Today, 7:00 AM</small>
+                        </div>
                     </div>
-                    <div class="valuation-price">135,000K <span style="font-size: 1rem; color: var(--text-secondary);">USD</span></div>
-                    <div class="valuation-range">$85,000 — $250,000</div>
-                    <div class="range-bar">
-                        <div class="range-fill" style="width: 30%"></div>
+                    
+                    <!-- Valuation Cards -->
+                    <div class="valuation-card">
+                        <div class="valuation-header">
+                            <span class="valuation-icon">🏁</span>
+                            <span class="valuation-title">Carrera 4S</span>
+                            <span class="valuation-trend up">+12%</span>
+                        </div>
+                        <div class="valuation-price">$155,000 <span class="price-unit">USD</span></div>
+                        <div class="valuation-range">$110K — $210K</div>
+                        <div class="price-local">R$ 804,450 BRL</div>
                     </div>
-                    <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">R$695,250 BRL</div>
+                    
+                    <div class="valuation-card">
+                        <div class="valuation-header">
+                            <span class="valuation-icon">🏁</span>
+                            <span class="valuation-title">Carrera</span>
+                            <span class="valuation-trend up">+8%</span>
+                        </div>
+                        <div class="valuation-price">$135,000 <span class="price-unit">USD</span></div>
+                        <div class="valuation-range">$85K — $250K</div>
+                        <div class="price-local">R$ 700,650 BRL</div>
+                    </div>
+                    
+                    <div class="valuation-card">
+                        <div class="valuation-header">
+                            <span class="valuation-icon">🏁</span>
+                            <span class="valuation-title">Turbo</span>
+                            <span class="valuation-trend up">+15%</span>
+                        </div>
+                        <div class="valuation-price">$225,000 <span class="price-unit">USD</span></div>
+                        <div class="valuation-range">$150K — $360K</div>
+                        <div class="price-local">R$ 1,167,750 BRL</div>
+                    </div>
                 </div>
-                <div class="valuation-card">
-                    <div class="valuation-header">
-                        <div class="valuation-icon">🏁</div>
-                        <span class="valuation-title">Turbo</span>
-                        <span class="valuation-trend">+15%</span>
+                
+                <!-- Charts -->
+                <div class="charts-container">
+                    <div class="chart-card">
+                        <h3 class="chart-title">Market Evolution (5-Year)</h3>
+                        <canvas id="marketChart" class="chart-canvas"></canvas>
                     </div>
-                    <div class="valuation-price">225,000K <span style="font-size: 1rem; color: var(--text-secondary);">USD</span></div>
-                    <div class="valuation-range">$150,000 — $450,000</div>
-                    <div class="range-bar">
-                        <div class="range-fill" style="width: 25%"></div>
+                    <div class="chart-card">
+                        <h3 class="chart-title">Model Variant Comparison</h3>
+                        <canvas id="variantChart" class="chart-canvas"></canvas>
                     </div>
-                    <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">R$1,158,750 BRL</div>
                 </div>
-        </div>
-    </section>
+                
+                <!-- Auctions -->
+                <div class="auctions-section">
+                    <h3 class="auctions-title">Live Auction Listings</h3>
+                    <table class="auctions-table">
+                        <thead>
+                            <tr>
+                                <th>Platform</th>
+                                <th>Vehicle</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="auctionsTable">
+                            <tr class="auction-row">
+                                <td class="auction-platform">
+                                    <a href="https://bringatrailer.com/" target="_blank">
+                                        <img src="https://www.google.com/s2/favicons?domain=bringatrailer.com&sz=32" alt="BAT">
+                                        Bring a Trailer
+                                    </a>
+                                </td>
+                                <td class="auction-model">
+                                    1996 Porsche 911 Carrera 4S Coupe
+                                            <td class="auction-price">
+                                                $142,500<br>R$ 739,575
+                                            </td>
+                                            <td class="auction-status">
+                                                <span class="status-badge status-active">Active</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="auction-row">
+                                            <td class="auction-platform">
+                                                <a href="https://carsandbids.com/" target="_blank">
+                                                    <img src="https://www.google.com/s2/favicons?domain=carsandbids.com&sz=32" alt="C&B">
+                                                    Cars & Bids
+                                                </a>
+                                            </td>
+                                            <td class="auction-model">
+                                                1997 Porsche 911 Carrera (993) Coupe
+                                                    <td class="auction-price">
+                                                        $125,000<br>R$ 648,750
+                                                    </td>
+                                                    <td class="auction-status">
+                                                        <span class="status-badge status-active">Active</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="auctions-view-all">
+                                            <a href="https://bringatrailer.com/" target="_blank">Browse all auctions on Bring a Trailer →</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
 
-    <!-- Parts Section -->
-    <section class="section">
-        <div class="section-header">
-            <h2 class="section-title">
-                <span class="section-title-icon">🔧</span>
-                993 Parts & Accessories
-            </h2>
-        </div>
-        <div class="profiles-grid">
-            
-                <a href="https://info.fcpeuro.com/993" target="_blank" class="profile-card">
-                    <div class="profile-header">
-                        <span class="profile-tag">PERFORMANCE</span>
-                    </div>
-                    <div class="profile-icon">🔧</div>
-                    <h3 class="profile-title">FCP Euro</h3>
-                    <p class="profile-desc">Genuine, OE, OEM, aftermarket and performance parts for Porsche 993.</p>
-                </a>
-                <a href="https://www.pelicanparts.com/catalog/993" target="_blank" class="profile-card">
-                    <div class="profile-header">
-                        <span class="profile-tag">DIY & PARTS</span>
-                    </div>
-                    <div class="profile-icon">🔧</div>
-                    <h3 class="profile-title">Pelican Parts</h3>
-                    <p class="profile-desc">Aftermarket and OEM parts, technical articles, and DIY guides.</p>
-                </a>
-                <a href="https://www.autoatlantis.com/porsche-993-parts.html" target="_blank" class="profile-card">
-                    <div class="profile-header">
-                        <span class="profile-tag">OEM CATALOG</span>
-                    </div>
-                    <div class="profile-icon">🔧</div>
-                    <h3 class="profile-title">AutoAtlantis</h3>
-                    <p class="profile-desc">Complete Porsche 993 parts catalog with diagrams and OEM parts.</p>
-                </a>
-        </div>
-    </section>
+                            <!-- Specs Section -->
+                            <section id="specs" class="section section--dark">
+                                <div class="container">
+                                    <div class="section-header">
+                                        <h2 class="section-title">
+                                            <span class="section-icon">🔧</span>
+                                            Technical Specifications
+                                        </h2>
+                                    </div>
 
-    <!-- Videos Section -->
-    <section class="section">
-        <div class="section-header">
-            <h2 class="section-title">
-                <span class="section-title-icon">🎬</span>
-                Curated Porsche Videos
-            </h2>
-        </div>
-        <div class="video-grid">
-            
-                <a href="https://www.youtube.com/watch?v=08t5Yw38Uos" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/08t5Yw38Uos/sddefault.jpg" alt="993 Carrera vs 992 GT3 Touring - Track Battle" loading="lazy">
-                        <span class="video-duration">12:34</span>
-                    </div>
-                    <div class="video-content">
-                        <h4 class="video-title">993 Carrera vs 992 GT3 Touring - Track Battle</h4>
-                        <span class="video-meta">Porsche • 45K views</span>
-                    </div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=rGP6SYUBQ5w" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/rGP6SYUBQ5w/sddefault.jpg" alt="Living with an air-cooled 911: 3000 miles road trip" loading="lazy">
-                        <span class="video-duration">18:45</span>
-                    </div>
-                    <div class="video-content">
-                        <h4 class="video-title">Living with an air-cooled 911: 3000 miles road trip</h4>
-                        <span class="video-meta">Hagerty • 28K views</span>
-                    </div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=Iode_k6GJB4" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/Iode_k6GJB4/sddefault.jpg" alt="Original Delivery: 1996 Carrera 4S unboxing" loading="lazy">
-                        <span class="video-duration">15:22</span>
-                    </div>
-                    <div class="video-content">
-                        <h4 class="video-title">Original Delivery: 1996 Carrera 4S unboxing</h4>
-                        <span class="video-meta">Porsche Classic • 12K views</span>
-                    </div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=emvxCI-xdUo" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/emvxCI-xdUo/sddefault.jpg" alt="Porsche Classic: Restoring a 993 engine" loading="lazy">
-                        <span class="video-duration">22:18</span>
-                    </div>
-                    <div class="video-content">
-                        <h4 class="video-title">Porsche Classic: Restoring a 993 engine</h4>
-                        <span class="video-meta">Porsche Classic • 89K views</span>
-                    </div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=McCVAyUiBp0" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/McCVAyUiBp0/sddefault.jpg" alt="993 RS Clubsport recreation timelapse" loading="lazy">
-                        <span class="video-duration">11:03</span>
-                    </div>
-                    <div class="video-content">
-                        <h4 class="video-title">993 RS Clubsport recreation timelapse</h4>
-                        <span class="video-meta">The Smoking Tire • 56K views</span>
-                    </div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=VtLoOUSAR50" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/VtLoOUSAR50/sddefault.jpg" alt="Air-cooled LS7 swap build series" loading="lazy">
-                        <span class="video-duration">25:41</span>
-                    </div>
-                    <div class="video-content">
-                        <h4 class="video-title">Air-cooled LS7 swap build series</h4>
-                        <span class="video-meta">Horsepower University • 134K views</span>
-                    </div>
-                </a>
-        </div>
-    </section>
+                                    <div class="specs-container">
+                                        <div class="specs-card">
+                                            <div class="specs-card-header">
+                                                <h3>Your 993 Carrera 4S</h3>
+                                                <span class="specs-year">1996</span>
+                                            </div>
+                                            <div class="specs-grid">
+                                                <div class="spec-row">
+                                                    <span class="spec-label">VIN</span>
+                                                    <span class="spec-value">WP0AA2999TS320294</span>
+                                                </div>
+                                                <div class="spec-row">
+                                                    <span class="spec-label">Engine</span>
+                                                    <span class="spec-value">M64/21 Varioram (3.6L, 282 hp)</span>
+                                                </div>
+                                                <div class="spec-row">
+                                                    <span class="spec-label">Transmission</span>
+                                                    <span class="spec-value">G64/20 6-speed Manual</span>
+                                                </div>
+                                                <div class="spec-row">
+                                                    <span class="spec-label">Drivetrain</span>
+                                                    <span class="spec-value">Viscous AWD (Carrera 4S)</span>
+                                                </div>
+                                                <div class="spec-row">
+                                                    <span class="spec-label">Exterior</span>
+                                                    <span class="spec-value">Arctic Silver Metallic (570)</span>
+                                                </div>
+                                                <div class="spec-row">
+                                                    <span class="spec-label">Chassis</span>
+                                                    <span class="spec-value">Widebody (Turbo-look)</span>
+                                                </div>
+                                            </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="https://www.porsche.com/stories/" target="_blank">Porsche Stories</a></li>
-                    <li><a href="https://newsroom.porsche.com/" target="_blank">Porsche Newsroom</a></li>
-                    <li><a href="https://www.porsche.com/classic/" target="_blank">Porsche Classic</a></li>
-                    <li><a href="https://www.pca.org/" target="_blank">PCA</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Market</h4>
-                <ul>
-                    <li><a href="https://bringatrailer.com/" target="_blank">Bring a Trailer</a></li>
-                    <li><a href="https://carsandbids.com/" target="_blank">Cars & Bids</a></li>
-                    <li><a href="https://classic.com/" target="_blank">Classic.com</a></li>
-                    <li><a href="https://www.mecum.com/" target="_blank">Mecum Auctions</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Community</h4>
-                <ul>
-                    <li><a href="https://rennlist.com/" target="_blank">Rennlist</a></li>
-                    <li><a href="https://www.6speedonline.com/" target="_blank">6SpeedOnline</a></li>
-                    <li><a href="https://www.facebook.com/groups/porsche993/" target="_blank">993 FB Group</a></li>
-                    <li><a href="https://www.instagram.com/porsche/" target="_blank">Porsche Instagram</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>About</h4>
-                <ul>
-                    <li><a href="#">Hermes Carrera</a></li>
-                    <li><a href="#">Daily Digest V7</a></li>
-                    <li>Version: 7.0 (Air-Cooled Intelligence)</li>
-                    <li>Build: 2026-08-27</li>
-                    <li>Focus: 993 Carrera 4S (M64/21 Varioram)</li>
-                    <li><a href="#">VIN: WP0AA2999TS320294</a></li>
-                    <li><a href="#">1996 Carrera 4S</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>Generated by Hermes Carrera • August 27, 2026</p>
-            <p>Sources: Porsche Stories, Bring a Trailer, Cars & Bids, Classic.com</p>
-        </div>
-    </footer>
-</body>
-</html>
+                                            <div class="owner-insights">
+                                                <h4>Owner Insights</h4>
+                                                <div class="insight-row">
+                                                    <span class="insight-label">Current Mileage</span>
+                                                    <span class="insight-value">101,522 km</span>
+                                                </div>
+                                                <div class="insight-row">
+                                                    <span class="insight-label">Last Service</span>
+                                                    <span class="insight-value">July 15, 2026</span>
+                                                </div>
+                                                <div class="insight-row">
+                                                    <span class="insight-label">Next Service Due</span>
+                                                    <span class="insight-value warning">October 15, 2026</span>
+                                                </div>
+                                                <div class="maintenance-scheduled">
+                                                    <div class="maintenance-item">
+                                                        <span>Oil Change & Filter</span>
+                                                        <span class="due-date">Due at 105,000 km</span>
+                                                    </div>
+                                                    <div class="maintenance-item">
+                                                        <span>Air Filter Replacement</span>
+                                                        <span class="due-date">Due at 110,000 km</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Personas Sections -->
+                            <div class="personas-wrapper">
+                                <!-- Drivers Section -->
+                                <section id="drivers" class="section section--dark">
+                                    <div class="container">
+                                        <div class="section-header">
+                                            <h2 class="section-title">
+                                                <span class="section-icon">🏁</span>
+                                                Driver Zone
+                                            </h2>
+                                        </div>
+                                        <div class="persona-grid">
+                                            <div class="persona-card">
+                                                <h3 class="persona-card-title">Track Day Tip</h3>
+                                                <p class="persona-card-text">The 993's low-end torque makes it forgiving on corner exit. Use it to your advantage on track days.</p>
+                                                <a href="#" class="persona-card-link">View track guides →</a>
+                                            </div>
+                                            <div class="persona-card">
+                                                <h3 class="persona-card-title">Maintenance Quick Tip</h3>
+                                                <p class="persona-card-text">Check your Varioram flaps every 10k miles for optimal performance and fuel efficiency.</p>
+                                                <a href="#" class="persona-card-link">Tech articles →</a>
+                                            </div>
+                                            <div class="persona-card">
+                                                <h3 class="persona-card-title">Curva Favorita</h3>
+                                                <p class="persona-card-text">Sunset Boulevard: Best driven at 45 mph in 3rd gear for that classic air-cooled sound.</p>
+                                                <a href="#" class="persona-card-link">Drive routes →</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="video-section">
+                                            <h3 class="video-subtitle">For Drivers</h3>
+                                            <div class="video-grid">
+                                                <a href="https://www.youtube.com/watch?v=08t5Yw38Uos" target="_blank" class="video-card">
+                                                    <div class="video-thumbnail">
+                                                        <img src="https://img.youtube.com/vi/08t5Yw38Uos/sddefault.jpg" alt="Track Battle">
+                                                        <div class="video-duration">12:34</div>
+                                                    </div>
+                                                    <div class="video-info">
+                                                        <h4 class="video-title">993 Carrera vs 992 GT3 Touring - Track Battle</h4>
+                                                        <span class="video-channel">Porsche • 45K views</span>
+                                                    </div>
+                                                </a>
+                                                <a href="https://www.youtube.com/watch?v=rGP6SYUBQ5w" target="_blank" class="video-card">
+                                                    <div class="video-thumbnail">
+                                                        <img src="https://img.youtube.com/vi/rGP6SYUBQ5w/sddefault.jpg" alt="Road Trip">
+                                                        <div class="video-duration">18:45</div>
+                                                    </div>
+                                                    <div class="video-info">
+                                                        <h4 class="video-title">Living with an air-cooled 911: 3000 miles road trip</h4>
+                                                        <span class="video-channel">Hagerty • 28K views</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!-- Collectors Section -->
+                                <section id="collectors" class="section">
+                                    <div class="container">
+                                        <div class="section-header">
+                                            <h2 class="section-title">
+                                                <span class="section-icon">💎</span>
+                                                Collector Corner
+                                            </h2>
+                                        </div>
+                                        <div class="persona-grid">
+                                            <div class="persona-card">
+                                                <h3 class="persona-card-title">Rare Find Radar</h3>
+                                                <p class="persona-card-text">1998 993 Carrera 4S in Guards Red - Only 50 made in this color combination.</p>
+                                                <a href="#" class="persona-card-link">View rare finds →</a>
+                                            </div>
+                                            <div class="persona-card">
+                                                <h3 class="persona-card-title">Condition Grading</h3>
+                                                <p class="persona-card-text">Premium: 95% condition rating based on recent inspection</p>
+                                                <div class="condition-bar">
+                                                    <div class="condition-fill" style="width: 95%"></div>
+                                                </div>
+                                            </div>
+                                            <div class="persona-card">
+                                                <h3 class="persona-card-title">Investment Outlook</h3>
+                                                <p class="persona-card-text">993 values up 15% YoY - strong momentum continues through 2026.</p>
+                                                <a href="#" class="persona-card-link">Market analysis →</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="video-section">
+                                            <h3 class="video-subtitle">For Collectors</h3>
+                                            <div class="video-grid">
+                                                <a href="https://www.youtube.com/watch?v=Iode_k6GJB4" target="_blank" class="video-card">
+                                                    <div class="video-thumbnail">
+                                                        <img src="https://img.youtube.com/vi/Iode_k6GJB4/sddefault.jpg" alt="Delivery">
+                                                        <div class="video-duration">15:22</div>
+                                                    </div>
+                                                    <div class="video-info">
+                                                        <h4 class="video-title">Original Delivery: 1996 Carrera 4S unboxing</h4>
+                                                        <span class="video-channel">Porsche Classic • 12K views</span>
+                                                    </div>
+                                                </a>
+                                                <a href="https://www.youtube.com/watch?v=emvxCI-xdUo" target="_blank" class="video-card">
+                                                    <div class="video-thumbnail">
+                                                        <img src="https://img.youtube.com/vi/emvxCI-xdUo/sddefault.jpg" alt="Restoration">
+                                                        <div class="video-duration">22:18</div>
+                                                    </div>
+                                                    <div class="video-info">
+                                                        <h4 class="video-title">Porsche Classic: Restoring a 993 engine</h4>
+                                                        <span class="video-channel">Porsche Classic • 89K views</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!-- Customizers Section -->
+                                <section id="customizers" class="section section--dark">
+                                    <div class="container">
+                                        <div class="section-header">
+                                            <h2 class="section-title">
+                                                <span class="section-icon">🛠️</span>
+                                                Custom Shop
+                                            </h2>
+                                        </div>
+                                        <div class="persona-grid">
+                                            <div class="persona-card">
+                                                <h3 class="persona-card-title">Build Spotlight</h3>
+                                                <p class="persona-card-text">993 RS Clubsport recreation with modern internals and performance upgrades</p>
+                                                <a href="#" class="persona-card-link">View build →</a>
+                                            </div>
+                                            <div class="persona-card">
+                                                <h3 class="persona-card-title">Parts Compatibility</h3>
+                                                <p class="persona-card-text">964 front struts fit 993 with minor modifications. Complete compatibility matrix.</p>
+                                                <a href="#" class="persona-card-link">View parts guide →</a>
+                                            </div>
+                                            <div class="persona-card">
+                                                <h3 class="persona-card-title">Restomod Inspiration</h3>
+                                                <p class="persona-card-text">Electric 993 conversion in progress by Ruf - the future of air-cooled?</p>
+                                                <a href="#" class="persona-card-link">View projects →</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="video-section">
+                                            <h3 class="video-subtitle">For Customizers</h3>
+                                            <div class="video-grid">
+                                                <a href="https://www.youtube.com/watch?v=VtLoOUSAR50" target="_blank" class="video-card">
+                                                    <div class="video-thumbnail">
+                                                        <img src="https://img.youtube.com/vi/VtLoOUSAR50/sddefault.jpg" alt="LS7 Swap">
+                                                        <div class="video-duration">25:41</div>
+                                                    </div>
+                                                    <div class="video-info">
+                                                        <h4 class="video-title">Air-cooled LS7 swap build series</h4>
+                                                        <span class="video-channel">Horsepower University • 134K views</span>
+                                                    </div>
+                                                </a>
+                                                <a href="https://www.youtube.com/watch?v=McCVAyUiBp0" target="_blank" class="video-card">
+                                                    <div class="video-thumbnail">
+                                                        <img src="https://img.youtube.com/vi/McCVAyUiBp0/sddefault.jpg" alt="Clubsport Rebuild">
+                                                        <div class="video-duration">11:03</div>
+                                                    </div>
+                                                    <div class="video-info">
+                                                        <h4 class="video-title">993 RS Clubsport recreation timelapse</h4>
+                                                        <span class="video-channel">The Smoking Tire • 56K views</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </main>
+
+                        <!-- Footer -->
+                        <footer class="site-footer">
+                            <div class="container footer-inner">
+                                <div class="footer-brand">
+                                    <span class="footer-logo">PORSCHE ⓴ DIGEST</span>
+                                    <span class="footer-version">V7.0 Premium</span>
+                                </div>
+                                <div class="footer-links">
+                                    <a href="https://www.porsche.com/stories/">Porsche Stories</a>
+                                    <a href="https://bringatrailer.com/">Bring a Trailer</a>
+                                    <a href="https://carsandbids.com/">Cars & Bids</a>
+                                    <a href="https://classic.com/">Classic.com</a>
+                                </div>
+                            </div>
+                            <div class="footer-credit">
+                                Generated by Hermes Carrera • Sources: Porsche Stories, Bring a Trailer, Cars & Bids, Classic.com
+                            </div>
+                        </footer>
+
+                        <!-- Scripts -->
+                        <script>
+                            // Theme toggle
+                            const themeToggle = document.getElementById('themeToggle');
+                            const menuToggle = document.getElementById('menuToggle');
+                            const mainNav = document.getElementById('mainNav');
+                            
+                            // Load theme from localStorage
+                            const currentTheme = localStorage.getItem('theme') || 'dark';
+                            document.body.className = `${currentTheme}-theme`;
+                            
+                            themeToggle.addEventListener('click', () => {
+                                const newTheme = document.body.classList.contains('dark-theme') ? 'light' : 'dark';
+                                document.body.className = `${newTheme}-theme`;
+                                localStorage.setItem('theme', newTheme);
+                                themeToggle.querySelector('.theme-icon').textContent = newTheme === 'dark' ? '☀️' : '🌙';
+                            });
+                            
+                            // Menu toggle for mobile
+                            menuToggle.addEventListener('click', () => {
+                                mainNav.classList.toggle('open');
+                            });
+                            
+                            // Navigation active links
+                            document.querySelectorAll('.nav-link').forEach(link => {
+                                link.addEventListener('click', function() {
+                                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                                    this.classList.add('active');
+                                    mainNav.classList.remove('open');
+                                });
+                            });
+                            
+                            // Market Chart
+                            const marketCtx = document.getElementById('marketChart');
+                            if (marketCtx) {
+                                new Chart(marketCtx.getContext('2d'), {
+                                    type: 'line',
+                                    data: {
+                                        labels: ['2022', '2023', '2024', '2025', '2026'],
+                                        datasets: [{
+                                            label: 'Carrera 4S Avg Price (USD)',
+                                            data: [115000, 123000, 132000, 145000, 155000],
+                                            borderColor: '#d4af37',
+                                            background: 'rgba(212, 175, 55, 0.1)',
+                                            tension: 0.3,
+                                            fill: true,
+                                            pointBackgroundColor: '#d4af37',
+                                            pointRadius: 5
+                                        }, {
+                                            label: 'Carrera Avg Price (USD)',
+                                            data: [95000, 102000, 109000, 118000, 128000],
+                                            borderColor: '#3b82f6',
+                                            background: 'rgba(59, 130, 246, 0.1)',
+                                            tension: 0.3,
+                                            fill: true,
+                                            pointBackgroundColor: '#3b82f6',
+                                            pointRadius: 5
+                                        }, {
+                                            label: 'Turbo Avg Price (USD)',
+                                            data: [180000, 195000, 210000, 228000, 248000],
+                                            borderColor: '#c41e3a',
+                                            background: 'rgba(196, 30, 58, 0.1)',
+                                            tension: 0.3,
+                                            fill: true,
+                                            pointBackgroundColor: '#c41e3a',
+                                            pointRadius: 5
+                                        }]
+                                    },
+                                    options: {
+                                        responsive: true,
+                                        maintainAspectRatio: false,
+                                        plugins: {
+                                            legend: {
+                                                labels: {
+                                                    color: '#f5f5f5',
+                                                    font: {
+                                                        family: 'Inter',
+                                                        size: 12
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        scales: {
+                                            y: {
+                                                grid: { color: 'rgba(255,255,255,0.1)' },
+                                                ticks: { color: '#a0a0a0' }
+                                            },
+                                            x: {
+                                                grid: { display: false },
+                                                ticks: { color: '#a0a0a0' }
+                                            }
+                                        }
+                                    }
+                                });
+                            }
+                            
+                            // Variant Comparison Chart
+                            const variantCtx = document.getElementById('variantChart');
+                            if (variantCtx) {
+                                new Chart(variantCtx.getContext('2d'), {
+                                    type: 'bar',
+                                    data: {
+                                        labels: ['C4S', 'Carrera', 'Turbo', 'Targa'],
+                                        datasets: [{
+                                            label: 'Avg Price (USD)',
+                                            data: [155000, 135000, 225000, 145000],
+                                            backgroundColor: ['#d4af37', '#3b82f6', '#c41e3a', '#27ae60']
+                                        }]
+                                    },
+                                    options: {
+                                        responsive: true,
+                                        maintainAspectRatio: false,
+                                        indexAxis: 'y',
+                                        plugins: {
+                                            legend: { display: false }
+                                        },
+                                        scales: {
+                                            x: {
+                                                grid: { display: false },
+                                                ticks: { 
+                                                    color: '#a0a0a0',
+                                                    callback: function(value) {
+                                                        return '$' + value.toLocaleString();
+                                                    }
+                                                }
+                                            },
+                                            y: {
+                                                grid: { display: false },
+                                                ticks: { color: '#a0a0a0' }
+                                            }
+                                        }
+                                    }
+                                });
+                            }
+                        </script>
+                        
+                        <!-- Service Worker -->
+                        <script>
+                            if ('serviceWorker' in navigator) {
+                                window.addEventListener('load', () => {
+                                    navigator.serviceWorker.register('/sw.js')
+                                        .then(reg => console.log('SW registered'))
+                                        .catch(err => console.log('SW registration failed'));
+                                });
+                            }
+                        </script>
+                    </body>
+                </html>

@@ -1,0 +1,38 @@
+
+==================================================================
+🎉 DEPLOY PORSCHE DIGEST V5 - INSTRUÇÕES FINAIS
+==================================================================
+
+✅ STATUS: Todos os arquivos prontos para deploy!
+
+📁 ARQUIVOS VERIFICADOS:
+   ✅ index-v5.html    (16,985 bytes)
+   ✅ styles-v5.css    (13,886 bytes)
+   ✅ manifest.json    (567 bytes)
+   ✅ worker.js        (513 bytes)
+   ✅ .env             (atualizado com tokens)
+
+🔐 CREDENCIAIS:
+   ✅ Cloudflare API Token: Configurado
+   ✅ GitHub Token: Configurado
+
+🚀 COMANDO DE DEPLOY:
+
+   cd /c/Users/SERVER/Hermes-Workspace/porsche-digest
+   
+   # Usar npx absoluto
+   "C:\Program Files\nodejs\node_modules\npm\bin\npx.cmd" wrangler@3.52.0 pages deploy . --project-name=porsche-digest --branch=main
+
+==================================================================
+
+🔗 LINKS APÓS DEPLOY:
+   Production: https://digest.costafamily.ai
+   Backup:     https://porsche-digest.pages.dev
+   Archive:    /archive/YYYY-MM-DD.html
+
+==================================================================
+
+📋 NOTAS:
+   - O wrangler usará as credenciais do .env automaticamente
+   - Vercel ou GitHub Pages não são necessários (usando Cloudflare Pages)
+   - PWA já configurado (instalável)

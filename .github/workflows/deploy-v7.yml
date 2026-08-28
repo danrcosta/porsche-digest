@@ -1,0 +1,40 @@
+name: Deploy V7 - 993.costafamily.ai
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-la***REMOVED***
+    name: Deploy Porsche Digest V7
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install Wrangler
+        run: npm install @cloudflare/wrangler --save-dev
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-actions/deploy-pages@v1
+        with:
+          accountId: 0a68341689fffbae0284be2321350415
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          projectName: porsche-digest-v7
+          directory: dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Purge Cache
+        run: |
+          curl -X DELETE "https://api.cloudflare.com/client/v4/zones/${{ secrets.CF_ZONE_ID }}/purge_cache" \
+            -H "Authorization: Bearer ${{ secrets.CF_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            --data '{"purge_everything":true}'

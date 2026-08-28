@@ -1,0 +1,215 @@
+{
+  "date": "2026-08-27T10:00:00Z",
+  "seed": false,
+  "version": "7.0.0",
+  "market_listings": [
+    {
+      "id": "bat-1996-c4s",
+      "source_id": "bring_a_trailer",
+      "platform": "Bring a Trailer",
+      "title": "1996 Porsche 911 Carrera 4S Coupe",
+      "url": "https://bringatrailer.com/listing/1996-porsche-911-carrera-4s-coupe/",
+      "price_usd": 142500,
+      "year": 1996,
+      "model": "Carrera 4S",
+      "generation": "993",
+      "mileage_km": 78000,
+      "condition": "excellent",
+      "transmission": "manual",
+      "exterior_color": "Aero Silver Metallic",
+      "images": [
+        "https://content-hub.imgix.net/GUhocLc6D6V9qFtm3Oc2g/19e093064c8a22f6214f16a85469aac2/7-20things-20you-20need-20to-20know-20about-20the-20porsche-20911-20type-20993.jpg?w=600"
+      ],
+      "status": "active",
+      "created": "2026-08-20T10:00:00Z",
+      "matching_numbers": true,
+      "service_history": true,
+      "original_paint": true,
+      "rarity_score": 0.75,
+      "market_trend": 0.82,
+      "editorial_note": "Lowest-mileage C4S we've seen on BAT this year",
+      "signals": {
+        "matching_numbers": true,
+        "service_history": true,
+        "original_paint": true
+      }
+    },
+    {
+      "id": "candb-1998-c4s-tip",
+      "source_id": "cars_and_bids",
+      "platform": "Cars & Bids",
+      "title": "1998 Porsche 911 Carrera 4S Tiptronic",
+      "url": "https://carsandbids.com/listing/1998-porsche-911-carrera-4s-tiptronic/",
+      "price_usd": 185000,
+      "year": 1998,
+      "model": "Carrera 4S Tiptronic",
+      "generation": "993",
+      "mileage_km": 95000,
+      "condition": "good",
+      "transmission": "automatic",
+      "exterior_color": "Guards Red",
+      "images": [
+        "https://content-hub.imgix.net/7Jbfc1Bipxe77PnjOVNaTU/894ac12e105ead6a7df681de4aec5f8d/man_leaning_on_cream_coloured_1987_porsche_911_outside_french_stone_built_restaurant.jpg?w=600"
+      ],
+      "status": "ending",
+      "created": "2026-08-15T14:00:00Z",
+      "matching_numbers": false,
+      "service_history": true,
+      "original_paint": true,
+      "rarity_score": 0.85,
+      "market_trend": 0.78,
+      "editorial_note": "High-mileage example but rare Tiptronic variant in Guards Red",
+      "signals": {
+        "service_history": true,
+        "original_paint": true,
+        "rare_color_combo": true
+      }
+    }
+  ],
+  "videos": {
+    "piloto": [
+      {
+        "title": "993 Carrera vs 992 GT3 Touring - Track Battle",
+        "channel": "Porsche",
+        "url": "https://www.youtube.com/watch?v=08t5Yw38Uos",
+        "thumbnail": "https://img.youtube.com/vi/08t5Yw38Uos/sddefault.jpg",
+        "views": "45K",
+        "duration": "12:34"
+      },
+      {
+        "title": "Living with an air-cooled 911: 3000 miles road trip",
+        "channel": "Hagerty",
+        "url": "https://www.youtube.com/watch?v=rGP6SYUBQ5w",
+        "thumbnail": "https://img.youtube.com/vi/rGP6SYUBQ5w/sddefault.jpg",
+        "views": "28K",
+        "duration": "18:45"
+      },
+      {
+        "title": "Porsche Stories: The Alps in a 911 Targa",
+        "channel": "Porsche Stories",
+        "url": "https://www.youtube.com/watch?v=alps_targa_993",
+        "thumbnail": "https://img.youtube.com/vi/alps_targa_993/sddefault.jpg",
+        "views": "67K",
+        "duration": "15:12"
+      }
+    ],
+    "colecionador": [
+      {
+        "title": "Original Delivery: 1996 Carrera 4S unboxing",
+        "channel": "Porsche Classic",
+        "url": "https://www.youtube.com/watch?v=Iode_k6GJB4",
+        "thumbnail": "https://img.youtube.com/vi/Iode_k6GJB4/sddefault.jpg",
+        "views": "12K",
+        "duration": "15:22"
+      },
+      {
+        "title": "Porsche Classic: Restoring a 993 engine",
+        "channel": "Porsche Classic",
+        "url": "https://www.youtube.com/watch?v=emvxCI-xdUo",
+        "thumbnail": "https://img.youtube.com/vi/emvxCI-xdUo/sddefault.jpg",
+        "views": "89K",
+        "duration": "22:18"
+      },
+      {
+        "title": "Collector's Garage: Rarest 993 variants",
+        "channel": "Classic.com",
+        "url": "https://www.youtube.com/watch?v=rarest_993_variants",
+        "thumbnail": "https://img.youtube.com/vi/rarest_993_variants/sddefault.jpg",
+        "views": "34K",
+        "duration": "18:45"
+      }
+    ],
+    "construtor": [
+      {
+        "title": "993 RS Clubsport recreation timelapse",
+        "channel": "The Smoking Tire",
+        "url": "https://www.youtube.com/watch?v=McCVAyUiBp0",
+        "thumbnail": "https://img.youtube.com/vi/McCVAyUiBp0/sddefault.jpg",
+        "views": "56K",
+        "duration": "11:03"
+      },
+      {
+        "title": "Air-cooled LS7 swap build series",
+        "channel": "Horsepower University",
+        "url": "https://www.youtube.com/watch?v=VtLoOUSAR50",
+        "thumbnail": "https://img.youtube.com/vi/VtLoOUSAR50/sddefault.jpg",
+        "views": "134K",
+        "duration": "25:41"
+      },
+      {
+        "title": "Porsche Design: 993 restomod concept",
+        "channel": "Porsche Design",
+        "url": "https://www.youtube.com/watch?v=restomod_concept_993",
+        "thumbnail": "https://img.youtube.com/vi/restomod_concept_993/sddefault.jpg",
+        "views": "78K",
+        "duration": "20:15"
+      }
+    ]
+  },
+  "market_evolution": {
+    "models": [
+      {
+        "model_code": "C4S_993",
+        "display_name": "1996 Carrera 4S",
+        "market_data": [
+          {"year": 2022, "avg_price_usd": 115000, "range_usd": [85000, 150000]},
+          {"year": 2023, "avg_price_usd": 123000, "range_usd": [90000, 160000]},
+          {"year": 2024, "avg_price_usd": 132000, "range_usd": [95000, 175000]},
+          {"year": 2025, "avg_price_usd": 145000, "range_usd": [105000, 195000]},
+          {"year": 2026, "avg_price_usd": 155000, "range_usd": [110000, 210000]}
+        ],
+        "trend": "upward"
+      },
+      {
+        "model_code": "CARRERA_993",
+        "display_name": "1995 Carrera",
+        "market_data": [
+          {"year": 2022, "avg_price_usd": 95000, "range_usd": [70000, 120000]},
+          {"year": 2023, "avg_price_usd": 102000, "range_usd": [75000, 130000]},
+          {"year": 2024, "avg_price_usd": 109000, "range_usd": [78000, 140000]},
+          {"year": 2025, "avg_price_usd": 118000, "range_usd": [82000, 155000]},
+          {"year": 2026, "avg_price_usd": 128000, "range_usd": [87000, 165000]}
+        ],
+        "trend": "upward"
+      },
+      {
+        "model_code": "TURBO_993",
+        "display_name": "1994-1997 Turbo",
+        "market_data": [
+          {"year": 2022, "avg_price_usd": 180000, "range_usd": [140000, 250000]},
+          {"year": 2023, "avg_price_usd": 195000, "range_usd": [150000, 275000]},
+          {"year": 2024, "avg_price_usd": 210000, "range_usd": [160000, 300000]},
+          {"year": 2025, "avg_price_usd": 228000, "range_usd": [175000, 330000]},
+          {"year": 2026, "avg_price_usd": 248000, "range_usd": [190000, 360000]}
+        ],
+        "trend": "upward"
+      }
+    ],
+    "calculation_method": "weighted_average(bring_a_trailer, cars_and_bids, classic_com_auctions)",
+    "exchange_rate": {
+      "usd_brl": 5.19,
+      "last_updated": "2026-08-27T07:00:00Z"
+    }
+  },
+  "owner_insights": {
+    "vin": "WP0AA2999TS320294",
+    "model": "1996 Porsche 911 Carrera 4S",
+    "mileage": 101522,
+    "last_service": "2026-07-15",
+    "next_service_due": "2026-10-15",
+    "maintenance_scheduled": [
+      {
+        "item": "Oil Change & Filter",
+        "due_km": 105000,
+        "interval_km": 10000,
+        "status": "pending"
+      },
+      {
+        "item": "Air Filter Replacement",
+        "due_km": 110000,
+        "interval_km": 20000,
+        "status": "pending"
+      }
+    ]
+  }
+}

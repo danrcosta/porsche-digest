@@ -1,21 +1,29 @@
 {
-  "name": "porsche-digest-v7",
+  "name": "Porsche 993 Daily Digest",
   "short_name": "Porsche Digest",
-  "description": "Premium Porsche 993 daily digest with market intelligence, technical specs, and community insights",
+  "description": "Premium daily intelligence for Porsche 993 air-cooled enthusiasts",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0a0a",
-  "theme_color": "#0a0a0a",
+  "theme_color": "#d4af37",
+  "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "/icons/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable any"
     },
     {
-      "src": "icon-512.png",
+      "src": "/icons/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable any"
     }
-  ]
+  ],
+  "categories": ["news", "utilities", "lifestyle"],
+  "lang": "en",
+  "prefer_related_applications": false,
+  "scope": "/",
+  "display_override": ["window-controls-overlay", "minimal-ui"]
 }
