@@ -134,6 +134,164 @@ def fetch_daily_porsche_videos():
     }
 
 
+# =============================================================================
+# COMMUNITY PERSPECTIVES — 93 fontes curadas (31 Driver, 31 Collector, 31 Custom)
+# =============================================================================
+
+def get_community_sources():
+        """Return all 93 curated sources organized by persona."""
+        return {
+            "driver": [
+                {"name": "Porsche (Official YouTube)", "url": "https://www.youtube.com/@Porsche", "type": "youtube", "category": "driving stories"},
+                {"name": "Hagerty", "url": "https://www.youtube.com/@HagertyMedia", "type": "youtube", "category": "long drives, guides"},
+                {"name": "The Smoking Tire", "url": "https://www.youtube.com/@TheSmokingTire", "type": "youtube", "category": "road ***REMOVED***s"},
+                {"name": "Chris Harris on Cars", "url": "https://www.youtube.com/@ChrisHarrisonCars", "type": "youtube", "category": "driving feel"},
+                {"name": "Harry's Garage", "url": "https://www.youtube.com/@HarrysGarage", "type": "youtube", "category": "owner stories"},
+                {"name": "Porsche Stories", "url": "https://www.youtube.com/@porsche", "type": "youtube", "category": "editorial oficial"},
+                {"name": "Everyday Driver", "url": "https://www.youtube.com/@EverydayDriver", "type": "youtube", "category": "daily driver reviews"},
+                {"name": "MotoMan TV", "url": "https://www.youtube.com/@MotoManTV", "type": "youtube", "category": "993 impressions"},
+                {"name": "DtRockstar1", "url": "https://www.youtube.com/@DtRockstar1", "type": "youtube", "category": "road trips BR/EUA"},
+                {"name": "Total 911 Magazine", "url": "https://www.youtube.com/@total911", "type": "youtube", "category": "UK editorial"},
+                {"name": "Porsche Stories (Web)", "url": "https://www.porsche.com/stories/", "type": "web", "category": "editorial oficial"},
+                {"name": "Porsche Newsroom", "url": "https://newsroom.porsche.com/en.html", "type": "web", "category": "press releases"},
+                {"name": "Total 911 Magazine (Web)", "url": "https://www.total911.com", "type": "web", "category": "technical + driving"},
+                {"name": "Porsche Club Brasil", "url": "https://www.porscheclube.com.br", "type": "web", "category": "comunidade BR"},
+                {"name": "PCA.org", "url": "https://www.pca.org", "type": "web", "category": "Porsche Club America"},
+                {"name": "Opposite Lock", "url": "https://oppositelock.kinja.com", "type": "web", "category": "community stories"},
+                {"name": "Petrolicious", "url": "https://petrolicious.com/tags/porsche", "type": "web", "category": "cinematic stories"},
+                {"name": "FLATSIX Magazine", "url": "https://www.flatsixmag.com", "type": "web", "category": "lifestyle air-cooled"},
+                {"name": "@porsche (IG)", "url": "https://www.instagram.com/porsche/", "type": "social", "category": "feed oficial"},
+                {"name": "@porscheclassic (IG)", "url": "https://www.instagram.com/porscheclassic/", "type": "social", "category": "heritage oficial"},
+                {"name": "@aircooled.net (IG)", "url": "https://www.instagram.com/aircooled.net/", "type": "social", "category": "global community"},
+                {"name": "@993_911 (IG)", "url": "https://www.instagram.com/993_911/", "type": "social", "category": "dedicado 993"},
+                {"name": "Rennlist 993 Forum", "url": "https://rennlist.com/forums/993-forum-58/", "type": "forum", "category": "maior fórum técnico"},
+                {"name": "6SpeedOnline 911", "url": "https://www.6speedonline.com/forums/911-carrera/", "type": "forum", "category": "comunidade ativa"},
+                {"name": "Pelican Parts Tech Forums", "url": "https://forums.pelicanparts.com/porsche-911-technical-forum/", "type": "forum", "category": "DIY técnico"},
+                {"name": "Reddit r/Porsche", "url": "https://www.reddit.com/r/Porsche/", "type": "forum", "category": "global community"},
+                {"name": "Reddit r/911", "url": "https://www.reddit.com/r/911/", "type": "forum", "category": "911 específico"},
+                {"name": "Porsche BR Facebook", "url": "https://www.facebook.com/groups/porschebrclub/", "type": "forum", "category": "comunidade BR"},
+                {"name": "Porsche Newsroom RSS", "url": "https://newsroom.porsche.com/en/rss.html", "type": "feed", "category": "feed oficial"},
+                {"name": "Total 911 RSS", "url": "https://www.total911.com/feed/", "type": "feed", "category": "feed editorial"},
+                {"name": "Hagerty Media RSS", "url": "https://www.hagerty.com/media/feed/", "type": "feed", "category": "artigos e avaliações"},
+                {"name": "Petrolicious RSS", "url": "https://petrolicious.com/feed", "type": "feed", "category": "histórias cinematográficas"},
+            ],
+            "collector": [
+                {"name": "Bring a Trailer — 993", "url": "https://bringatrailer.com/porsche/993/", "type": "auction", "category": "maior plataforma online"},
+                {"name": "Cars & Bids — Porsche", "url": "https://carsandbids.com/search/?make=Porsche", "type": "auction", "category": "Douglas DeMuro platform"},
+                {"name": "RM Sotheby's — Porsche", "url": "https://rmsothebys.com/en/search#makes=Porsche", "type": "auction", "category": "alto padrão, Pebble Beach"},
+                {"name": "Gooding & Company", "url": "https://www.goodingco.com/vehicles/?make=Porsche", "type": "auction", "category": "concours level"},
+                {"name": "Bonhams — Porsche", "url": "https://www.bonhams.com/search/?category=cars&make=Porsche", "type": "auction", "category": "leilões europeus"},
+                {"name": "Mecum Auctions — 993", "url": "https://www.mecum.com/search/results/?SearchQuery=porsche+993", "type": "auction", "category": "EUA, alto volume"},
+                {"name": "Collecting Cars — Porsche", "url": "https://collectingcars.com/search?make=Porsche", "type": "auction", "category": "UK marketplace"},
+                {"name": "COYS Auctions", "url": "https://www.coys.co.uk/results?make=Porsche", "type": "auction", "category": "Europa clássicos"},
+                {"name": "Elferspot", "url": "https://www.elferspot.com/en/magazin/", "type": "auction", "category": "marketplace europeu Porsche"},
+                {"name": "Classic.com — 993 Market", "url": "https://www.classic.com/m/porsche/911/993/", "type": "valuation", "category": "market data ao vivo"},
+                {"name": "Hagerty Valuation Tools", "url": "https://www.hagerty.com/valuation-tools/", "type": "valuation", "category": "preço por condição"},
+                {"name": "NADA Guides — Porsche", "url": "https://www.nada.org/nada/consumer-vehicle-values", "type": "valuation", "category": "referência EUA"},
+                {"name": "PriceMyClassic", "url": "https://www.pricemyclassic.com", "type": "valuation", "category": "dados históricos venda"},
+                {"name": "AutoTrader Classics", "url": "https://classics.autotrader.com/classic-cars-for-sale/porsche/911", "type": "valuation", "category": "listagens EUA"},
+                {"name": "duPont Registry", "url": "https://www.dupont-registry.com/search-cars/?make=Porsche", "type": "valuation", "category": "ultra-premium"},
+                {"name": "Porsche Classic Parts (Official)", "url": "https://classic.porsche.com/en/classic/classic-parts/", "type": "reference", "category": "catálogo peças originais"},
+                {"name": "Porsche COA Request", "url": "https://www.porsche.com/usa/accessoriesandservices/porscheclassic/world/certificate-of-authenticity/", "type": "reference", "category": "autenticidade"},
+                {"name": "Total 911 Buyer's Guide", "url": "https://www.total911.com/porsche-911-993-buyers-guide/", "type": "reference", "category": "guia de compra"},
+                {"name": "Hagerty 993 Market Report", "url": "https://www.hagerty.com/media/market-trends/porsche-993/", "type": "reference", "category": "trend report"},
+                {"name": "Classic.com Insights 993", "url": "https://www.classic.com/insights/market-guide-porsche-993/", "type": "reference", "category": "análise de mercado"},
+                {"name": "Pebble Beach Concours", "url": "https://www.pebblebeachconcours.net", "type": "event", "category": "maior concurso mundial"},
+                {"name": "Rennsport Reunion", "url": "https://www.rennsportreunion.com", "type": "event", "category": "festival Porsche oficial"},
+                {"name": "Porsche Club Brasil Eventos", "url": "https://www.porscheclube.com.br/eventos/", "type": "event", "category": "calendário BR"},
+                {"name": "PCA Concours", "url": "https://www.pca.org/events/concours", "type": "event", "category": "eventos judged EUA"},
+                {"name": "Classic & Sports Car", "url": "https://www.classicandrestoredcar.com/porsche", "type": "editorial", "category": "UK premium"},
+                {"name": "Octane Magazine", "url": "https://www.octane.media/porsche/", "type": "editorial", "category": "collector focused"},
+                {"name": "Sports Car International", "url": "https://www.sportscarinternational.com", "type": "editorial", "category": "collector lifestyle"},
+                {"name": "Sports Car Market", "url": "https://www.sportscarmarket.com", "type": "editorial", "category": "auction analytics"},
+                {"name": "911 & Porsche World", "url": "https://www.911porscheworld.com", "type": "editorial", "category": "colecionador UK"},
+                {"name": "Porsche Panorama (PCA)", "url": "https://www.pca.org/panorama", "type": "editorial", "category": "revista oficial PCA"},
+                {"name": "AutoHunter by Cox", "url": "https://www.autohunter.com/cars-for-sale/porsche/", "type": "editorial", "category": "online auctions"},
+            ],
+            "custom": [
+                {"name": "Singer Vehicle Design", "url": "https://www.singervehicledesign.com", "type": "builder", "category": "restomod definitivo"},
+                {"name": "Gunther Werks", "url": "https://guntherwerks.com", "type": "builder", "category": "400R widebody 993"},
+                {"name": "RUF Automobile", "url": "https://www.ruf-automobile.de", "type": "builder", "category": "Yellowbird herdeiro"},
+                {"name": "Canepa Design", "url": "https://www.canepa.com", "type": "builder", "category": "restauração + upgrades"},
+                {"name": "DP Motorsport", "url": "https://www.dp-motorsport.de", "type": "builder", "category": "conversões GT2/RS"},
+                {"name": "Elephant Racing", "url": "https://www.elephantracing.com", "type": "builder", "category": "suspension OEM+"},
+                {"name": "TechArt", "url": "https://www.techart.de", "type": "builder", "category": "widebody e tuning"},
+                {"name": "RWB (Rauh-Welt Begriff)", "url": "https://www.rwb-porsche.jp", "type": "builder", "category": "cultura JDM flares"},
+                {"name": "Lanzante Motorsport", "url": "https://www.lanzante.com", "type": "builder", "category": "conversões GT extremas"},
+                {"name": "AutoAtlantis", "url": "https://www.autoatlantis.com.br", "type": "builder", "category": "Brasil, especialista 993"},
+                {"name": "Porsche Classic (YT)", "url": "https://www.youtube.com/@PorscheClassic", "type": "youtube", "category": "restaurações oficiais"},
+                {"name": "Cutting Edge Engineering", "url": "https://www.youtube.com/@CuttingEdgeEngineering", "type": "youtube", "category": "machining builds"},
+                {"name": "Rob Dahm", "url": "https://www.youtube.com/@RobDahm", "type": "youtube", "category": "builds extremos"},
+                {"name": "Rebuild Rescue", "url": "https://www.youtube.com/@RebuildRescue", "type": "youtube", "category": "restaurações DIY"},
+                {"name": "Adam LZ", "url": "https://www.youtube.com/@AdamLZ", "type": "youtube", "category": "builds, custom 911"},
+                {"name": "Chris Fix", "url": "https://www.youtube.com/@ChrisFix", "type": "youtube", "category": "tutoriais DIY"},
+                {"name": "Garage Time", "url": "https://www.youtube.com/@GarageTimeDIY", "type": "youtube", "category": "restauração passo a passo"},
+                {"name": "The Flat Six Garage", "url": "https://www.youtube.com/@FlatSixGarage", "type": "youtube", "category": "993 build diary"},
+                {"name": "Pelican Parts — 993", "url": "https://www.pelicanparts.com/porsche/993/", "type": "parts", "category": "maior catálogo técnico"},
+                {"name": "FCP Euro — Porsche", "url": "https://www.fcpeuro.com/products/porsche", "type": "parts", "category": "OEM + qualidade EU"},
+                {"name": "Genuine Porsche Parts", "url": "https://www.genuineporscheparts.net", "type": "parts", "category": "OEM original"},
+                {"name": "Stoddard Porsche", "url": "https://www.stoddard.com/porsche-993", "type": "parts", "category": "legacy parts specialists"},
+                {"name": "Suncoast Parts", "url": "https://www.suncoastparts.com/porsche-993-parts", "type": "parts", "category": "EUA stock clássico"},
+                {"name": "AutoAtlantis BR (Parts)", "url": "https://www.autoatlantis.com.br", "type": "parts", "category": "importação BR 993"},
+                {"name": "Porsche Classic Tequipment", "url": "https://classic.porsche.com/en/classic/tequipment/", "type": "parts", "category": "upgrades oficiais"},
+                {"name": "Pelican Parts Tech Articles", "url": "https://www.pelicanparts.com/tech/996/", "type": "reference", "category": "guias técnicos ilustrados"},
+                {"name": "Rennlist 993 Tech", "url": "https://rennlist.com/forums/993-forum-58/", "type": "reference", "category": "diagnósticos DIY"},
+                {"name": "FVD Brombacher Tech", "url": "https://www.fvdbrombacher.com/tech-articles/", "type": "reference", "category": "técnico avançado DE"},
+                {"name": "TechInfo Porsche (PET)", "url": "https://techinfo.porsche.com", "type": "reference", "category": "sistema oficial Porsche"},
+                {"name": "PorschePerfect Guides", "url": "https://www.porscheperfect.com/993", "type": "reference", "category": "DIY técnico completo"},
+            ]
+        }
+
+
+def select_daily_sources(date_str: str, persona: str, count: int = 6) -> list:
+    """Select sources deterministically for a given date and persona.
+
+    Uses date hash for deterministic rotation - same date = same sources.
+    """
+    all_sources = get_community_sources()
+    sources = all_sources.get(persona, [])
+
+    # Deterministic seed from date + persona
+    seed = hash(f"{date_str}-{persona}")
+    import random
+    random.seed(seed)
+
+    # Shuffle and pick 'count' sources
+    shuffled = sources.copy()
+    random.shuffle(shuffled)
+    return shuffled[:count]
+
+
+def get_community_daily_content(date_str=None):
+    """Generate daily community perspectives content with rotating sources."""
+    if date_str is None:
+        date_str = datetime.now().strftime("%Y-%m-%d")
+
+    return {
+        "driver": {
+            "title": "Driver Zone",
+            "subtitle": "Behind the wheel — road trips, track days, daily drives",
+            "icon": "🏁",
+            "badge_class": "badge-driver",
+            "sources": select_daily_sources(date_str, "driver", 6)
+        },
+        "collector": {
+            "title": "Collector Corner",
+            "subtitle": "Auctions, valuations, provenance, concours",
+            "icon": "💎",
+            "badge_class": "badge-collector",
+            "sources": select_daily_sources(date_str, "collector", 6)
+        },
+        "custom": {
+            "title": "Custom Shop",
+            "subtitle": "Restomods, builds, suspension, parts, OEM+",
+            "icon": "🛠️",
+            "badge_class": "badge-custom",
+            "sources": select_daily_sources(date_str, "custom", 6)
+        }
+    }
+
+
 def get_turbo_s_daily_content():
     """Generate daily content for 911 Turbo S 2026 section."""
     return {
@@ -372,7 +530,7 @@ def get_daily_hero_image(date_str=None):
     }
 
 
-def generate_html_template(date_str, articles, auctions, valuation, rate, videos=None, turbo_s=None):
+def generate_html_template(date_str, articles, auctions, valuation, rate, videos=None, turbo_s=None, community=None):
     """Generate the HTML digest using the premium dark Porsche Stories-inspired template v3."""
 
     # Format date for hero
@@ -390,6 +548,8 @@ def generate_html_template(date_str, articles, auctions, valuation, rate, videos
         videos = fetch_daily_porsche_videos()
     if turbo_s is None:
         turbo_s = get_turbo_s_daily_content()
+    if community is None:
+        community = get_community_daily_content(date_str)
 
     # Porsche quote for hero
     porsche_quotes = [
@@ -570,6 +730,25 @@ def generate_html_template(date_str, articles, auctions, valuation, rate, videos
     html = html.replace("{{turbo_headline}}", turbo_s.get("headline", ""))
     html = html.replace("{{turbo_subhead}}", turbo_s.get("subhead", ""))
     html = html.replace("{{turbo_highlights}}", turbo_highlights_html)
+
+    # Community Perspectives — build source links per persona
+    type_icons = {
+        "youtube": "▶", "web": "🌐", "social": "📱", "forum": "💬",
+        "feed": "📡", "auction": "🔨", "valuation": "📊", "reference": "📚",
+        "event": "🏆", "editorial": "📰", "builder": "🏭", "parts": "🔩"
+    }
+    for persona_key, persona_data in community.items():
+        sources_html = ""
+        for src in persona_data["sources"]:
+            icon = type_icons.get(src.get("type", "web"), "🔗")
+            sources_html += f"""
+                        <a href="{src['url']}" target="_blank" class="source-link">
+                            <span class="source-icon">{icon}</span>
+                            <span class="source-name">{src['name']}</span>
+                            <span class="source-cat">{src.get('category', '')}</span>
+                        </a>"""
+        html = html.replace(f"{{{{{persona_key}_sources}}}}", sources_html)
+        html = html.replace(f"{{{{{persona_key}_subtitle}}}}", persona_data.get("subtitle", ""))
 
     return html
 

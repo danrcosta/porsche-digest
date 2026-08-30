@@ -738,6 +738,54 @@
         .issues-list { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
         .issues-list li { font-size: 0.73rem; color: var(--text-muted); background: rgba(196,30,58,0.08); border: 1px solid rgba(196,30,58,0.15); padding: 0.2rem 0.6rem; border-radius: 6px; }
 
+        /* Source Links Grid */
+        .sources-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .source-link {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.55rem 0.8rem;
+            background: rgba(212, 175, 55, 0.06);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .source-link:hover {
+            background: rgba(212, 175, 55, 0.14);
+            border-color: var(--gold);
+            transform: translateX(3px);
+        }
+        .source-icon {
+            font-size: 0.85rem;
+            min-width: 20px;
+            text-align: center;
+        }
+        .source-name {
+            font-family: var(--font-grotesk);
+            font-size: 0.82rem;
+            color: var(--gold-light);
+            font-weight: 500;
+            flex: 1;
+        }
+        .source-cat {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.4);
+            font-style: italic;
+            white-space: nowrap;
+        }
+        .persona-source-count {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.35);
+            margin-top: 0.8rem;
+            text-align: right;
+        }
+
         /* Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg-primary); }
@@ -777,12 +825,12 @@
             </div>
             <h1 class="hero-date">30 <span style="font-size: 0.5em; color: var(--text-secondary);">August 2026</span></h1>
             <p class="hero-subtitle">Sunday • Daily Intelligence Brief</p>
-            <p class="hero-quote">The 911 is the only car you could drive to a cemetery and still enjoy. — Ferdinand Piech</p>
+            <p class="hero-quote">The 993 is the last of its kind—a perfectly analog supercar where every component speaks to engineering purity. — Porsche Stories</p>
             <div class="hero-image-container">
-                <img src="https://content-hub.imgix.net/7Jbfc1Bipxe77PnjOVNaTU/894ac12e105ead6a7df681de4aec5f8d/what-20is-20the-20best-20engine-20oil.jpg?w=1920" alt="What's the best engine oil for my classic Porsche?" class="hero-image" loading="eager">
+                <img src="https://content-hub.imgix.net/GUhocLc6D6V9qFtm3Oc2g/19e093064c8a22f6214f16a85469aac2/7-20things-20you-20need-20to-20know-20about-20the-20porsche-20911-20type-20993.jpg?w=1920" alt="What is the Porsche 911 (type 993)?" class="hero-image" loading="eager">
                 <div class="hero-image-overlay">
-                    <div class="hero-image-title">What's the best engine oil for my classic Porsche?</div>
-                    <div class="hero-image-source">911 (964/993) • Porsche Stories</div>
+                    <div class="hero-image-title">What is the Porsche 911 (type 993)?</div>
+                    <div class="hero-image-source">911 (993) • Porsche Stories</div>
                 </div>
             </div>
         </div>
@@ -1111,42 +1159,123 @@
                 <span class="persona-badge badge-driver">🏁 Driver Zone</span>
                 <span class="persona-avatar">🇧🇷</span>
                 <div class="persona-name">Daniel Costa</div>
-                <div class="persona-subtitle">São Paulo, Brasil · 1996 993 Carrera 4S · Arctic Silver</div>
-                <ul class="persona-stats">
-                    <li>VIN WP0AA2999TS320294 · 101,522 km</li>
-                    <li>M64/21 Varioram 3.6L 282 hp · G64/20 6MT</li>
-                    <li>Fastback Motors Geneva → Brasil (2026)</li>
-                    <li>Hashtag #Drive993BR · 5 posts/week</li>
-                    <li>Road trips BR ↔ Suíça · Manutenção preventiva</li>
-                </ul>
+                <div class="persona-subtitle">Behind the wheel — road trips, track days, daily drives</div>
+                <div class="sources-grid">
+                    
+                        <a href="https://www.youtube.com/@TheSmokingTire" target="_blank" class="source-link">
+                            <span class="source-icon">▶</span>
+                            <span class="source-name">The Smoking Tire</span>
+                            <span class="source-cat">road ***REMOVED***s</span>
+                        </a>
+                        <a href="https://www.instagram.com/porsche/" target="_blank" class="source-link">
+                            <span class="source-icon">📱</span>
+                            <span class="source-name">@porsche (IG)</span>
+                            <span class="source-cat">feed oficial</span>
+                        </a>
+                        <a href="https://www.youtube.com/@HagertyMedia" target="_blank" class="source-link">
+                            <span class="source-icon">▶</span>
+                            <span class="source-name">Hagerty</span>
+                            <span class="source-cat">long drives, guides</span>
+                        </a>
+                        <a href="https://www.6speedonline.com/forums/911-carrera/" target="_blank" class="source-link">
+                            <span class="source-icon">💬</span>
+                            <span class="source-name">6SpeedOnline 911</span>
+                            <span class="source-cat">comunidade ativa</span>
+                        </a>
+                        <a href="https://www.total911.com" target="_blank" class="source-link">
+                            <span class="source-icon">🌐</span>
+                            <span class="source-name">Total 911 Magazine (Web)</span>
+                            <span class="source-cat">technical + driving</span>
+                        </a>
+                        <a href="https://petrolicious.com/tags/porsche" target="_blank" class="source-link">
+                            <span class="source-icon">🌐</span>
+                            <span class="source-name">Petrolicious</span>
+                            <span class="source-cat">cinematic stories</span>
+                        </a>
+                </div>
+                <div class="persona-source-count">6 of 32 sources · rotates daily</div>
             </div>
             <!-- Collector Corner -->
             <div class="persona-card">
                 <span class="persona-badge badge-collector">💎 Collector Corner</span>
                 <span class="persona-avatar">🌍</span>
                 <div class="persona-name">The Collector</div>
-                <div class="persona-subtitle">Global · USA / Europe / Japan · PCA Concours Level</div>
-                <ul class="persona-stats">
-                    <li>Focus: baixa km, originalidade, números bate</li>
-                    <li>Rare Finds Radar — detecções semanais</li>
-                    <li>Condition Grading System 1–10</li>
-                    <li>Market Outlook: +12% C4S YoY (2026)</li>
-                    <li>Investment Analysis · Event Calendar showrooms</li>
-                </ul>
+                <div class="persona-subtitle">Auctions, valuations, provenance, concours</div>
+                <div class="sources-grid">
+                    
+                        <a href="https://www.classic.com/insights/market-guide-porsche-993/" target="_blank" class="source-link">
+                            <span class="source-icon">📚</span>
+                            <span class="source-name">Classic.com Insights 993</span>
+                            <span class="source-cat">análise de mercado</span>
+                        </a>
+                        <a href="https://www.bonhams.com/search/?category=cars&make=Porsche" target="_blank" class="source-link">
+                            <span class="source-icon">🔨</span>
+                            <span class="source-name">Bonhams — Porsche</span>
+                            <span class="source-cat">leilões europeus</span>
+                        </a>
+                        <a href="https://www.sportscarinternational.com" target="_blank" class="source-link">
+                            <span class="source-icon">📰</span>
+                            <span class="source-name">Sports Car International</span>
+                            <span class="source-cat">collector lifestyle</span>
+                        </a>
+                        <a href="https://rmsothebys.com/en/search#makes=Porsche" target="_blank" class="source-link">
+                            <span class="source-icon">🔨</span>
+                            <span class="source-name">RM Sotheby's — Porsche</span>
+                            <span class="source-cat">alto padrão, Pebble Beach</span>
+                        </a>
+                        <a href="https://classics.autotrader.com/classic-cars-for-sale/porsche/911" target="_blank" class="source-link">
+                            <span class="source-icon">📊</span>
+                            <span class="source-name">AutoTrader Classics</span>
+                            <span class="source-cat">listagens EUA</span>
+                        </a>
+                        <a href="https://www.pca.org/panorama" target="_blank" class="source-link">
+                            <span class="source-icon">📰</span>
+                            <span class="source-name">Porsche Panorama (PCA)</span>
+                            <span class="source-cat">revista oficial PCA</span>
+                        </a>
+                </div>
+                <div class="persona-source-count">6 of 31 sources · rotates daily</div>
             </div>
             <!-- Custom Shop -->
             <div class="persona-card">
                 <span class="persona-badge badge-custom">🛠️ Custom Shop</span>
                 <span class="persona-avatar">🔩</span>
                 <div class="persona-name">The Builder</div>
-                <div class="persona-subtitle">Europa / USA · Singer · Gunther Werks · Restomods</div>
-                <ul class="persona-stats">
-                    <li>Build Showcases diários — RS Clubsport, GT2</li>
-                    <li>Parts Compatibility Matrix 964/993</li>
-                    <li>Modification Guides: Bilstein PSS10, KW V3</li>
-                    <li>Technical Specs Database (OEM+)</li>
-                    <li>Service Provider Directory BR/EU/US</li>
-                </ul>
+                <div class="persona-subtitle">Restomods, builds, suspension, parts, OEM+</div>
+                <div class="sources-grid">
+                    
+                        <a href="https://www.fcpeuro.com/products/porsche" target="_blank" class="source-link">
+                            <span class="source-icon">🔩</span>
+                            <span class="source-name">FCP Euro — Porsche</span>
+                            <span class="source-cat">OEM + qualidade EU</span>
+                        </a>
+                        <a href="https://www.youtube.com/@RebuildRescue" target="_blank" class="source-link">
+                            <span class="source-icon">▶</span>
+                            <span class="source-name">Rebuild Rescue</span>
+                            <span class="source-cat">restaurações DIY</span>
+                        </a>
+                        <a href="https://www.youtube.com/@PorscheClassic" target="_blank" class="source-link">
+                            <span class="source-icon">▶</span>
+                            <span class="source-name">Porsche Classic (YT)</span>
+                            <span class="source-cat">restaurações oficiais</span>
+                        </a>
+                        <a href="https://www.elephantracing.com" target="_blank" class="source-link">
+                            <span class="source-icon">🏭</span>
+                            <span class="source-name">Elephant Racing</span>
+                            <span class="source-cat">suspension OEM+</span>
+                        </a>
+                        <a href="https://rennlist.com/forums/993-forum-58/" target="_blank" class="source-link">
+                            <span class="source-icon">📚</span>
+                            <span class="source-name">Rennlist 993 Tech</span>
+                            <span class="source-cat">diagnósticos DIY</span>
+                        </a>
+                        <a href="https://www.rwb-porsche.jp" target="_blank" class="source-link">
+                            <span class="source-icon">🏭</span>
+                            <span class="source-name">RWB (Rauh-Welt Begriff)</span>
+                            <span class="source-cat">cultura JDM flares</span>
+                        </a>
+                </div>
+                <div class="persona-source-count">6 of 30 sources · rotates daily</div>
             </div>
         </div>
     </section>

@@ -738,6 +738,54 @@
         .issues-list { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
         .issues-list li { font-size: 0.73rem; color: var(--text-muted); background: rgba(196,30,58,0.08); border: 1px solid rgba(196,30,58,0.15); padding: 0.2rem 0.6rem; border-radius: 6px; }
 
+        /* Source Links Grid */
+        .sources-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .source-link {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.55rem 0.8rem;
+            background: rgba(212, 175, 55, 0.06);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .source-link:hover {
+            background: rgba(212, 175, 55, 0.14);
+            border-color: var(--gold);
+            transform: translateX(3px);
+        }
+        .source-icon {
+            font-size: 0.85rem;
+            min-width: 20px;
+            text-align: center;
+        }
+        .source-name {
+            font-family: var(--font-grotesk);
+            font-size: 0.82rem;
+            color: var(--gold-light);
+            font-weight: 500;
+            flex: 1;
+        }
+        .source-cat {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.4);
+            font-style: italic;
+            white-space: nowrap;
+        }
+        .persona-source-count {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.35);
+            margin-top: 0.8rem;
+            text-align: right;
+        }
+
         /* Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg-primary); }
@@ -883,42 +931,33 @@
                 <span class="persona-badge badge-driver">🏁 Driver Zone</span>
                 <span class="persona-avatar">🇧🇷</span>
                 <div class="persona-name">Daniel Costa</div>
-                <div class="persona-subtitle">São Paulo, Brasil · 1996 993 Carrera 4S · Arctic Silver</div>
-                <ul class="persona-stats">
-                    <li>VIN WP0AA2999TS320294 · 101,522 km</li>
-                    <li>M64/21 Varioram 3.6L 282 hp · G64/20 6MT</li>
-                    <li>Fastback Motors Geneva → Brasil (2026)</li>
-                    <li>Hashtag #Drive993BR · 5 posts/week</li>
-                    <li>Road trips BR ↔ Suíça · Manutenção preventiva</li>
-                </ul>
+                <div class="persona-subtitle">{{driver_subtitle}}</div>
+                <div class="sources-grid">
+                    {{driver_sources}}
+                </div>
+                <div class="persona-source-count">6 of 32 sources · rotates daily</div>
             </div>
             <!-- Collector Corner -->
             <div class="persona-card">
                 <span class="persona-badge badge-collector">💎 Collector Corner</span>
                 <span class="persona-avatar">🌍</span>
                 <div class="persona-name">The Collector</div>
-                <div class="persona-subtitle">Global · USA / Europe / Japan · PCA Concours Level</div>
-                <ul class="persona-stats">
-                    <li>Focus: baixa km, originalidade, números bate</li>
-                    <li>Rare Finds Radar — detecções semanais</li>
-                    <li>Condition Grading System 1–10</li>
-                    <li>Market Outlook: +12% C4S YoY (2026)</li>
-                    <li>Investment Analysis · Event Calendar showrooms</li>
-                </ul>
+                <div class="persona-subtitle">{{collector_subtitle}}</div>
+                <div class="sources-grid">
+                    {{collector_sources}}
+                </div>
+                <div class="persona-source-count">6 of 31 sources · rotates daily</div>
             </div>
             <!-- Custom Shop -->
             <div class="persona-card">
                 <span class="persona-badge badge-custom">🛠️ Custom Shop</span>
                 <span class="persona-avatar">🔩</span>
                 <div class="persona-name">The Builder</div>
-                <div class="persona-subtitle">Europa / USA · Singer · Gunther Werks · Restomods</div>
-                <ul class="persona-stats">
-                    <li>Build Showcases diários — RS Clubsport, GT2</li>
-                    <li>Parts Compatibility Matrix 964/993</li>
-                    <li>Modification Guides: Bilstein PSS10, KW V3</li>
-                    <li>Technical Specs Database (OEM+)</li>
-                    <li>Service Provider Directory BR/EU/US</li>
-                </ul>
+                <div class="persona-subtitle">{{custom_subtitle}}</div>
+                <div class="sources-grid">
+                    {{custom_sources}}
+                </div>
+                <div class="persona-source-count">6 of 30 sources · rotates daily</div>
             </div>
         </div>
     </section>
