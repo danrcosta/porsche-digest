@@ -1,0 +1,29 @@
+{
+  "name": "Porsche 993 Daily Digest",
+  "short_name": "Porsche Digest",
+  "description": "Premium daily intelligence for Porsche 993 air-cooled enthusiasts",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#d4af37",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["news", "utilities", "lifestyle"],
+  "lang": "en",
+  "prefer_related_applications": false,
+  "scope": "/",
+  "display_override": ["window-controls-overlay", "minimal-ui"]
+}

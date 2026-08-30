@@ -1,0 +1,11 @@
+# Configuração V7 - Domínio: 993.costafamily.ai
+name = "porsche-digest-v7"
+compatibility_date = "2026-08-28"
+pages_build_output_dir = "dist"
+
+[vars]
+DOMAIN = "993.costafamily.ai"
+VERSION = "V7"
+
+[env.production]
+name = "porsche-digest-v7"
