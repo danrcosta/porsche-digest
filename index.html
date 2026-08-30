@@ -637,6 +637,107 @@
         .delay-2 { animation-delay: 0.2s; }
         .delay-3 { animation-delay: 0.3s; }
 
+        /* ===== LOOP 9b: Community Personas ===== */
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .persona-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .persona-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+        }
+        .persona-card:hover {
+            border-color: var(--border-gold);
+            box-shadow: var(--shadow-gold);
+            transform: translateY(-4px);
+        }
+        .persona-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1.25rem;
+        }
+        .badge-driver  { background: rgba(46,204,113,0.15);  color: #2ecc71; border: 1px solid rgba(46,204,113,0.3); }
+        .badge-collector { background: rgba(212,175,55,0.15); color: var(--gold); border: 1px solid var(--border-gold); }
+        .badge-custom  { background: rgba(59,130,246,0.15);  color: #3b82f6; border: 1px solid rgba(59,130,246,0.3); }
+        .persona-avatar { font-size: 2.25rem; margin-bottom: 0.75rem; display: block; }
+        .persona-name { font-family: var(--font-grotesk); font-size: 1.2rem; font-weight: 600; margin-bottom: 0.2rem; }
+        .persona-subtitle { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 1.25rem; }
+        .persona-stats { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; margin-top: 0.75rem; }
+        .persona-stats li { font-size: 0.78rem; color: var(--text-secondary); display: flex; align-items: flex-start; gap: 0.5rem; line-height: 1.4; }
+        .persona-stats li::before { content: '→'; color: var(--gold); font-size: 0.65rem; margin-top: 0.2rem; flex-shrink: 0; }
+
+        /* ===== LOOP 9c: Turbo S Legacy ===== */
+        .turbo-section {
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(196,30,58,0.05) 100%);
+            border: 1px solid rgba(196,30,58,0.15);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .turbo-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-red), var(--gold));
+        }
+        .turbo-headline { font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .turbo-subhead  { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 2rem; }
+        .turbo-highlights { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+        .turbo-highlight {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem 1.5rem;
+        }
+        .turbo-highlight-title { font-family: var(--font-grotesk); font-size: 0.95rem; font-weight: 600; color: var(--gold); margin-bottom: 0.5rem; }
+        .turbo-highlight-desc  { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; }
+
+        /* ===== LOOP 9d: Technical Specs ===== */
+        .specs-container { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+        .specs-header {
+            padding: 1.25rem 2rem;
+            background: linear-gradient(90deg, var(--bg-elevated), var(--bg-card));
+            border-bottom: 1px solid var(--border-gold);
+            display: flex; align-items: center; gap: 1rem;
+        }
+        .specs-title-text { font-family: var(--font-grotesk); font-size: 0.95rem; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em; }
+        .specs-vin { font-size: 0.72rem; color: var(--text-muted); font-family: monospace; margin-left: auto; }
+        .specs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .spec-group { padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); }
+        .spec-group:nth-child(2n) { border-right: none; }
+        .spec-group-title { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: 1rem; }
+        .spec-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.35rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+        .spec-row:last-child { border-bottom: none; }
+        .spec-label { font-size: 0.78rem; color: var(--text-secondary); }
+        .spec-value { font-size: 0.82rem; font-weight: 600; color: var(--text-primary); font-family: var(--font-grotesk); }
+        .spec-value.highlight { color: var(--gold); }
+        .known-issues { padding: 1.5rem 2rem; border-top: 1px solid var(--border); background: rgba(196,30,58,0.03); }
+        .known-issues-title { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent-red); margin-bottom: 0.75rem; }
+        .issues-list { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .issues-list li { font-size: 0.73rem; color: var(--text-muted); background: rgba(196,30,58,0.08); border: 1px solid rgba(196,30,58,0.15); padding: 0.2rem 0.6rem; border-radius: 6px; }
+
         /* Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg-primary); }
@@ -676,12 +777,12 @@
             </div>
             <h1 class="hero-date">30 <span style="font-size: 0.5em; color: var(--text-secondary);">August 2026</span></h1>
             <p class="hero-subtitle">Sunday • Daily Intelligence Brief</p>
-            <p class="hero-quote">There is no substitute for air-cooled engineering. — Ferdinand Porsche</p>
+            <p class="hero-quote">The 911 is the only car you could drive to a cemetery and still enjoy. — Ferdinand Piech</p>
             <div class="hero-image-container">
-                <img src="https://content-hub.imgix.net/GUhocLc6D6V9qFtm3Oc2g/19e093064c8a22f6214f16a85469aac2/7-20things-20you-20need-20to-20know-20about-20the-20porsche-20911-20type-20993.jpg?w=1920" alt="What is the Porsche 911 (type 993)?" class="hero-image" loading="eager">
+                <img src="https://content-hub.imgix.net/7Jbfc1Bipxe77PnjOVNaTU/894ac12e105ead6a7df681de4aec5f8d/what-20is-20the-20best-20engine-20oil.jpg?w=1920" alt="What's the best engine oil for my classic Porsche?" class="hero-image" loading="eager">
                 <div class="hero-image-overlay">
-                    <div class="hero-image-title">What is the Porsche 911 (type 993)?</div>
-                    <div class="hero-image-source">911 (993) • Porsche Stories</div>
+                    <div class="hero-image-title">What's the best engine oil for my classic Porsche?</div>
+                    <div class="hero-image-source">911 (964/993) • Porsche Stories</div>
                 </div>
             </div>
         </div>
@@ -993,6 +1094,152 @@
                         <span class="video-meta">Horsepower University • 134K views</span>
                     </div>
                 </a>
+        </div>
+    </section>
+
+    <!-- Community Perspectives Section -->
+    <section class="section">
+        <div class="section-header">
+            <h2 class="section-title">
+                <span class="section-title-icon">👥</span>
+                Community Perspectives
+            </h2>
+        </div>
+        <div class="persona-grid">
+            <!-- Driver Zone -->
+            <div class="persona-card">
+                <span class="persona-badge badge-driver">🏁 Driver Zone</span>
+                <span class="persona-avatar">🇧🇷</span>
+                <div class="persona-name">Daniel Costa</div>
+                <div class="persona-subtitle">São Paulo, Brasil · 1996 993 Carrera 4S · Arctic Silver</div>
+                <ul class="persona-stats">
+                    <li>VIN WP0AA2999TS320294 · 101,522 km</li>
+                    <li>M64/21 Varioram 3.6L 282 hp · G64/20 6MT</li>
+                    <li>Fastback Motors Geneva → Brasil (2026)</li>
+                    <li>Hashtag #Drive993BR · 5 posts/week</li>
+                    <li>Road trips BR ↔ Suíça · Manutenção preventiva</li>
+                </ul>
+            </div>
+            <!-- Collector Corner -->
+            <div class="persona-card">
+                <span class="persona-badge badge-collector">💎 Collector Corner</span>
+                <span class="persona-avatar">🌍</span>
+                <div class="persona-name">The Collector</div>
+                <div class="persona-subtitle">Global · USA / Europe / Japan · PCA Concours Level</div>
+                <ul class="persona-stats">
+                    <li>Focus: baixa km, originalidade, números bate</li>
+                    <li>Rare Finds Radar — detecções semanais</li>
+                    <li>Condition Grading System 1–10</li>
+                    <li>Market Outlook: +12% C4S YoY (2026)</li>
+                    <li>Investment Analysis · Event Calendar showrooms</li>
+                </ul>
+            </div>
+            <!-- Custom Shop -->
+            <div class="persona-card">
+                <span class="persona-badge badge-custom">🛠️ Custom Shop</span>
+                <span class="persona-avatar">🔩</span>
+                <div class="persona-name">The Builder</div>
+                <div class="persona-subtitle">Europa / USA · Singer · Gunther Werks · Restomods</div>
+                <ul class="persona-stats">
+                    <li>Build Showcases diários — RS Clubsport, GT2</li>
+                    <li>Parts Compatibility Matrix 964/993</li>
+                    <li>Modification Guides: Bilstein PSS10, KW V3</li>
+                    <li>Technical Specs Database (OEM+)</li>
+                    <li>Service Provider Directory BR/EU/US</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 911 Turbo S 2026 Legacy Section -->
+    <section class="section">
+        <div class="section-header">
+            <h2 class="section-title">
+                <span class="section-title-icon">🔥</span>
+                911 Turbo S 2026 — Legacy Evolution
+            </h2>
+        </div>
+        <div class="turbo-section">
+            <div class="turbo-headline">911 Turbo S (2026) — The Next Generation</div>
+            <div class="turbo-subhead">Tracing the evolution from 993 Turbo to the la***REMOVED*** iteration</div>
+            <div class="turbo-highlights">
+                
+                <div class="turbo-highlight">
+                    <div class="turbo-highlight-title">Power: 640 hp → 3.0L Twin-Turbo</div>
+                    <div class="turbo-highlight-desc">Up from the 993 Turbo S's 424 hp. Full hybrid powertrain coming 2026.</div>
+                </div>
+                <div class="turbo-highlight">
+                    <div class="turbo-highlight-title">0-60 mph: 2.1s</div>
+                    <div class="turbo-highlight-desc">vs 993 Turbo S at 3.6s. 40% faster than the air-cooled legend.</div>
+                </div>
+                <div class="turbo-highlight">
+                    <div class="turbo-highlight-title">Active Aerodynamics</div>
+                    <div class="turbo-highlight-desc">Adaptive spoiler, front axle lift, and active air intake flaps.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications Section -->
+    <section class="section">
+        <div class="section-header">
+            <h2 class="section-title">
+                <span class="section-title-icon">⚙️</span>
+                Technical Specifications
+            </h2>
+        </div>
+        <div class="specs-container">
+            <div class="specs-header">
+                <span class="specs-title-text">🐴 M64/21 Varioram · 993 Carrera 4S</span>
+                <span class="specs-vin">VIN WP0AA2999TS320294</span>
+            </div>
+            <div class="specs-grid">
+                <div class="spec-group">
+                    <div class="spec-group-title">Motorização</div>
+                    <div class="spec-row"><span class="spec-label">Motor</span><span class="spec-value highlight">M64/21 Varioram</span></div>
+                    <div class="spec-row"><span class="spec-label">Cilindrada</span><span class="spec-value">3.6L flat-six</span></div>
+                    <div class="spec-row"><span class="spec-label">Potência</span><span class="spec-value highlight">282 hp @ 6,300 rpm</span></div>
+                    <div class="spec-row"><span class="spec-label">Torque</span><span class="spec-value">305 Nm @ 5,250 rpm</span></div>
+                    <div class="spec-row"><span class="spec-label">Injeção</span><span class="spec-value">Varioram 2-estágios</span></div>
+                    <div class="spec-row"><span class="spec-label">Arrefecimento</span><span class="spec-value highlight">Air-cooled</span></div>
+                </div>
+                <div class="spec-group">
+                    <div class="spec-group-title">Transmissão &amp; Tração</div>
+                    <div class="spec-row"><span class="spec-label">Câmbio</span><span class="spec-value highlight">G64/20 6MT</span></div>
+                    <div class="spec-row"><span class="spec-label">Tração</span><span class="spec-value">AWD Carrera 4</span></div>
+                    <div class="spec-row"><span class="spec-label">Dif. viscoso</span><span class="spec-value">herdado do 959</span></div>
+                    <div class="spec-row"><span class="spec-label">0–100 km/h</span><span class="spec-value">5.4 s</span></div>
+                    <div class="spec-row"><span class="spec-label">Vmax</span><span class="spec-value">270 km/h</span></div>
+                </div>
+                <div class="spec-group">
+                    <div class="spec-group-title">Chassi &amp; Carroceria</div>
+                    <div class="spec-row"><span class="spec-label">Karosserie</span><span class="spec-value highlight">Widebody (M491)</span></div>
+                    <div class="spec-row"><span class="spec-label">Suspensão</span><span class="spec-value">M030 Sport</span></div>
+                    <div class="spec-row"><span class="spec-label">Freios</span><span class="spec-value">Brembo 4p Turbo</span></div>
+                    <div class="spec-row"><span class="spec-label">Cor</span><span class="spec-value highlight">Arctic Silver Met. 570</span></div>
+                    <div class="spec-row"><span class="spec-label">Peso</span><span class="spec-value">1,370 kg</span></div>
+                </div>
+                <div class="spec-group">
+                    <div class="spec-group-title">Identificação</div>
+                    <div class="spec-row"><span class="spec-label">Ano</span><span class="spec-value">1996 (MY1996)</span></div>
+                    <div class="spec-row"><span class="spec-label">Produção</span><span class="spec-value">1994–1998</span></div>
+                    <div class="spec-row"><span class="spec-label">Geração</span><span class="spec-value highlight">993 · Último air-cooled</span></div>
+                    <div class="spec-row"><span class="spec-label">Km atuais</span><span class="spec-value">101,522 km</span></div>
+                    <div class="spec-row"><span class="spec-label">Origem</span><span class="spec-value">Fastback Motors, Genebra</span></div>
+                </div>
+            </div>
+            <div class="known-issues">
+                <div class="known-issues-title">⚠ Pontos de Atenção Conhecidos</div>
+                <ul class="issues-list">
+                    <li>Correias do distribuidor duplo</li>
+                    <li>Resistores ventilador radiador de óleo</li>
+                    <li>Desgaste de guias de válvula</li>
+                    <li>Carbono nas portas SAI (P0410)</li>
+                    <li>Vazamento junta tampa válvula inferior</li>
+                    <li>Retentor traseiro (RMS)</li>
+                    <li>Relé DME (sempre ter reserva)</li>
+                </ul>
+            </div>
         </div>
     </section>
 

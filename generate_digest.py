@@ -559,6 +559,18 @@ def generate_html_template(date_str, articles, auctions, valuation, rate, videos
     html = html.replace("{{parts_cards}}", parts_cards)
     html = html.replace("{{video_cards}}", video_cards)
 
+    # Turbo S section
+    turbo_highlights_html = ""
+    for h in turbo_s.get("highlights", []):
+        turbo_highlights_html += f"""
+                <div class="turbo-highlight">
+                    <div class="turbo-highlight-title">{h['title']}</div>
+                    <div class="turbo-highlight-desc">{h['desc']}</div>
+                </div>"""
+    html = html.replace("{{turbo_headline}}", turbo_s.get("headline", ""))
+    html = html.replace("{{turbo_subhead}}", turbo_s.get("subhead", ""))
+    html = html.replace("{{turbo_highlights}}", turbo_highlights_html)
+
     return html
 
 
