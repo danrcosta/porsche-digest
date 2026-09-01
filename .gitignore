@@ -1,0 +1,6 @@
+.env
+.env.local
+.dev.vars
+*.vars
+__pycache__/
+*.pyc
