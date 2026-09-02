@@ -60,7 +60,7 @@ EBUSY: resource busy, open 'C:\\...\\NTUSER.DAT'
 
 The cfk_ token format uses **X-Auth-Key + X-Auth-Email**, NOT Bearer:
 ```bash
-CLOUDFLARE_API_TOKEN=***REMOVED***
+CLOUDFLARE_API_TOKEN=cfk_YOUR_KEY_HERE
 ```
 
 ## Deployment Commands
