@@ -1,6 +1,6 @@
 {
   "date": "2026-09-22",
-  "generated_at": "2026-09-22T07:00:59.312388",
+  "generated_at": "2026-09-22T19:04:28.381570",
   "exchange_rate": 5.13,
   "hero": {
     "date": "2026-09-22",
@@ -242,15 +242,15 @@
   },
   "turbo_s": {
     "headline": "911 Turbo S (2026) — The Next Generation",
-    "subhead": "Tracing the evolution from 993 Turbo to the la***REMOVED*** iteration",
+    "subhead": "Tracing the evolution from 993 Turbo to the latest iteration",
     "highlights": [
       {
-        "title": "Power: 640 hp → 3.0L Twin-Turbo",
-        "desc": "Up from the 993 Turbo S's 424 hp. Full hybrid powertrain coming 2026."
+        "title": "Power: 711 cv · T-Hybrid 3.6L Twin-eTurbo",
+        "desc": "Up from the 993 Turbo S's 424 hp. T-Hybrid launched 2026 — flat-six + electric motor + 1.9 kWh battery."
       },
       {
-        "title": "0-60 mph: 2.1s",
-        "desc": "vs 993 Turbo S at 3.6s. 40% faster than the air-cooled legend."
+        "title": "0–100 km/h: 2.5s · 0–60 mph: ~2.0s",
+        "desc": "vs 993 Turbo S at 3.6s. 0–60 mph confirmed by C&D at 2.0s flat — PDK 8-speed, AWD, Sport Chrono."
       },
       {
         "title": "Active Aerodynamics",
@@ -266,40 +266,40 @@
       "badge_class": "badge-driver",
       "sources": [
         {
+          "name": "Total 911 RSS",
+          "url": "https://www.total911.com/feed/",
+          "type": "feed",
+          "category": "feed editorial"
+        },
+        {
+          "name": "Porsche Stories",
+          "url": "https://www.youtube.com/@porsche",
+          "type": "youtube",
+          "category": "editorial oficial"
+        },
+        {
           "name": "Porsche Stories (Web)",
           "url": "https://www.porsche.com/stories/",
           "type": "web",
           "category": "editorial oficial"
         },
         {
-          "name": "Porsche Club Brasil",
-          "url": "https://www.porscheclube.com.br",
-          "type": "web",
-          "category": "comunidade BR"
+          "name": "Petrolicious RSS",
+          "url": "https://petrolicious.com/feed",
+          "type": "feed",
+          "category": "histórias cinematográficas"
         },
         {
-          "name": "@porscheclassic (IG)",
-          "url": "https://www.instagram.com/porscheclassic/",
-          "type": "social",
-          "category": "heritage oficial"
-        },
-        {
-          "name": "FLATSIX Magazine",
-          "url": "https://www.flatsixmag.com",
-          "type": "web",
-          "category": "lifestyle air-cooled"
-        },
-        {
-          "name": "Reddit r/911",
-          "url": "https://www.reddit.com/r/911/",
-          "type": "forum",
-          "category": "911 específico"
-        },
-        {
-          "name": "MotoMan TV",
-          "url": "https://www.youtube.com/@MotoManTV",
+          "name": "Everyday Driver",
+          "url": "https://www.youtube.com/@EverydayDriver",
           "type": "youtube",
-          "category": "993 impressions"
+          "category": "daily driver reviews"
+        },
+        {
+          "name": "Porsche (Official YouTube)",
+          "url": "https://www.youtube.com/@Porsche",
+          "type": "youtube",
+          "category": "driving stories"
         }
       ]
     },
@@ -310,16 +310,16 @@
       "badge_class": "badge-collector",
       "sources": [
         {
-          "name": "Cars & Bids — Porsche",
-          "url": "https://carsandbids.com/search/?make=Porsche",
+          "name": "Gooding & Company",
+          "url": "https://www.goodingco.com/vehicles/?make=Porsche",
           "type": "auction",
-          "category": "Douglas DeMuro platform"
+          "category": "concours level"
         },
         {
-          "name": "Sports Car International",
-          "url": "https://www.sportscarinternational.com",
+          "name": "Octane Magazine",
+          "url": "https://www.octane.media/porsche/",
           "type": "editorial",
-          "category": "collector lifestyle"
+          "category": "collector focused"
         },
         {
           "name": "Classic.com — 993 Market",
@@ -334,16 +334,16 @@
           "category": "calendário BR"
         },
         {
+          "name": "NADA Guides — Porsche",
+          "url": "https://www.nada.org/nada/consumer-vehicle-values",
+          "type": "valuation",
+          "category": "referência EUA"
+        },
+        {
           "name": "Total 911 Buyer's Guide",
           "url": "https://www.total911.com/porsche-911-993-buyers-guide/",
           "type": "reference",
           "category": "guia de compra"
-        },
-        {
-          "name": "AutoHunter by Cox",
-          "url": "https://www.autohunter.com/cars-for-sale/porsche/",
-          "type": "editorial",
-          "category": "online auctions"
         }
       ]
     },
@@ -360,22 +360,10 @@
           "category": "restaurações DIY"
         },
         {
-          "name": "Adam LZ",
-          "url": "https://www.youtube.com/@AdamLZ",
-          "type": "youtube",
-          "category": "builds, custom 911"
-        },
-        {
-          "name": "DP Motorsport",
-          "url": "https://www.dp-motorsport.de",
+          "name": "TechArt",
+          "url": "https://www.techart.de",
           "type": "builder",
-          "category": "conversões GT2/RS"
-        },
-        {
-          "name": "Porsche Classic Tequipment",
-          "url": "https://classic.porsche.com/en/classic/tequipment/",
-          "type": "parts",
-          "category": "upgrades oficiais"
+          "category": "widebody e tuning"
         },
         {
           "name": "Porsche Classic (YT)",
@@ -384,10 +372,22 @@
           "category": "restaurações oficiais"
         },
         {
-          "name": "TechInfo Porsche (PET)",
-          "url": "https://techinfo.porsche.com",
+          "name": "Adam LZ",
+          "url": "https://www.youtube.com/@AdamLZ",
+          "type": "youtube",
+          "category": "builds, custom 911"
+        },
+        {
+          "name": "FVD Brombacher Tech",
+          "url": "https://www.fvdbrombacher.com/tech-articles/",
           "type": "reference",
-          "category": "sistema oficial Porsche"
+          "category": "técnico avançado DE"
+        },
+        {
+          "name": "PorschePerfect Guides",
+          "url": "https://www.porscheperfect.com/993",
+          "type": "reference",
+          "category": "DIY técnico completo"
         }
       ]
     }

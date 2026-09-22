@@ -26,7 +26,7 @@ SOURCE_ATTRIBUTION = "Porsche Stories, Bring a Trailer, Cars & Bids, Classic.com
 def get_exchange_rate():
     """Get current USD to BRL exchange rate."""
     try:
-        response = requests.get("https://api.exchangerate-api.com/v4/la***REMOVED***/USD", timeout=10)
+        response = requests.get("https://api.exchangerate-api.com/v4/latest/USD", timeout=10)
         if response.status_code == 200:
             data = response.json()
             return data['rates']['BRL']
@@ -296,7 +296,7 @@ def get_turbo_s_daily_content():
     """Generate daily content for 911 Turbo S 2026 section."""
     return {
         "headline": "911 Turbo S (2026) — The Next Generation",
-        "subhead": "Tracing the evolution from 993 Turbo to the la***REMOVED*** iteration",
+        "subhead": "Tracing the evolution from 993 Turbo to the latest iteration",
         "highlights": [
             {
                 "title": "Power: 711 cv · T-Hybrid 3.6L Twin-eTurbo",
@@ -315,7 +315,7 @@ def get_turbo_s_daily_content():
 
 
 def fetch_porsche_news(limit=5):
-    """Fetch la***REMOVED*** Porsche news articles from official sources."""
+    """Fetch latest Porsche news articles from official sources."""
     articles = []
     sources = [
         {
@@ -921,13 +921,13 @@ def main():
         }
     }
 
-    # Write data/la***REMOVED***.json (read by Lovable React app)
+    # Write data/latest.json (read by Lovable React app)
     data_dir = REPO_DIR / "data"
     data_dir.mkdir(exist_ok=True)
-    la***REMOVED***_path = data_dir / "la***REMOVED***.json"
-    with open(la***REMOVED***_path, 'w', encoding='utf-8') as f:
+    latest_path = data_dir / "latest.json"
+    with open(latest_path, 'w', encoding='utf-8') as f:
         json.dump(payload, f, ensure_ascii=False, indent=2, default=str)
-    print(f"✅ JSON payload written: {la***REMOVED***_path}")
+    print(f"✅ JSON payload written: {latest_path}")
 
     # Write archive/YYYY-MM-DD.json (historical record)
     ARCHIVE_DIR.mkdir(exist_ok=True)
