@@ -299,12 +299,12 @@ def get_turbo_s_daily_content():
         "subhead": "Tracing the evolution from 993 Turbo to the la***REMOVED*** iteration",
         "highlights": [
             {
-                "title": "Power: 640 hp → 3.0L Twin-Turbo",
-                "desc": "Up from the 993 Turbo S's 424 hp. Full hybrid powertrain coming 2026."
+                "title": "Power: 711 cv · T-Hybrid 3.6L Twin-eTurbo",
+                "desc": "Up from the 993 Turbo S's 424 hp. T-Hybrid launched 2026 — flat-six + electric motor + 1.9 kWh battery."
             },
             {
-                "title": "0-60 mph: 2.1s",
-                "desc": "vs 993 Turbo S at 3.6s. 40% faster than the air-cooled legend."
+                "title": "0–100 km/h: 2.5s · 0–60 mph: ~2.0s",
+                "desc": "vs 993 Turbo S at 3.6s. 0–60 mph confirmed by C&D at 2.0s flat — PDK 8-speed, AWD, Sport Chrono."
             },
             {
                 "title": "Active Aerodynamics",
@@ -604,6 +604,8 @@ def generate_html_template(date_str, articles, auctions, valuation, rate, videos
             status_class = "status-ending"
         elif "Active" in status_en:
             status_class = "status-active"
+        elif "Sold" in status_en or "sold" in status_en:
+            status_class = "status-sold"
         else:
             status_class = "status-ended"
 
@@ -631,7 +633,7 @@ def generate_html_template(date_str, articles, auctions, valuation, rate, videos
                         <span class="valuation-title">{model}</span>
                         <span class="valuation-trend">{data['yoy_change']}</span>
                     </div>
-                    <div class="valuation-price">{avg_usd.split('$')[1]}K <span style="font-size: 1rem; color: var(--text-secondary);">USD</span></div>
+                    <div class="valuation-price">{avg_usd} <span style="font-size: 1rem; color: var(--text-secondary);">USD</span></div>
                     <div class="valuation-range">{range_low} — {range_high}</div>
                     <div class="range-bar">
                         <div class="range-fill" style="width: {min(range_pct, 100):.0f}%"></div>
