@@ -1,14 +1,14 @@
 {
-  "date": "2026-09-24",
-  "generated_at": "2026-09-24T07:00:55.949241",
-  "exchange_rate": 5.12,
+  "date": "2026-09-25",
+  "generated_at": "2026-09-25T07:00:44.178988",
+  "exchange_rate": 5.18,
   "hero": {
-    "date": "2026-09-24",
-    "title": "How to guide to buying a classic Porsche 911",
-    "image_url": "https://content-hub.imgix.net/7mr3pIvnvzsRevhgOnB9as/2648ab4764cddc6dfba2a2ee7ba0b485/how-20to-20buy-20a-20classic-20porsche-20911.jpg?w=1920",
+    "date": "2026-09-25",
+    "title": "What is the Porsche 911 (type 993)?",
+    "image_url": "https://content-hub.imgix.net/GUhocLc6D6V9qFtm3Oc2g/19e093064c8a22f6214f16a85469aac2/7-20things-20you-20need-20to-20know-20about-20the-20porsche-20911-20type-20993.jpg?w=1920",
     "source": "Porsche Stories",
-    "description": "A pristine 911 in a scenic alpine setting.",
-    "model": "911 (964)"
+    "description": "The last air-cooled 911 generation in its natural habitat.",
+    "model": "911 (993)"
   },
   "articles": [
     {
@@ -141,7 +141,7 @@
       "range_high": 395000,
       "yoy_change": "+12%",
       "source": "Classic.com Market Data 2025-2026",
-      "avg_price_brl": 793600.0
+      "avg_price_brl": 802900.0
     },
     "Carrera": {
       "avg_price_usd": 135000,
@@ -149,7 +149,7 @@
       "range_high": 250000,
       "yoy_change": "+8%",
       "source": "Bring a Trailer Index 2026",
-      "avg_price_brl": 691200.0
+      "avg_price_brl": 699300.0
     },
     "Turbo": {
       "avg_price_usd": 225000,
@@ -157,7 +157,7 @@
       "range_high": 450000,
       "yoy_change": "+15%",
       "source": "PCA Market Report Q2 2026",
-      "avg_price_brl": 1152000.0
+      "avg_price_brl": 1165500.0
     }
   },
   "videos": {
@@ -266,40 +266,40 @@
       "badge_class": "badge-driver",
       "sources": [
         {
-          "name": "Opposite Lock",
-          "url": "https://oppositelock.kinja.com",
+          "name": "Total 911 Magazine (Web)",
+          "url": "https://www.total911.com",
           "type": "web",
-          "category": "community stories"
+          "category": "technical + driving"
         },
         {
-          "name": "Porsche Stories (Web)",
-          "url": "https://www.porsche.com/stories/",
+          "name": "FLATSIX Magazine",
+          "url": "https://www.flatsixmag.com",
           "type": "web",
-          "category": "editorial oficial"
+          "category": "lifestyle air-cooled"
         },
         {
-          "name": "Porsche Club Brasil",
-          "url": "https://www.porscheclube.com.br",
-          "type": "web",
-          "category": "comunidade BR"
+          "name": "Rennlist 993 Forum",
+          "url": "https://rennlist.com/forums/993-forum-58/",
+          "type": "forum",
+          "category": "maior fórum técnico"
         },
         {
-          "name": "@porscheclassic (IG)",
-          "url": "https://www.instagram.com/porscheclassic/",
-          "type": "social",
-          "category": "heritage oficial"
-        },
-        {
-          "name": "DtRockstar1",
-          "url": "https://www.youtube.com/@DtRockstar1",
+          "name": "Harry's Garage",
+          "url": "https://www.youtube.com/@HarrysGarage",
           "type": "youtube",
-          "category": "road trips BR/EUA"
+          "category": "owner stories"
         },
         {
-          "name": "Everyday Driver",
-          "url": "https://www.youtube.com/@EverydayDriver",
-          "type": "youtube",
-          "category": "daily driver reviews"
+          "name": "Petrolicious RSS",
+          "url": "https://petrolicious.com/feed",
+          "type": "feed",
+          "category": "histórias cinematográficas"
+        },
+        {
+          "name": "Hagerty Media RSS",
+          "url": "https://www.hagerty.com/media/feed/",
+          "type": "feed",
+          "category": "artigos e avaliações"
         }
       ]
     },
@@ -310,22 +310,10 @@
       "badge_class": "badge-collector",
       "sources": [
         {
-          "name": "COYS Auctions",
-          "url": "https://www.coys.co.uk/results?make=Porsche",
-          "type": "auction",
-          "category": "Europa clássicos"
-        },
-        {
-          "name": "Sports Car International",
-          "url": "https://www.sportscarinternational.com",
+          "name": "Classic & Sports Car",
+          "url": "https://www.classicandrestoredcar.com/porsche",
           "type": "editorial",
-          "category": "collector lifestyle"
-        },
-        {
-          "name": "Cars & Bids — Porsche",
-          "url": "https://carsandbids.com/search/?make=Porsche",
-          "type": "auction",
-          "category": "Douglas DeMuro platform"
+          "category": "UK premium"
         },
         {
           "name": "Porsche COA Request",
@@ -334,16 +322,28 @@
           "category": "autenticidade"
         },
         {
-          "name": "Classic.com — 993 Market",
-          "url": "https://www.classic.com/m/porsche/911/993/",
-          "type": "valuation",
-          "category": "market data ao vivo"
+          "name": "RM Sotheby's — Porsche",
+          "url": "https://rmsothebys.com/en/search#makes=Porsche",
+          "type": "auction",
+          "category": "alto padrão, Pebble Beach"
         },
         {
-          "name": "PCA Concours",
-          "url": "https://www.pca.org/events/concours",
-          "type": "event",
-          "category": "eventos judged EUA"
+          "name": "Gooding & Company",
+          "url": "https://www.goodingco.com/vehicles/?make=Porsche",
+          "type": "auction",
+          "category": "concours level"
+        },
+        {
+          "name": "AutoTrader Classics",
+          "url": "https://classics.autotrader.com/classic-cars-for-sale/porsche/911",
+          "type": "valuation",
+          "category": "listagens EUA"
+        },
+        {
+          "name": "Porsche Classic Parts (Official)",
+          "url": "https://classic.porsche.com/en/classic/classic-parts/",
+          "type": "reference",
+          "category": "catálogo peças originais"
         }
       ]
     },
@@ -354,10 +354,16 @@
       "badge_class": "badge-custom",
       "sources": [
         {
-          "name": "Singer Vehicle Design",
-          "url": "https://www.singervehicledesign.com",
-          "type": "builder",
-          "category": "restomod definitivo"
+          "name": "Pelican Parts Tech Articles",
+          "url": "https://www.pelicanparts.com/tech/996/",
+          "type": "reference",
+          "category": "guias técnicos ilustrados"
+        },
+        {
+          "name": "Chris Fix",
+          "url": "https://www.youtube.com/@ChrisFix",
+          "type": "youtube",
+          "category": "tutoriais DIY"
         },
         {
           "name": "Rebuild Rescue",
@@ -366,28 +372,22 @@
           "category": "restaurações DIY"
         },
         {
-          "name": "DP Motorsport",
-          "url": "https://www.dp-motorsport.de",
-          "type": "builder",
-          "category": "conversões GT2/RS"
+          "name": "Pelican Parts — 993",
+          "url": "https://www.pelicanparts.com/porsche/993/",
+          "type": "parts",
+          "category": "maior catálogo técnico"
         },
         {
-          "name": "The Flat Six Garage",
-          "url": "https://www.youtube.com/@FlatSixGarage",
+          "name": "Porsche Classic (YT)",
+          "url": "https://www.youtube.com/@PorscheClassic",
           "type": "youtube",
-          "category": "993 build diary"
+          "category": "restaurações oficiais"
         },
         {
-          "name": "RUF Automobile",
-          "url": "https://www.ruf-automobile.de",
+          "name": "Canepa Design",
+          "url": "https://www.canepa.com",
           "type": "builder",
-          "category": "Yellowbird herdeiro"
-        },
-        {
-          "name": "Cutting Edge Engineering",
-          "url": "https://www.youtube.com/@CuttingEdgeEngineering",
-          "type": "youtube",
-          "category": "machining builds"
+          "category": "restauração + upgrades"
         }
       ]
     }
