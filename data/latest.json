@@ -1,9 +1,9 @@
 {
-  "date": "2026-09-25",
-  "generated_at": "2026-09-25T07:00:44.178988",
+  "date": "2026-09-26",
+  "generated_at": "2026-09-26T07:00:18.070825",
   "exchange_rate": 5.18,
   "hero": {
-    "date": "2026-09-25",
+    "date": "2026-09-26",
     "title": "What is the Porsche 911 (type 993)?",
     "image_url": "https://content-hub.imgix.net/GUhocLc6D6V9qFtm3Oc2g/19e093064c8a22f6214f16a85469aac2/7-20things-20you-20need-20to-20know-20about-20the-20porsche-20911-20type-20993.jpg?w=1920",
     "source": "Porsche Stories",
@@ -266,40 +266,40 @@
       "badge_class": "badge-driver",
       "sources": [
         {
-          "name": "Total 911 Magazine (Web)",
-          "url": "https://www.total911.com",
-          "type": "web",
-          "category": "technical + driving"
-        },
-        {
-          "name": "FLATSIX Magazine",
-          "url": "https://www.flatsixmag.com",
-          "type": "web",
-          "category": "lifestyle air-cooled"
-        },
-        {
-          "name": "Rennlist 993 Forum",
-          "url": "https://rennlist.com/forums/993-forum-58/",
-          "type": "forum",
-          "category": "maior fórum técnico"
-        },
-        {
-          "name": "Harry's Garage",
-          "url": "https://www.youtube.com/@HarrysGarage",
+          "name": "DtRockstar1",
+          "url": "https://www.youtube.com/@DtRockstar1",
           "type": "youtube",
-          "category": "owner stories"
+          "category": "road trips BR/EUA"
         },
         {
-          "name": "Petrolicious RSS",
-          "url": "https://petrolicious.com/feed",
-          "type": "feed",
-          "category": "histórias cinematográficas"
+          "name": "The Smoking Tire",
+          "url": "https://www.youtube.com/@TheSmokingTire",
+          "type": "youtube",
+          "category": "road ***REMOVED***s"
         },
         {
-          "name": "Hagerty Media RSS",
-          "url": "https://www.hagerty.com/media/feed/",
+          "name": "PCA.org",
+          "url": "https://www.pca.org",
+          "type": "web",
+          "category": "Porsche Club America"
+        },
+        {
+          "name": "Total 911 RSS",
+          "url": "https://www.total911.com/feed/",
           "type": "feed",
-          "category": "artigos e avaliações"
+          "category": "feed editorial"
+        },
+        {
+          "name": "Porsche (Official YouTube)",
+          "url": "https://www.youtube.com/@Porsche",
+          "type": "youtube",
+          "category": "driving stories"
+        },
+        {
+          "name": "Pelican Parts Tech Forums",
+          "url": "https://forums.pelicanparts.com/porsche-911-technical-forum/",
+          "type": "forum",
+          "category": "DIY técnico"
         }
       ]
     },
@@ -310,28 +310,28 @@
       "badge_class": "badge-collector",
       "sources": [
         {
-          "name": "Classic & Sports Car",
-          "url": "https://www.classicandrestoredcar.com/porsche",
+          "name": "Sports Car International",
+          "url": "https://www.sportscarinternational.com",
           "type": "editorial",
-          "category": "UK premium"
+          "category": "collector lifestyle"
         },
         {
-          "name": "Porsche COA Request",
-          "url": "https://www.porsche.com/usa/accessoriesandservices/porscheclassic/world/certificate-of-authenticity/",
+          "name": "Classic.com — 993 Market",
+          "url": "https://www.classic.com/m/porsche/911/993/",
+          "type": "valuation",
+          "category": "market data ao vivo"
+        },
+        {
+          "name": "Hagerty 993 Market Report",
+          "url": "https://www.hagerty.com/media/market-trends/porsche-993/",
           "type": "reference",
-          "category": "autenticidade"
+          "category": "trend report"
         },
         {
-          "name": "RM Sotheby's — Porsche",
-          "url": "https://rmsothebys.com/en/search#makes=Porsche",
-          "type": "auction",
-          "category": "alto padrão, Pebble Beach"
-        },
-        {
-          "name": "Gooding & Company",
-          "url": "https://www.goodingco.com/vehicles/?make=Porsche",
-          "type": "auction",
-          "category": "concours level"
+          "name": "duPont Registry",
+          "url": "https://www.dupont-registry.com/search-cars/?make=Porsche",
+          "type": "valuation",
+          "category": "ultra-premium"
         },
         {
           "name": "AutoTrader Classics",
@@ -340,10 +340,10 @@
           "category": "listagens EUA"
         },
         {
-          "name": "Porsche Classic Parts (Official)",
-          "url": "https://classic.porsche.com/en/classic/classic-parts/",
-          "type": "reference",
-          "category": "catálogo peças originais"
+          "name": "PriceMyClassic",
+          "url": "https://www.pricemyclassic.com",
+          "type": "valuation",
+          "category": "dados históricos venda"
         }
       ]
     },
@@ -354,16 +354,22 @@
       "badge_class": "badge-custom",
       "sources": [
         {
-          "name": "Pelican Parts Tech Articles",
-          "url": "https://www.pelicanparts.com/tech/996/",
-          "type": "reference",
-          "category": "guias técnicos ilustrados"
+          "name": "Stoddard Porsche",
+          "url": "https://www.stoddard.com/porsche-993",
+          "type": "parts",
+          "category": "legacy parts specialists"
         },
         {
-          "name": "Chris Fix",
-          "url": "https://www.youtube.com/@ChrisFix",
+          "name": "Garage Time",
+          "url": "https://www.youtube.com/@GarageTimeDIY",
           "type": "youtube",
-          "category": "tutoriais DIY"
+          "category": "restauração passo a passo"
+        },
+        {
+          "name": "FVD Brombacher Tech",
+          "url": "https://www.fvdbrombacher.com/tech-articles/",
+          "type": "reference",
+          "category": "técnico avançado DE"
         },
         {
           "name": "Rebuild Rescue",
@@ -378,16 +384,10 @@
           "category": "maior catálogo técnico"
         },
         {
-          "name": "Porsche Classic (YT)",
-          "url": "https://www.youtube.com/@PorscheClassic",
-          "type": "youtube",
-          "category": "restaurações oficiais"
-        },
-        {
-          "name": "Canepa Design",
-          "url": "https://www.canepa.com",
-          "type": "builder",
-          "category": "restauração + upgrades"
+          "name": "Genuine Porsche Parts",
+          "url": "https://www.genuineporscheparts.net",
+          "type": "parts",
+          "category": "OEM original"
         }
       ]
     }
