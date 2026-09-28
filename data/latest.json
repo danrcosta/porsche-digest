@@ -1,14 +1,14 @@
 {
-  "date": "2026-09-27",
-  "generated_at": "2026-09-27T07:00:29.283277",
+  "date": "2026-09-28",
+  "generated_at": "2026-09-28T08:17:35.162798",
   "exchange_rate": 5.19,
   "hero": {
-    "date": "2026-09-27",
-    "title": "What's the best engine oil for my classic Porsche?",
-    "image_url": "https://content-hub.imgix.net/7Jbfc1Bipxe77PnjOVNaTU/894ac12e105ead6a7df681de4aec5f8d/what-20is-20the-20best-20engine-20oil.jpg?w=1920",
+    "date": "2026-09-28",
+    "title": "How to guide to buying a classic Porsche 911",
+    "image_url": "https://content-hub.imgix.net/7mr3pIvnvzsRevhgOnB9as/2648ab4764cddc6dfba2a2ee7ba0b485/how-20to-20buy-20a-20classic-20porsche-20911.jpg?w=1920",
     "source": "Porsche Stories",
-    "description": "Detail shots of classic Porsche air-cooled engines.",
-    "model": "911 (964/993)"
+    "description": "A pristine 911 in a scenic alpine setting.",
+    "model": "911 (964)"
   },
   "articles": [
     {
@@ -266,22 +266,16 @@
       "badge_class": "badge-driver",
       "sources": [
         {
-          "name": "Petrolicious RSS",
-          "url": "https://petrolicious.com/feed",
-          "type": "feed",
-          "category": "histórias cinematográficas"
+          "name": "6SpeedOnline 911",
+          "url": "https://www.6speedonline.com/forums/911-carrera/",
+          "type": "forum",
+          "category": "comunidade ativa"
         },
         {
-          "name": "Harry's Garage",
-          "url": "https://www.youtube.com/@HarrysGarage",
+          "name": "Porsche Stories",
+          "url": "https://www.youtube.com/@porsche",
           "type": "youtube",
-          "category": "owner stories"
-        },
-        {
-          "name": "MotoMan TV",
-          "url": "https://www.youtube.com/@MotoManTV",
-          "type": "youtube",
-          "category": "993 impressions"
+          "category": "editorial oficial"
         },
         {
           "name": "PCA.org",
@@ -290,16 +284,22 @@
           "category": "Porsche Club America"
         },
         {
-          "name": "Hagerty",
-          "url": "https://www.youtube.com/@HagertyMedia",
-          "type": "youtube",
-          "category": "long drives, guides"
+          "name": "Reddit r/911",
+          "url": "https://www.reddit.com/r/911/",
+          "type": "forum",
+          "category": "911 específico"
         },
         {
-          "name": "Porsche Newsroom",
-          "url": "https://newsroom.porsche.com/en.html",
+          "name": "Opposite Lock",
+          "url": "https://oppositelock.kinja.com",
           "type": "web",
-          "category": "press releases"
+          "category": "community stories"
+        },
+        {
+          "name": "MotoMan TV",
+          "url": "https://www.youtube.com/@MotoManTV",
+          "type": "youtube",
+          "category": "993 impressions"
         }
       ]
     },
@@ -310,10 +310,16 @@
       "badge_class": "badge-collector",
       "sources": [
         {
-          "name": "Collecting Cars — Porsche",
-          "url": "https://collectingcars.com/search?make=Porsche",
-          "type": "auction",
-          "category": "UK marketplace"
+          "name": "Pebble Beach Concours",
+          "url": "https://www.pebblebeachconcours.net",
+          "type": "event",
+          "category": "maior concurso mundial"
+        },
+        {
+          "name": "Total 911 Buyer's Guide",
+          "url": "https://www.total911.com/porsche-911-993-buyers-guide/",
+          "type": "reference",
+          "category": "guia de compra"
         },
         {
           "name": "Sports Car International",
@@ -322,28 +328,22 @@
           "category": "collector lifestyle"
         },
         {
-          "name": "Mecum Auctions — 993",
-          "url": "https://www.mecum.com/search/results/?SearchQuery=porsche+993",
+          "name": "Bonhams — Porsche",
+          "url": "https://www.bonhams.com/search/?category=cars&make=Porsche",
           "type": "auction",
-          "category": "EUA, alto volume"
+          "category": "leilões europeus"
         },
         {
-          "name": "911 & Porsche World",
-          "url": "https://www.911porscheworld.com",
-          "type": "editorial",
-          "category": "colecionador UK"
+          "name": "Cars & Bids — Porsche",
+          "url": "https://carsandbids.com/search/?make=Porsche",
+          "type": "auction",
+          "category": "Douglas DeMuro platform"
         },
         {
-          "name": "Hagerty Valuation Tools",
-          "url": "https://www.hagerty.com/valuation-tools/",
-          "type": "valuation",
-          "category": "preço por condição"
-        },
-        {
-          "name": "AutoTrader Classics",
-          "url": "https://classics.autotrader.com/classic-cars-for-sale/porsche/911",
-          "type": "valuation",
-          "category": "listagens EUA"
+          "name": "Hagerty 993 Market Report",
+          "url": "https://www.hagerty.com/media/market-trends/porsche-993/",
+          "type": "reference",
+          "category": "trend report"
         }
       ]
     },
@@ -354,40 +354,40 @@
       "badge_class": "badge-custom",
       "sources": [
         {
-          "name": "AutoAtlantis",
-          "url": "https://www.autoatlantis.com.br",
-          "type": "builder",
-          "category": "Brasil, especialista 993"
-        },
-        {
-          "name": "FVD Brombacher Tech",
-          "url": "https://www.fvdbrombacher.com/tech-articles/",
-          "type": "reference",
-          "category": "técnico avançado DE"
-        },
-        {
-          "name": "Genuine Porsche Parts",
-          "url": "https://www.genuineporscheparts.net",
+          "name": "Suncoast Parts",
+          "url": "https://www.suncoastparts.com/porsche-993-parts",
           "type": "parts",
-          "category": "OEM original"
-        },
-        {
-          "name": "Gunther Werks",
-          "url": "https://guntherwerks.com",
-          "type": "builder",
-          "category": "400R widebody 993"
-        },
-        {
-          "name": "Cutting Edge Engineering",
-          "url": "https://www.youtube.com/@CuttingEdgeEngineering",
-          "type": "youtube",
-          "category": "machining builds"
+          "category": "EUA stock clássico"
         },
         {
           "name": "The Flat Six Garage",
           "url": "https://www.youtube.com/@FlatSixGarage",
           "type": "youtube",
           "category": "993 build diary"
+        },
+        {
+          "name": "AutoAtlantis",
+          "url": "https://www.autoatlantis.com.br",
+          "type": "builder",
+          "category": "Brasil, especialista 993"
+        },
+        {
+          "name": "Chris Fix",
+          "url": "https://www.youtube.com/@ChrisFix",
+          "type": "youtube",
+          "category": "tutoriais DIY"
+        },
+        {
+          "name": "DP Motorsport",
+          "url": "https://www.dp-motorsport.de",
+          "type": "builder",
+          "category": "conversões GT2/RS"
+        },
+        {
+          "name": "FVD Brombacher Tech",
+          "url": "https://www.fvdbrombacher.com/tech-articles/",
+          "type": "reference",
+          "category": "técnico avançado DE"
         }
       ]
     }
