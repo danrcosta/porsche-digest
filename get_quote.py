@@ -1,6 +1,7 @@
 import random
+from datetime import datetime
 
-date_str = "2026-08-22"
+date_str = datetime.now().strftime("%Y-%m-%d")
 porsche_quotes = [
     "The 993 is the last of its kind—a perfectly analog supercar where every component speaks to engineering purity. — Porsche Stories",
     "There is no substitute for air-cooled engineering. — Ferdinand Porsche",
