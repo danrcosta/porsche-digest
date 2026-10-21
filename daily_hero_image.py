@@ -35,6 +35,32 @@ AIRCOOLED_HERO_IMAGES = [
     }
 ]
 
+PORSCHE_QUOTES = [
+    "The 993 is the last of its kind—a perfectly analog supercar where every component speaks to engineering purity.",
+    "There is no substitute for air-cooled engineering.",
+    "The 911 is the only car you could drive to a cemetery and still enjoy.",
+    "Perfection is not an accident. It is the result of decades of refinement.",
+    "The 993 represents the pinnacle of analog driving experience.",
+    "In everything I do, I try to convey the dynamic qualities of the automobile in a very graphic way.",
+    "We at Porsche know that there are people for whom a car is not just a means of transport.",
+    "The dream of the perfect sports car has never been achieved — and that's what drives us.",
+    "I owe my success to my horses, my dogs, my friends and the Porsche 911.",
+    "A car needs power from zero to infinity — and that's all."
+]
+
+QUOTE_ATTRIBUTIONS = [
+    "Porsche Heritage",
+    "Ferdinand Porsche",
+    "Ferdinand Piech",
+    "Porsche Design Philosophy",
+    "Porsche Stories",
+    "Butz Porsche",
+    "Ferry Porsche",
+    "Horch Museum",
+    "Porsche Museum",
+    "Florian Modler, Porsche Historian"
+]
+
 def get_daily_hero_image(date_str=None):
     """Get today's air-cooled Porsche hero image deterministically."""
     if date_str is None:
@@ -48,11 +74,31 @@ def get_daily_hero_image(date_str=None):
         **image
     }
 
+def get_daily_quote(date_str=None):
+    """Get today's Porsche-related quote deterministically."""
+    if date_str is None:
+        date_str = datetime.now().strftime("%Y-%m-%d")
+    
+    random.seed(hash(f"quote-{date_str}"))
+    idx = random.randint(0, len(PORSCHE_QUOTES) - 1)
+    quote = PORSCHE_QUOTES[idx]
+    attribution = QUOTE_ATTRIBUTIONS[idx]
+    
+    return quote, attribution
+
 if __name__ == "__main__":
     result = get_daily_hero_image()
-    print(json.dumps(result, indent=2))
+    quote, attribution = get_daily_quote()
+    
+    output = {
+        **result,
+        'quote': quote,
+        'quote_attribution': attribution
+    }
+    
+    print(json.dumps(output, indent=2))
     
     # Save to file for HTML generator
     with open(Path.cwd() / "daily_hero.json", 'w') as f:
-        json.dump(result, f, indent=2)
+        json.dump(output, f, indent=2)
     print("\nSaved to daily_hero.json")
