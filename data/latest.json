@@ -1,15 +1,17 @@
 {
-  "date": "2026-10-15",
-  "generated_at": "2026-10-15T07:05:42.831041",
+  "date": "2026-10-26",
+  "generated_at": "2026-10-26T10:00:00.000000",
   "exchange_rate": 5.22,
   "hero": {
-    "date": "2026-10-15",
+    "date": "2026-10-26",
     "title": "What is the Porsche 911 (type 993)?",
     "image_url": "https://content-hub.imgix.net/GUhocLc6D6V9qFtm3Oc2g/19e093064c8a22f6214f16a85469aac2/7-20things-20you-20need-20to-20know-20about-20the-20porsche-20911-20type-20993.jpg?w=1920",
     "source": "Porsche Stories",
     "description": "The last air-cooled 911 generation in its natural habitat.",
     "model": "911 (993)"
   },
+  "quote": "The 993 is the last of its kind—a perfectly analog supercar where every component speaks to engineering purity.",
+  "quote_attribution": "Porsche Heritage",
   "articles": [
     {
       "title": "Porsche 911 (type 993): seven things you need to know",
