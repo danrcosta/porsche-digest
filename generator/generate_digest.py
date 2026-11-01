@@ -15,7 +15,7 @@ from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
 
 # Configuration
-REPO_DIR = Path.home() / "Hermes-Workspace" / "porsche-digest"
+REPO_DIR = Path.cwd()
 ARCHIVE_DIR = REPO_DIR / "archive"
 
 # Constants
@@ -26,7 +26,7 @@ SOURCE_ATTRIBUTION = "Porsche Stories, Bring a Trailer, Cars & Bids, Classic.com
 def get_exchange_rate():
     """Get current USD to BRL exchange rate."""
     try:
-        response = requests.get("https://api.exchangerate-api.com/v4/la***REMOVED***/USD", timeout=10)
+        response = requests.get("https://api.exchangerate-api.com/v4/latest/USD", timeout=10)
         if response.status_code == 200:
             data = response.json()
             return data['rates']['BRL']
@@ -144,7 +144,7 @@ def get_community_sources():
             "driver": [
                 {"name": "Porsche (Official YouTube)", "url": "https://www.youtube.com/@Porsche", "type": "youtube", "category": "driving stories"},
                 {"name": "Hagerty", "url": "https://www.youtube.com/@HagertyMedia", "type": "youtube", "category": "long drives, guides"},
-                {"name": "The Smoking Tire", "url": "https://www.youtube.com/@TheSmokingTire", "type": "youtube", "category": "road ***REMOVED***s"},
+                {"name": "The Smoking Tire", "url": "https://www.youtube.com/@TheSmokingTire", "type": "youtube", "category": "road trips"},
                 {"name": "Chris Harris on Cars", "url": "https://www.youtube.com/@ChrisHarrisonCars", "type": "youtube", "category": "driving feel"},
                 {"name": "Harry's Garage", "url": "https://www.youtube.com/@HarrysGarage", "type": "youtube", "category": "owner stories"},
                 {"name": "Porsche Stories", "url": "https://www.youtube.com/@porsche", "type": "youtube", "category": "editorial oficial"},
@@ -296,7 +296,7 @@ def get_turbo_s_daily_content():
     """Generate daily content for 911 Turbo S 2026 section."""
     return {
         "headline": "911 Turbo S (2026) — The Next Generation",
-        "subhead": "Tracing the evolution from 993 Turbo to the la***REMOVED*** iteration",
+        "subhead": "Tracing the evolution from 993 Turbo to the latest iteration",
         "highlights": [
             {
                 "title": "Power: 640 hp → 3.0L Twin-Turbo",
@@ -919,13 +919,13 @@ def main():
         }
     }
 
-    # Write data/la***REMOVED***.json (read by Lovable React app)
+    # Write data/latest.json (read by Lovable React app)
     data_dir = REPO_DIR / "data"
     data_dir.mkdir(exist_ok=True)
-    la***REMOVED***_path = data_dir / "la***REMOVED***.json"
-    with open(la***REMOVED***_path, 'w', encoding='utf-8') as f:
+    latest_path = data_dir / "latest.json"
+    with open(latest_path, 'w', encoding='utf-8') as f:
         json.dump(payload, f, ensure_ascii=False, indent=2, default=str)
-    print(f"✅ JSON payload written: {la***REMOVED***_path}")
+    print(f"✅ JSON payload written: {latest_path}")
 
     # Write archive/YYYY-MM-DD.json (historical record)
     ARCHIVE_DIR.mkdir(exist_ok=True)

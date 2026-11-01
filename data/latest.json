@@ -1,16 +1,15 @@
 {
-  "date": "2026-10-28",
-  "generated_at": "2026-10-28T07:02:36",
-  "exchange_rate": 5.22,
+  "date": "2026-11-01",
+  "generated_at": "2026-11-01T01:43:21.131943",
+  "exchange_rate": 5.4,
   "hero": {
-    "title": "What is the Porsche 911 (type 993)?",
-    "image_url": "https://content-hub.imgix.net/GUhocLc6D6V9qFtm3Oc2g/19e093064c8a22f6214f16a85469aac2/7-20things-20you-20need-20to-20know-20about-20the-20porsche-20911-20type-20993.jpg?w=1920",
+    "date": "2026-11-01",
+    "title": "How to guide to buying a classic Porsche 911",
+    "image_url": "https://content-hub.imgix.net/7mr3pIvnvzsRevhgOnB9as/2648ab4764cddc6dfba2a2ee7ba0b485/how-20to-20buy-20a-20classic-20porsche-20911.jpg?w=1920",
     "source": "Porsche Stories",
-    "description": "The last air-cooled 911 generation in its natural habitat.",
-    "model": "911 (993)"
+    "description": "A pristine 911 in a scenic alpine setting.",
+    "model": "911 (964)"
   },
-  "quote": "We at Porsche know that there are people for whom a car is not just a means of transport.",
-  "quote_attribution": "Ferry Porsche",
   "articles": [
     {
       "title": "Porsche 911 (type 993): seven things you need to know",
@@ -18,7 +17,7 @@
       "url": "https://www.porsche.com/stories/mobility/7-things-you-need-to-know-about-the-porsche-911-type-993/",
       "source": "Porsche Stories",
       "image": "https://content-hub.imgix.net/GUhocLc6D6V9qFtm3Oc2g/19e093064c8a22f6214f16a85469aac2/7-20things-20you-20need-20to-20know-20about-20the-20porsche-20911-20type-20993.jpg?w=1308",
-      "days_ago": 1
+      "days_ago": 0
     },
     {
       "title": "What’s the best engine oil for my classic Porsche?",
@@ -26,7 +25,7 @@
       "url": "https://www.porsche.com/stories/innovation/what-is-the-best-engine-oil/",
       "source": "Porsche Stories",
       "image": "https://content-hub.imgix.net/7Jbfc1Bipxe77PnjOVNaTU/894ac12e105ead6a7df681de4aec5f8d/what-20is-20the-20best-20engine-20oil.jpg?w=1308",
-      "days_ago": 4
+      "days_ago": 3
     },
     {
       "title": "How to guide to buying a classic Porsche 911",
@@ -34,7 +33,7 @@
       "url": "https://www.porsche.com/stories/mobility/how-to-buy-a-classic-porsche-911/",
       "source": "Porsche Stories",
       "image": "https://content-hub.imgix.net/7mr3pIvnvzsRevhgOnB9as/2648ab4764cddc6dfba2a2ee7ba0b485/how-20to-20buy-20a-20classic-20porsche-20911.jpg?w=1308",
-      "days_ago": 7
+      "days_ago": 6
     },
     {
       "title": "How to restore a classic Porsche 911",
@@ -42,7 +41,7 @@
       "url": "https://www.porsche.com/stories/dreams/how-to-restore-a-classic-porsche-911/",
       "source": "Porsche Stories",
       "image": "https://content-hub.imgix.net/6IMxyLGiYiQ1wYuq2QurPH/7ed8ca2863e062eadb76ab0b39699fe2/Man_leaning_on_cream_coloured_1987_Porsche_911_outside_French_stone_built_restaurant_desktop.jpg?w=1308",
-      "days_ago": 10
+      "days_ago": 9
     },
     {
       "title": "How to look after a classic Porsche",
@@ -50,7 +49,7 @@
       "url": "https://www.porsche.com/stories/culture/caring-for-a-classic-porsche-car/",
       "source": "Porsche Stories",
       "image": "https://content-hub.imgix.net/5XULZPo2xgje1z7MXMnYPM/270b38028ff30fec2ec663d61613a534/caring-20for-20a-20classic-20porsche-20car-20originale.jpg?w=1308",
-      "days_ago": 13
+      "days_ago": 12
     }
   ],
   "auctions": [
@@ -142,7 +141,7 @@
       "range_high": 395000,
       "yoy_change": "+12%",
       "source": "Classic.com Market Data 2025-2026",
-      "avg_price_brl": 809100.0
+      "avg_price_brl": 837000.0
     },
     "Carrera": {
       "avg_price_usd": 135000,
@@ -150,7 +149,7 @@
       "range_high": 250000,
       "yoy_change": "+8%",
       "source": "Bring a Trailer Index 2026",
-      "avg_price_brl": 704700.0
+      "avg_price_brl": 729000.0
     },
     "Turbo": {
       "avg_price_usd": 225000,
@@ -158,7 +157,7 @@
       "range_high": 450000,
       "yoy_change": "+15%",
       "source": "PCA Market Report Q2 2026",
-      "avg_price_brl": 1174500.0
+      "avg_price_brl": 1215000.0
     }
   },
   "videos": {
@@ -246,12 +245,12 @@
     "subhead": "Tracing the evolution from 993 Turbo to the latest iteration",
     "highlights": [
       {
-        "title": "Power: 711 cv · T-Hybrid 3.6L Twin-eTurbo",
-        "desc": "Up from the 993 Turbo S's 424 hp. T-Hybrid launched 2026 — flat-six + electric motor + 1.9 kWh battery."
+        "title": "Power: 640 hp → 3.0L Twin-Turbo",
+        "desc": "Up from the 993 Turbo S's 424 hp. Full hybrid powertrain coming 2026."
       },
       {
-        "title": "0–100 km/h: 2.5s · 0–60 mph: ~2.0s",
-        "desc": "vs 993 Turbo S at 3.6s. 0–60 mph confirmed by C&D at 2.0s flat — PDK 8-speed, AWD, Sport Chrono."
+        "title": "0-60 mph: 2.1s",
+        "desc": "vs 993 Turbo S at 3.6s. 40% faster than the air-cooled legend."
       },
       {
         "title": "Active Aerodynamics",
@@ -267,40 +266,40 @@
       "badge_class": "badge-driver",
       "sources": [
         {
-          "name": "@porscheclassic (IG)",
-          "url": "https://www.instagram.com/porscheclassic/",
+          "name": "@aircooled.net (IG)",
+          "url": "https://www.instagram.com/aircooled.net/",
           "type": "social",
-          "category": "heritage oficial"
+          "category": "global community"
         },
         {
-          "name": "Hagerty Media RSS",
-          "url": "https://www.hagerty.com/media/feed/",
-          "type": "feed",
-          "category": "artigos e avaliações"
-        },
-        {
-          "name": "Porsche Newsroom RSS",
-          "url": "https://newsroom.porsche.com/en/rss.html",
-          "type": "feed",
-          "category": "feed oficial"
-        },
-        {
-          "name": "Pelican Parts Tech Forums",
-          "url": "https://forums.pelicanparts.com/porsche-911-technical-forum/",
+          "name": "Reddit r/Porsche",
+          "url": "https://www.reddit.com/r/Porsche/",
           "type": "forum",
-          "category": "DIY técnico"
+          "category": "global community"
         },
         {
-          "name": "Harry's Garage",
-          "url": "https://www.youtube.com/@HarrysGarage",
+          "name": "Porsche BR Facebook",
+          "url": "https://www.facebook.com/groups/porschebrclub/",
+          "type": "forum",
+          "category": "comunidade BR"
+        },
+        {
+          "name": "Chris Harris on Cars",
+          "url": "https://www.youtube.com/@ChrisHarrisonCars",
           "type": "youtube",
-          "category": "owner stories"
+          "category": "driving feel"
         },
         {
-          "name": "Reddit r/911",
-          "url": "https://www.reddit.com/r/911/",
-          "type": "forum",
-          "category": "911 específico"
+          "name": "Total 911 Magazine (Web)",
+          "url": "https://www.total911.com",
+          "type": "web",
+          "category": "technical + driving"
+        },
+        {
+          "name": "DtRockstar1",
+          "url": "https://www.youtube.com/@DtRockstar1",
+          "type": "youtube",
+          "category": "road trips BR/EUA"
         }
       ]
     },
@@ -311,28 +310,10 @@
       "badge_class": "badge-collector",
       "sources": [
         {
-          "name": "Elferspot",
-          "url": "https://www.elferspot.com/en/magazin/",
-          "type": "auction",
-          "category": "marketplace europeu Porsche"
-        },
-        {
-          "name": "Porsche Club Brasil Eventos",
-          "url": "https://www.porscheclube.com.br/eventos/",
-          "type": "event",
-          "category": "calendário BR"
-        },
-        {
-          "name": "Collecting Cars — Porsche",
-          "url": "https://collectingcars.com/search?make=Porsche",
-          "type": "auction",
-          "category": "UK marketplace"
-        },
-        {
-          "name": "Porsche Classic Parts (Official)",
-          "url": "https://classic.porsche.com/en/classic/classic-parts/",
-          "type": "reference",
-          "category": "catálogo peças originais"
+          "name": "Hagerty Valuation Tools",
+          "url": "https://www.hagerty.com/valuation-tools/",
+          "type": "valuation",
+          "category": "preço por condição"
         },
         {
           "name": "Porsche Panorama (PCA)",
@@ -341,10 +322,28 @@
           "category": "revista oficial PCA"
         },
         {
-          "name": "Octane Magazine",
-          "url": "https://www.octane.media/porsche/",
-          "type": "editorial",
-          "category": "collector focused"
+          "name": "Classic.com — 993 Market",
+          "url": "https://www.classic.com/m/porsche/911/993/",
+          "type": "valuation",
+          "category": "market data ao vivo"
+        },
+        {
+          "name": "duPont Registry",
+          "url": "https://www.dupont-registry.com/search-cars/?make=Porsche",
+          "type": "valuation",
+          "category": "ultra-premium"
+        },
+        {
+          "name": "RM Sotheby's — Porsche",
+          "url": "https://rmsothebys.com/en/search#makes=Porsche",
+          "type": "auction",
+          "category": "alto padrão, Pebble Beach"
+        },
+        {
+          "name": "NADA Guides — Porsche",
+          "url": "https://www.nada.org/nada/consumer-vehicle-values",
+          "type": "valuation",
+          "category": "referência EUA"
         }
       ]
     },
@@ -355,40 +354,40 @@
       "badge_class": "badge-custom",
       "sources": [
         {
-          "name": "AutoAtlantis BR (Parts)",
+          "name": "AutoAtlantis",
           "url": "https://www.autoatlantis.com.br",
-          "type": "parts",
-          "category": "importação BR 993"
-        },
-        {
-          "name": "Stoddard Porsche",
-          "url": "https://www.stoddard.com/porsche-993",
-          "type": "parts",
-          "category": "legacy parts specialists"
-        },
-        {
-          "name": "Garage Time",
-          "url": "https://www.youtube.com/@GarageTimeDIY",
-          "type": "youtube",
-          "category": "restauração passo a passo"
-        },
-        {
-          "name": "Suncoast Parts",
-          "url": "https://www.suncoastparts.com/porsche-993-parts",
-          "type": "parts",
-          "category": "EUA stock clássico"
-        },
-        {
-          "name": "Canepa Design",
-          "url": "https://www.canepa.com",
           "type": "builder",
-          "category": "restauração + upgrades"
+          "category": "Brasil, especialista 993"
+        },
+        {
+          "name": "Rebuild Rescue",
+          "url": "https://www.youtube.com/@RebuildRescue",
+          "type": "youtube",
+          "category": "restaurações DIY"
         },
         {
           "name": "Porsche Classic Tequipment",
           "url": "https://classic.porsche.com/en/classic/tequipment/",
           "type": "parts",
           "category": "upgrades oficiais"
+        },
+        {
+          "name": "Chris Fix",
+          "url": "https://www.youtube.com/@ChrisFix",
+          "type": "youtube",
+          "category": "tutoriais DIY"
+        },
+        {
+          "name": "Porsche Classic (YT)",
+          "url": "https://www.youtube.com/@PorscheClassic",
+          "type": "youtube",
+          "category": "restaurações oficiais"
+        },
+        {
+          "name": "RUF Automobile",
+          "url": "https://www.ruf-automobile.de",
+          "type": "builder",
+          "category": "Yellowbird herdeiro"
         }
       ]
     }
