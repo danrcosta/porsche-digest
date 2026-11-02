@@ -1,7 +1,7 @@
-import requests, json
+import os, requests, json
 from pathlib import Path
 
-TOKEN = "cfoat_zJKn9NbwmPszp4aRViHMOeKxuVuNUR8dlE41Capr8eg.GO9w799RqagtQI3JLV6ThBCY3QehfPPccswfJJY4Jb4"
+TOKEN = os.environ["CLOUDFLARE_API_TOKEN"]
 ACCOUNT_ID = "0a68341689fffbae0284be2321350415"
 PROJECT = "porsche-digest"
 
